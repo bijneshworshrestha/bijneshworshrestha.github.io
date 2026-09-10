@@ -1,0 +1,1110 @@
+<title>Bijneshwor Shrestha</title>
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap">
+
+<style>
+/* ── TOKENS ──────────────────────────────────────── */
+:root {
+  color-scheme: light dark;
+  --sage:        #5A7A6E;
+  --sage-deep:   #3C5A50;
+  --sage-light:  #EAF0EE;
+  --surface:     #F5F5F2;
+  --card:        #FFFFFF;
+  --card-alt:    #F9F9F7;
+  --ink:         #1A1E1D;
+  --ink-mid:     #4A5C56;
+  --ink-light:   #7A8E89;
+  --border:      #D6DDD9;
+  --border-faint:#E8EEEB;
+  --accent:      #5A7A6E;
+  --nav-bg:      #3C5A50;
+  --nav-fg:      #EAF0EE;
+  --nav-hover:   rgba(255,255,255,0.12);
+  --hero-bg:     #5A7A6E;
+  --hero-fg:     #FFFFFF;
+  --hero-sub:    rgba(255,255,255,0.80);
+  --tag-bg:      #EAF0EE;
+  --tag-fg:      #3C5A50;
+  --line:        #C4D4CE;
+  --expand-bg:   #F2F6F4;
+  --expand-border: rgba(90,122,110,0.18);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --surface:     #181C1B;
+    --card:        #222827;
+    --card-alt:    #1C2120;
+    --ink:         #E8EDEA;
+    --ink-mid:     #A0B0AA;
+    --ink-light:   #687873;
+    --border:      #303A36;
+    --border-faint:#252E2B;
+    --nav-bg:      #1A2420;
+    --nav-fg:      #C8DCD5;
+    --nav-hover:   rgba(255,255,255,0.08);
+    --hero-bg:     #2A3E38;
+    --hero-fg:     #E8EDEA;
+    --hero-sub:    rgba(232,237,234,0.72);
+    --tag-bg:      #2A3834;
+    --tag-fg:      #8DBFB0;
+    --line:        #3A4E48;
+    --accent:      #7AADA0;
+    --expand-bg:   #1E2825;
+    --expand-border: rgba(122,173,160,0.18);
+  }
+}
+:root[data-theme="dark"] {
+  --surface:     #181C1B;
+  --card:        #222827;
+  --card-alt:    #1C2120;
+  --ink:         #E8EDEA;
+  --ink-mid:     #A0B0AA;
+  --ink-light:   #687873;
+  --border:      #303A36;
+  --border-faint:#252E2B;
+  --nav-bg:      #1A2420;
+  --nav-fg:      #C8DCD5;
+  --nav-hover:   rgba(255,255,255,0.08);
+  --hero-bg:     #2A3E38;
+  --hero-fg:     #E8EDEA;
+  --hero-sub:    rgba(232,237,234,0.72);
+  --tag-bg:      #2A3834;
+  --tag-fg:      #8DBFB0;
+  --line:        #3A4E48;
+  --accent:      #7AADA0;
+  --expand-bg:   #1E2825;
+  --expand-border: rgba(122,173,160,0.18);
+}
+
+/* ── RESET ───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--surface);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; top: -100%; left: 1rem;
+  background: var(--ink); color: var(--surface);
+  padding: 0.5rem 1rem; font-size: 0.875rem; z-index: 9999; text-decoration: none;
+  border-radius: 0 0 4px 4px;
+}
+.skip-link:focus { top: 0; }
+
+/* ── NAV ─────────────────────────────────────────── */
+.site-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--nav-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+.nav-inner {
+  max-width: 1100px; margin-inline: auto;
+  padding-inline: 1.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 3.25rem;
+}
+.nav-brand {
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem;
+  color: var(--nav-fg); text-decoration: none; letter-spacing: 0.02em; white-space: nowrap;
+}
+.nav-brand:hover { color: #fff; }
+.nav-links { display: flex; gap: 0.25rem; list-style: none; }
+.nav-links a {
+  display: block; padding: 0.35rem 0.75rem;
+  font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--nav-fg); text-decoration: none; border-radius: 3px;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-links a:hover, .nav-links a[aria-current="page"] { background: var(--nav-hover); color: #fff; }
+.nav-links a:focus-visible { outline: 2px solid rgba(255,255,255,0.6); outline-offset: 2px; }
+.nav-right { display: flex; align-items: center; gap: 0.5rem; }
+.theme-toggle, .nav-hamburger {
+  background: none; border: 1px solid rgba(255,255,255,0.25); color: var(--nav-fg);
+  padding: 0.35rem 0.6rem; border-radius: 3px; cursor: pointer;
+  font-size: 0.875rem; line-height: 1;
+  transition: background 0.15s, border-color 0.15s;
+}
+.theme-toggle:hover, .nav-hamburger:hover { background: var(--nav-hover); border-color: rgba(255,255,255,0.4); }
+.theme-toggle:focus-visible, .nav-hamburger:focus-visible { outline: 2px solid rgba(255,255,255,0.6); outline-offset: 2px; }
+.nav-hamburger { display: none; }
+@media (max-width: 640px) {
+  .nav-hamburger { display: block; }
+  .nav-links {
+    display: none; flex-direction: column;
+    position: absolute; top: 3.25rem; left: 0; right: 0;
+    background: var(--nav-bg);
+    padding: 0.75rem 1rem 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    gap: 0.125rem; z-index: 99;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 0.6rem 0.75rem; font-size: 0.875rem; }
+}
+
+/* ── HERO ────────────────────────────────────────── */
+.hero { background: var(--hero-bg); padding-block: 4.5rem 3.5rem; padding-inline: 1.5rem; }
+.hero-inner {
+  max-width: 1100px; margin-inline: auto;
+  display: flex; gap: 3rem; align-items: flex-start;
+}
+.avatar {
+  flex-shrink: 0; width: 120px; height: 120px; border-radius: 50%;
+  background: rgba(255,255,255,0.15); border: 3px solid rgba(255,255,255,0.35);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Syne', sans-serif; font-size: 2.25rem; font-weight: 800;
+  color: rgba(255,255,255,0.9); letter-spacing: -0.02em; user-select: none;
+}
+.hero-text { flex: 1; }
+.hero-eyebrow {
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--hero-sub); margin-bottom: 0.5rem;
+}
+.hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 800; line-height: 1.1;
+  color: var(--hero-fg); text-wrap: balance; letter-spacing: -0.02em; margin-bottom: 0.5rem;
+}
+.hero-location {
+  font-size: 0.875rem; color: var(--hero-sub); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 0.4rem;
+}
+.hero-bio { font-size: 1rem; line-height: 1.7; color: var(--hero-sub); max-width: 60ch; margin-bottom: 1.75rem; }
+.hero-bio p + p { margin-top: 0.75rem; }
+.hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.6rem 1.25rem;
+  font-family: 'DM Sans', sans-serif; font-size: 0.875rem; font-weight: 600;
+  text-decoration: none; border-radius: 3px;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  cursor: pointer; border: none;
+}
+.btn:focus-visible { outline: 2px solid rgba(255,255,255,0.6); outline-offset: 2px; }
+.btn-primary { background: rgba(255,255,255,0.95); color: var(--hero-bg); }
+.btn-primary:hover { background: #fff; }
+.btn-outline { background: transparent; border: 1.5px solid rgba(255,255,255,0.45); color: #fff; }
+.btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.7); }
+@media (max-width: 640px) {
+  .hero-inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .avatar { width: 88px; height: 88px; font-size: 1.75rem; }
+}
+
+/* ── SECTIONS ────────────────────────────────────── */
+.section { padding-block: 4rem; padding-inline: 1.5rem; }
+.section.alt { background: var(--card-alt); }
+.section-inner { max-width: 1100px; margin-inline: auto; }
+.section-header { margin-bottom: 2.5rem; display: flex; align-items: baseline; gap: 1rem; }
+.section-eyebrow {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--accent);
+}
+.section h2 {
+  font-family: 'Syne', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700;
+  color: var(--ink); text-wrap: balance; letter-spacing: -0.015em;
+}
+.section-rule { flex: 1; height: 1px; background: var(--border); }
+
+/* TAGS */
+.tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.tag {
+  display: inline-block; padding: 0.2rem 0.55rem;
+  font-size: 0.75rem; font-weight: 500;
+  background: var(--tag-bg); color: var(--tag-fg);
+  border-radius: 2px; white-space: nowrap;
+}
+
+/* ── EXPANDABLE BASE ─────────────────────────────── */
+/* Shared styles for all clickable-expand items */
+.expand-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: box-shadow 0.18s, border-color 0.18s;
+}
+.expand-item + .expand-item { border-top: none; }
+.expand-item:hover { border-color: var(--accent); z-index: 1; }
+.expand-item[open] { border-color: var(--accent); }
+
+.expand-item > summary {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; padding: 1.25rem 1.5rem;
+  cursor: pointer; list-style: none;
+  user-select: none;
+  transition: background 0.15s;
+}
+.expand-item > summary::-webkit-details-marker { display: none; }
+.expand-item > summary::marker { display: none; }
+.expand-item > summary:hover { background: var(--expand-bg); }
+.expand-item > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+/* Chevron */
+.expand-chevron {
+  flex-shrink: 0;
+  width: 1.5rem; height: 1.5rem;
+  border-radius: 50%;
+  background: var(--tag-bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; color: var(--accent);
+  transition: transform 0.22s ease, background 0.15s;
+}
+.expand-item[open] .expand-chevron { transform: rotate(180deg); background: var(--accent); color: #fff; }
+
+/* Detail panel */
+.expand-body {
+  padding: 0 1.5rem 1.5rem;
+  border-top: 1px solid var(--expand-border);
+  background: var(--expand-bg);
+}
+
+/* ── COMPETENCIES ────────────────────────────────── */
+.comp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border);
+}
+.comp-item {
+  background: var(--card);
+  overflow: hidden;
+}
+.comp-item > summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1.25rem 1.25rem 1rem;
+  cursor: pointer; list-style: none; user-select: none;
+  transition: background 0.15s;
+}
+.comp-item > summary::-webkit-details-marker { display: none; }
+.comp-item > summary:hover { background: var(--expand-bg); }
+.comp-item > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.comp-item[open] { border-bottom: 2px solid var(--accent); }
+.comp-title {
+  font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent);
+}
+.comp-preview {
+  font-size: 0.75rem; color: var(--ink-light); margin-top: 0.25rem;
+}
+.comp-body { padding: 0 1.25rem 1.25rem; }
+.comp-chevron {
+  flex-shrink: 0; width: 1.25rem; height: 1.25rem; border-radius: 50%;
+  background: var(--tag-bg); display: flex; align-items: center; justify-content: center;
+  font-size: 0.6rem; color: var(--accent);
+  transition: transform 0.2s, background 0.15s;
+}
+.comp-item[open] .comp-chevron { transform: rotate(180deg); background: var(--accent); color: #fff; }
+
+/* ── EXPERIENCE ──────────────────────────────────── */
+.exp-list { display: flex; flex-direction: column; }
+
+/* Summary row */
+.exp-summary-inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0 1.25rem;
+  align-items: center;
+  width: 100%;
+}
+.exp-dot-col {
+  display: flex; flex-direction: column; align-items: center;
+  padding-block: 0.1rem;
+}
+.exp-dot {
+  width: 0.875rem; height: 0.875rem; border-radius: 50%;
+  background: var(--accent); border: 2px solid var(--card);
+  box-shadow: 0 0 0 2px var(--accent);
+  flex-shrink: 0;
+}
+.exp-current .exp-dot { background: var(--sage-deep); box-shadow: 0 0 0 2px var(--sage-deep); }
+
+.exp-summary-text { min-width: 0; }
+.exp-role {
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; color: var(--ink);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.exp-meta {
+  display: flex; flex-wrap: wrap; gap: 0.3rem 0.75rem; margin-top: 0.2rem;
+  font-size: 0.8rem; color: var(--ink-mid); align-items: center;
+}
+.exp-company { font-weight: 600; }
+.exp-period {
+  font-size: 0.75rem; font-weight: 500; font-variant-numeric: tabular-nums;
+  color: var(--ink-light); background: var(--tag-bg); padding: 0.1rem 0.45rem; border-radius: 2px;
+}
+.badge-current {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+  color: #fff; background: var(--accent); padding: 0.15rem 0.45rem; border-radius: 2px;
+}
+.exp-industry { font-size: 0.75rem; color: var(--ink-light); font-style: italic; }
+
+.exp-summary-right { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+.exp-hint {
+  font-size: 0.7rem; color: var(--ink-light); letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.expand-item[open] .exp-hint { display: none; }
+
+/* Detail body */
+.exp-body { padding: 1.25rem 1.5rem 1.5rem; }
+.exp-overview {
+  font-size: 0.9rem; color: var(--ink-mid); line-height: 1.65;
+  max-width: 65ch; margin-bottom: 1rem;
+  padding-bottom: 1rem; border-bottom: 1px solid var(--border-faint);
+}
+.exp-points { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 1.25rem; }
+.exp-points li {
+  padding-left: 1.25rem; position: relative;
+  font-size: 0.88rem; line-height: 1.6; color: var(--ink);
+}
+.exp-points li::before { content: '›'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.exp-tools { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+.tools-label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em;
+  text-transform: uppercase; color: var(--ink-light); margin-right: 0.25rem;
+}
+
+/* ── EDUCATION ───────────────────────────────────── */
+.edu-list { display: flex; flex-direction: column; }
+.edu-summary-inner {
+  display: grid; grid-template-columns: 1fr auto; gap: 0.5rem 2rem;
+  align-items: start; width: 100%;
+}
+.edu-degree-name {
+  font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: var(--ink);
+}
+.edu-spec { font-size: 0.8rem; color: var(--ink-mid); margin-top: 0.1rem; }
+.edu-school-name { font-size: 0.85rem; font-weight: 600; color: var(--accent); margin-top: 0.2rem; }
+.edu-period-badge {
+  font-size: 0.8rem; font-weight: 600; font-variant-numeric: tabular-nums;
+  color: var(--ink-light); white-space: nowrap; text-align: right;
+}
+.edu-badge {
+  display: inline-block; margin-top: 0.4rem;
+  font-size: 0.67rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.18rem 0.5rem; border-radius: 2px;
+  background: rgba(90,122,110,0.1); color: var(--accent);
+  border: 1px solid rgba(90,122,110,0.25);
+}
+.edu-body { padding: 1rem 1.5rem 1.5rem; }
+.edu-subjects-full {
+  font-size: 0.85rem; color: var(--ink-mid); line-height: 1.6; margin-bottom: 0.75rem;
+}
+.edu-modules { margin-top: 0.75rem; }
+.edu-modules-label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--ink-light); margin-bottom: 0.5rem;
+}
+
+/* ── PROJECTS ────────────────────────────────────── */
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border);
+}
+.proj-item {
+  background: var(--card);
+  overflow: hidden;
+  transition: border-color 0.18s;
+}
+.proj-item > summary {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
+  padding: 1.5rem;
+  cursor: pointer; list-style: none; user-select: none;
+  transition: background 0.15s;
+}
+.proj-item > summary::-webkit-details-marker { display: none; }
+.proj-item > summary:hover { background: var(--expand-bg); }
+.proj-item > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.proj-item[open] { border-bottom: 2px solid var(--accent); }
+.proj-tag {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.4rem;
+}
+.proj-title {
+  font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700;
+  color: var(--ink); text-wrap: balance; line-height: 1.35;
+}
+.proj-chevron {
+  flex-shrink: 0; margin-top: 0.1rem;
+  width: 1.25rem; height: 1.25rem; border-radius: 50%;
+  background: var(--tag-bg); display: flex; align-items: center; justify-content: center;
+  font-size: 0.6rem; color: var(--accent);
+  transition: transform 0.2s, background 0.15s;
+}
+.proj-item[open] .proj-chevron { transform: rotate(180deg); background: var(--accent); color: #fff; }
+.proj-body { padding: 0 1.5rem 1.5rem; background: var(--expand-bg); border-top: 1px solid var(--expand-border); }
+.proj-desc { font-size: 0.875rem; color: var(--ink-mid); line-height: 1.65; margin-bottom: 1rem; padding-top: 1rem; }
+
+/* ── LANGUAGES ───────────────────────────────────── */
+.lang-row {
+  display: flex; gap: 0; flex-wrap: wrap;
+  margin-top: 2rem; padding-top: 2rem;
+  border-top: 1px solid var(--border-faint);
+  align-items: center;
+}
+.lang-label {
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-light); margin-right: 1.5rem;
+}
+.lang-item {
+  display: flex; align-items: baseline; gap: 0.5rem;
+  padding-right: 1.5rem; margin-right: 1.5rem;
+  border-right: 1px solid var(--border-faint);
+}
+.lang-item:last-child { border-right: none; }
+.lang-name { font-size: 0.925rem; font-weight: 600; color: var(--ink); }
+.lang-level { font-size: 0.78rem; color: var(--ink-light); }
+
+/* ── CONTACT ─────────────────────────────────────── */
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;
+}
+.contact-intro { font-size: 1rem; color: var(--ink-mid); line-height: 1.7; max-width: 48ch; margin-bottom: 1.5rem; }
+.contact-list { list-style: none; display: flex; flex-direction: column; gap: 0.875rem; }
+.contact-item { display: flex; align-items: center; gap: 0.875rem; }
+.contact-icon {
+  width: 2rem; height: 2rem; flex-shrink: 0;
+  background: var(--sage-light); border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem; color: var(--sage-deep);
+}
+.contact-detail { display: flex; flex-direction: column; }
+.contact-label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink-light);
+}
+.contact-value { font-size: 0.9rem; color: var(--ink); font-weight: 500; }
+.contact-value a { color: var(--ink); text-decoration: none; }
+.contact-value a:hover { color: var(--accent); text-decoration: underline; }
+.contact-card {
+  padding: 1.25rem 1.5rem; background: var(--card); border: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+.contact-card + .contact-card { border-top: none; }
+.contact-card-label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.4rem;
+}
+.contact-card p { font-size: 0.875rem; color: var(--ink-mid); line-height: 1.6; }
+.contact-card.accent-left { border-left: 3px solid var(--accent); }
+@media (max-width: 720px) { .contact-grid { grid-template-columns: 1fr; gap: 2rem; } }
+
+/* ── FOOTER ──────────────────────────────────────── */
+.site-footer {
+  background: var(--nav-bg); color: var(--nav-fg);
+  padding-block: 2rem; padding-inline: 1.5rem;
+}
+.footer-inner {
+  max-width: 1100px; margin-inline: auto;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; flex-wrap: wrap;
+}
+.footer-brand {
+  font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--nav-fg);
+}
+.footer-links { display: flex; gap: 1.25rem; list-style: none; }
+.footer-links a { font-size: 0.8rem; color: rgba(202,220,215,0.75); text-decoration: none; }
+.footer-links a:hover { color: #fff; }
+.footer-copy { font-size: 0.78rem; color: rgba(202,220,215,0.45); }
+
+@media print {
+  .site-nav, .hero-actions, .site-footer { display: none; }
+  .section { padding-block: 1.5rem; }
+  .expand-item[open], details[open] { }
+}
+</style>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#top" class="nav-brand">Bijneshwor Shrestha</a>
+    <div class="nav-right">
+      <ul class="nav-links" id="nav-menu" role="list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="theme-btn" aria-label="Toggle colour theme">◑</button>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<header class="hero" id="about" tabindex="-1">
+  <div class="hero-inner">
+    <div class="avatar" aria-hidden="true">BS</div>
+    <div class="hero-text">
+      <p class="hero-eyebrow">Operations &amp; Coordination Professional</p>
+      <h1>Bijneshwor&nbsp;Shrestha</h1>
+      <p class="hero-location">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0a6 6 0 0 1 6 6c0 4-6 10-6 10S2 10 2 6a6 6 0 0 1 6-6zm0 2a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm0 1.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5z"/></svg>
+        Berlin, Germany
+      </p>
+      <div class="hero-bio">
+        <p>IT coordination and operations professional specialising in structuring workflows and coordinating delivery between business stakeholders and technical teams, with technical foundations in computer systems and web technologies.</p>
+        <p>Proven ability to design operational tracking frameworks, maintain CRM and documentation systems, and provide leadership visibility through structured KPI reporting — experienced in multi-team environments where disciplined documentation and clear workflows are required to maintain delivery timelines.</p>
+      </div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get in touch</a>
+        <a href="#experience" class="btn btn-outline">View experience</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- COMPETENCIES -->
+<section class="section alt" aria-labelledby="comp-heading">
+  <div class="section-inner">
+    <div class="section-header">
+      <p class="section-eyebrow" aria-hidden="true">Capabilities</p>
+      <h2 id="comp-heading">Core Competencies</h2>
+      <span class="section-rule" aria-hidden="true"></span>
+    </div>
+    <div class="comp-grid">
+
+      <details class="comp-item">
+        <summary>
+          <div>
+            <p class="comp-title">IT &amp; Technical Coordination</p>
+            <p class="comp-preview">Requirement translation · ticket structuring · cross-team delivery</p>
+          </div>
+          <span class="comp-chevron" aria-hidden="true">▼</span>
+        </summary>
+        <div class="comp-body">
+          <div class="tags">
+            <span class="tag">Business Requirement Translation</span>
+            <span class="tag">Technical Ticket Structuring</span>
+            <span class="tag">API-Aware Communication</span>
+            <span class="tag">System Workflow Documentation</span>
+            <span class="tag">Cross-Team Delivery Coordination</span>
+          </div>
+        </div>
+      </details>
+
+      <details class="comp-item">
+        <summary>
+          <div>
+            <p class="comp-title">Operations &amp; Programme Management</p>
+            <p class="comp-preview">Tracking systems · KPI dashboards · escalation handling</p>
+          </div>
+          <span class="comp-chevron" aria-hidden="true">▼</span>
+        </summary>
+        <div class="comp-body">
+          <div class="tags">
+            <span class="tag">Operational Tracking Systems</span>
+            <span class="tag">KPI Dashboards &amp; Reporting</span>
+            <span class="tag">Workflow Design</span>
+            <span class="tag">Escalation Handling</span>
+            <span class="tag">Delivery Milestone Monitoring</span>
+          </div>
+        </div>
+      </details>
+
+      <details class="comp-item">
+        <summary>
+          <div>
+            <p class="comp-title">Systems &amp; Tools</p>
+            <p class="comp-preview">Zoho CRM · Google Workspace · Sheets dashboards</p>
+          </div>
+          <span class="comp-chevron" aria-hidden="true">▼</span>
+        </summary>
+        <div class="comp-body">
+          <div class="tags">
+            <span class="tag">Zoho CRM</span>
+            <span class="tag">Google Workspace</span>
+            <span class="tag">Google Sheets Dashboards</span>
+            <span class="tag">Documentation Systems</span>
+            <span class="tag">Performance Reporting</span>
+            <span class="tag">POS Transaction Systems</span>
+          </div>
+        </div>
+      </details>
+
+      <details class="comp-item">
+        <summary>
+          <div>
+            <p class="comp-title">Stakeholder &amp; Client Operations</p>
+            <p class="comp-preview">B2B communication · requirement gathering · scope alignment</p>
+          </div>
+          <span class="comp-chevron" aria-hidden="true">▼</span>
+        </summary>
+        <div class="comp-body">
+          <div class="tags">
+            <span class="tag">B2B Stakeholder Communication</span>
+            <span class="tag">Requirement Gathering</span>
+            <span class="tag">Scope Alignment</span>
+            <span class="tag">Client Onboarding Coordination</span>
+            <span class="tag">Executive Reporting</span>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience" aria-labelledby="exp-heading">
+  <div class="section-inner">
+    <div class="section-header">
+      <p class="section-eyebrow" aria-hidden="true">Career</p>
+      <h2 id="exp-heading">Professional Experience</h2>
+      <span class="section-rule" aria-hidden="true"></span>
+    </div>
+    <p style="font-size:0.8rem;color:var(--ink-light);margin-bottom:1.5rem;letter-spacing:0.02em;">Click any role to expand full details</p>
+    <div class="exp-list">
+
+      <!-- Role 1 -->
+      <details class="expand-item exp-current">
+        <summary>
+          <div class="exp-summary-inner">
+            <div class="exp-dot-col" aria-hidden="true"><div class="exp-dot"></div></div>
+            <div class="exp-summary-text">
+              <p class="exp-role">Customer Support &amp; Sales Operations Associate</p>
+              <div class="exp-meta">
+                <span class="exp-company">Muddastadt GmbH</span>
+                <span>Berlin, Germany</span>
+                <span class="exp-period">Dec 2024 – Present</span>
+                <span class="badge-current">Current</span>
+                <span class="exp-industry">Souvenir, Giftware &amp; Textile</span>
+              </div>
+            </div>
+            <div class="exp-summary-right">
+              <span class="exp-hint">Expand</span>
+              <span class="expand-chevron" aria-hidden="true">▼</span>
+            </div>
+          </div>
+        </summary>
+        <div class="exp-body">
+          <p class="exp-overview">Front-line operations in a high-volume retail environment — managing 150–200 customer interactions per shift, structured service cases, and operational compliance with consistent documentation standards reported to headquarters.</p>
+          <ul class="exp-points">
+            <li>Serve 150–200 customers per shift in a high-volume retail setting, resolving inquiries, disputes, and service issues while maintaining consistent operational efficiency</li>
+            <li>Independently manage approximately 40 structured service cases daily — returns, exchanges, pricing clarifications, and tax-free transactions — each processed through defined compliance workflows</li>
+            <li>Document returns and transaction records and report operational data to headquarters, operating within defined policy limits without unnecessary escalation</li>
+            <li>Escalate operational issues only when policy thresholds require, maintaining customer satisfaction while ensuring procedural compliance</li>
+            <li>Support efficient store operations through clear communication with colleagues and supervisors; verify inventory accuracy during inbound deliveries</li>
+          </ul>
+          <div class="exp-tools">
+            <span class="tools-label">Tools</span>
+            <span class="tag">POS Transaction Systems</span>
+            <span class="tag">Refund &amp; Exchange Workflows</span>
+            <span class="tag">Inventory Verification</span>
+            <span class="tag">Customer Service Protocols</span>
+          </div>
+        </div>
+      </details>
+
+      <!-- Role 2 -->
+      <details class="expand-item">
+        <summary>
+          <div class="exp-summary-inner">
+            <div class="exp-dot-col" aria-hidden="true"><div class="exp-dot"></div></div>
+            <div class="exp-summary-text">
+              <p class="exp-role">Programme Coordinator</p>
+              <div class="exp-meta">
+                <span class="exp-company">Nepal Republic Media Ltd.</span>
+                <span>Kathmandu, Nepal</span>
+                <span class="exp-period">Jul 2021 – Jan 2023</span>
+                <span class="exp-industry">Media, Publication &amp; Information</span>
+              </div>
+            </div>
+            <div class="exp-summary-right">
+              <span class="exp-hint">Expand</span>
+              <span class="expand-chevron" aria-hidden="true">▼</span>
+            </div>
+          </div>
+        </summary>
+        <div class="exp-body">
+          <p class="exp-overview">Operational coordination across multiple departments of one of Nepal's national media organisations — maintaining delivery alignment for 8–14 concurrent programmes with shared deadlines and limited post-COVID staffing.</p>
+          <ul class="exp-points">
+            <li>Coordinated communication between editorial, production, marketing, social media, radio, and executive teams to ensure programme activities progressed according to schedule</li>
+            <li>Designed and maintained Google Sheets–based operational dashboards tracking programme schedules, publication status, contributor assignments, and KPI performance metrics used by leadership for planning</li>
+            <li>Supported the execution of 4–6 concurrent operational and digital initiatives with overlapping deadlines and shared resources</li>
+            <li>Produced structured weekly and monthly operational reports reviewed by Director, CFO, HR, and Marketing for performance monitoring and resource planning</li>
+            <li>Implemented permission-controlled documentation systems to maintain data integrity and accountability across cross-department collaboration</li>
+            <li>Acted as escalation point for operational risks and partner concerns — coordinating stakeholders and documenting decisions to maintain delivery continuity</li>
+            <li>Acted as liaison between internal teams and external partners including NGOs, corporate sponsors, and programme collaborators</li>
+            <li>Prioritised operational tasks and scheduling adjustments in a post-COVID short-staffed environment to maintain programme continuity without increasing cost</li>
+          </ul>
+          <div class="exp-tools">
+            <span class="tools-label">Tools</span>
+            <span class="tag">Google Sheets Dashboards</span>
+            <span class="tag">Google Workspace</span>
+            <span class="tag">KPI Reporting</span>
+            <span class="tag">Stakeholder Coordination</span>
+            <span class="tag">Operational Documentation</span>
+          </div>
+        </div>
+      </details>
+
+      <!-- Role 3 -->
+      <details class="expand-item">
+        <summary>
+          <div class="exp-summary-inner">
+            <div class="exp-dot-col" aria-hidden="true"><div class="exp-dot"></div></div>
+            <div class="exp-summary-text">
+              <p class="exp-role">Marketing Operations Associate</p>
+              <div class="exp-meta">
+                <span class="exp-company">Eydean Inc.</span>
+                <span>Kathmandu, Nepal</span>
+                <span class="exp-period">Jul 2019 – Jun 2021</span>
+                <span class="exp-industry">AI, SaaS &amp; Web Development</span>
+              </div>
+            </div>
+            <div class="exp-summary-right">
+              <span class="exp-hint">Expand</span>
+              <span class="expand-chevron" aria-hidden="true">▼</span>
+            </div>
+          </div>
+        </summary>
+        <div class="exp-body">
+          <p class="exp-overview">Primary client-facing coordination role in a B2B technology startup — serving as the interface between clients and internal technical teams, translating business requirements into structured delivery workflows and maintaining CRM pipeline visibility.</p>
+          <ul class="exp-points">
+            <li>Served as the first point of contact for B2B client queries relating to project scope, delivery timelines, delivery status, and operational constraints</li>
+            <li>Conducted consultative meetings with founders and senior client stakeholders to gather requirements and translate non-technical concerns into structured tickets for engineering teams</li>
+            <li>Designed standardised ticket templates and documentation workflows, reducing incomplete client requests and rework during development cycles</li>
+            <li>Maintained Zoho CRM records for prospects and active clients, ensuring pipeline transparency and structured tracking of requirements and project progress</li>
+            <li>Managed scope adjustments and expectation alignment throughout project delivery cycles to prevent disputes and maintain delivery timelines</li>
+            <li>Tracked onboarding milestones and technical dependencies across projects to support coordinated delivery across sales and technical teams</li>
+            <li>Prepared PowerPoint strategy presentations used by leadership and clients during project discussions</li>
+            <li>Coordinated marketing and sales initiatives across a five-member team; conducted cold calls, email campaigns, and social media outreach for lead generation</li>
+          </ul>
+          <div class="exp-tools">
+            <span class="tools-label">Tools</span>
+            <span class="tag">Zoho CRM</span>
+            <span class="tag">Google Workspace</span>
+            <span class="tag">Ticket Templates</span>
+            <span class="tag">PowerPoint</span>
+            <span class="tag">Email &amp; Social Outreach</span>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section alt" id="education" aria-labelledby="edu-heading">
+  <div class="section-inner">
+    <div class="section-header">
+      <p class="section-eyebrow" aria-hidden="true">Background</p>
+      <h2 id="edu-heading">Education</h2>
+      <span class="section-rule" aria-hidden="true"></span>
+    </div>
+    <div class="edu-list">
+
+      <details class="expand-item">
+        <summary>
+          <div class="edu-summary-inner">
+            <div>
+              <p class="edu-degree-name">Global Master's in Business Administration (MBA)</p>
+              <p class="edu-spec">Specialisation: Project Management</p>
+              <p class="edu-school-name">University for the Creative Arts (UCA) · Berlin School of Business &amp; Innovation</p>
+            </div>
+            <div style="text-align:right;flex-shrink:0;">
+              <p class="edu-period-badge">2023 – 2024</p>
+              <span class="edu-badge">Completed</span>
+              <br><span class="expand-chevron" style="margin-top:0.5rem;display:inline-flex;" aria-hidden="true">▼</span>
+            </div>
+          </div>
+        </summary>
+        <div class="exp-body">
+          <p class="exp-overview" style="margin-bottom:1rem;">Completed September 2024 at the Berlin School of Business and Innovation (accredited by University for the Creative Arts, UK). Overall mark: 66.</p>
+          <div class="edu-modules">
+            <p class="edu-modules-label">Modules completed</p>
+            <div class="tags">
+              <span class="tag">Marketing and Business Environment</span>
+              <span class="tag">Accounting and Managerial Finance</span>
+              <span class="tag">Systems and Operations Management</span>
+              <span class="tag">Strategic Management and Leadership</span>
+              <span class="tag">Project Management and Leadership</span>
+              <span class="tag">Cross-Cultural Management</span>
+              <span class="tag">Dissertation</span>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="expand-item">
+        <summary>
+          <div class="edu-summary-inner">
+            <div>
+              <p class="edu-degree-name">B.Sc. in Computer Science and Information Technology</p>
+              <p class="edu-school-name">Tribhuvan University · St. Xavier's College, Kathmandu, Nepal</p>
+            </div>
+            <div style="text-align:right;flex-shrink:0;">
+              <p class="edu-period-badge">2013 – 2017</p>
+              <span class="edu-badge" style="background:var(--tag-bg);color:var(--tag-fg);border-color:var(--border);">Completed</span>
+              <br><span class="expand-chevron" style="margin-top:0.5rem;display:inline-flex;" aria-hidden="true">▼</span>
+            </div>
+          </div>
+        </summary>
+        <div class="exp-body">
+          <p class="exp-overview" style="margin-bottom:1rem;">Four-year undergraduate programme with a foundation in computer science theory, systems design, and applied web technologies.</p>
+          <div class="edu-modules">
+            <p class="edu-modules-label">Subject areas</p>
+            <div class="tags">
+              <span class="tag">Programming</span>
+              <span class="tag">Web Technologies and Compliance</span>
+              <span class="tag">Data &amp; Database Management</span>
+              <span class="tag">Network &amp; System Administration</span>
+              <span class="tag">Security &amp; Cryptography</span>
+              <span class="tag">Modular System Architecture and Design</span>
+              <span class="tag">Real Time Systems</span>
+              <span class="tag">Simulation</span>
+            </div>
+          </div>
+        </div>
+      </details>
+
+    </div>
+
+    <!-- Languages -->
+    <div class="lang-row" aria-label="Languages">
+      <span class="lang-label">Languages</span>
+      <div class="lang-item">
+        <span class="lang-name">English</span>
+        <span class="lang-level">C1 — Advanced</span>
+      </div>
+      <div class="lang-item">
+        <span class="lang-name">Nepali</span>
+        <span class="lang-level">Native</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects" aria-labelledby="proj-heading">
+  <div class="section-inner">
+    <div class="section-header">
+      <p class="section-eyebrow" aria-hidden="true">Work</p>
+      <h2 id="proj-heading">Projects</h2>
+      <span class="section-rule" aria-hidden="true"></span>
+    </div>
+    <p style="font-size:0.8rem;color:var(--ink-light);margin-bottom:1.5rem;">Click any project to expand details</p>
+    <div class="proj-grid">
+
+      <details class="proj-item">
+        <summary>
+          <div>
+            <p class="proj-tag">Operations Design</p>
+            <p class="proj-title">Media Programme Tracking System</p>
+          </div>
+          <span class="proj-chevron" aria-hidden="true">▼</span>
+        </summary>
+        <div class="proj-body">
+          <p class="proj-desc">Designed and implemented a Google Sheets–based operational dashboard at Nepal Republic Media Ltd. covering 8–14 concurrent media programmes. The system tracked production status, contributor assignments, publication timelines, and KPI performance metrics used by the Director, CFO, HR, and Marketing teams for resource planning and delivery oversight. Included permission-controlled access to maintain data integrity across departments.</p>
+          <div class="tags">
+            <span class="tag">Google Sheets</span>
+            <span class="tag">KPI Reporting</span>
+            <span class="tag">Multi-team Coordination</span>
+            <span class="tag">Permission Management</span>
+          </div>
+        </div>
+      </details>
+
+      <details class="proj-item">
+        <summary>
+          <div>
+            <p class="proj-tag">Process Improvement</p>
+            <p class="proj-title">Client Request Standardisation</p>
+          </div>
+          <span class="proj-chevron" aria-hidden="true">▼</span>
+        </summary>
+        <div class="proj-body">
+          <p class="proj-desc">At Eydean Inc., created standardised ticket templates and structured documentation workflows to reduce incomplete B2B client requests and development rework. The system bridged client expectations with internal engineering teams — each request was structured into a clear, actionable ticket before handover. Combined with CRM pipeline tracking in Zoho, this maintained end-to-end visibility from initial requirement through delivery.</p>
+          <div class="tags">
+            <span class="tag">Zoho CRM</span>
+            <span class="tag">Ticket Templates</span>
+            <span class="tag">Workflow Documentation</span>
+            <span class="tag">B2B Coordination</span>
+          </div>
+        </div>
+      </details>
+
+      <details class="proj-item">
+        <summary>
+          <div>
+            <p class="proj-tag">Programme Operations</p>
+            <p class="proj-title">Post-COVID Programme Continuity</p>
+          </div>
+          <span class="proj-chevron" aria-hidden="true">▼</span>
+        </summary>
+        <div class="proj-body">
+          <p class="proj-desc">During the post-pandemic short-staffed period at Nepal Republic Media Ltd., supported operational decision-making by analysing delivery pipelines and restructuring programme schedules. Prevented disruption of an externally funded programme without increasing operational cost. Maintained cross-department communication and leadership visibility through the transition, documenting all adjustments and escalation decisions to ensure accountability.</p>
+          <div class="tags">
+            <span class="tag">Schedule Restructuring</span>
+            <span class="tag">Stakeholder Communication</span>
+            <span class="tag">Risk Management</span>
+            <span class="tag">Operational Continuity</span>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section alt" id="contact" aria-labelledby="contact-heading">
+  <div class="section-inner">
+    <div class="section-header">
+      <p class="section-eyebrow" aria-hidden="true">Reach out</p>
+      <h2 id="contact-heading">Contact</h2>
+      <span class="section-rule" aria-hidden="true"></span>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-intro">Open to roles in operations coordination, programme management, and IT operations support. Based in Berlin and available for on-site, hybrid, or remote positions.</p>
+        <ul class="contact-list" aria-label="Contact details">
+          <li class="contact-item">
+            <div class="contact-icon" aria-hidden="true">✉</div>
+            <div class="contact-detail">
+              <span class="contact-label">Email</span>
+              <span class="contact-value"><a href="mailto:bijneshworshrestha@gmail.com">Send email</a></span>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="contact-icon" aria-hidden="true">☎</div>
+            <div class="contact-detail">
+              <span class="contact-label">Phone</span>
+              <span class="contact-value"><a href="tel:+491792588982">Call</a></span>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="contact-icon" aria-hidden="true">in</div>
+            <div class="contact-detail">
+              <span class="contact-label">LinkedIn</span>
+              <span class="contact-value"><a href="https://linkedin.com/in/bijneshworshrestha" target="_blank" rel="noopener noreferrer">/bijneshworshrestha</a></span>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="contact-icon" aria-hidden="true">📍</div>
+            <div class="contact-detail">
+              <span class="contact-label">Location</span>
+              <span class="contact-value">Berlin, Germany</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="contact-card accent-left">
+          <p class="contact-card-label">Availability</p>
+          <p>Currently open to new opportunities in operations, coordination, or programme support roles in Berlin. References available upon request.</p>
+        </div>
+        <div class="contact-card">
+          <p class="contact-card-label" style="color:var(--ink-light);">Background in brief</p>
+          <p>MBA graduate (Project Management, BSBI/UCA) with a B.Sc. in Computer Science. Experienced working across media, technology, and retail sectors — equally comfortable in fast-paced operational environments and structured coordination roles.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-brand">Bijneshwor Shrestha</span>
+    <ul class="footer-links" role="list">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <span class="footer-copy">Berlin · 2026</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* THEME */
+  const root = document.documentElement;
+  const themeBtn = document.getElementById('theme-btn');
+  try {
+    const saved = localStorage.getItem('bij-theme');
+    if (saved) root.setAttribute('data-theme', saved);
+  } catch {}
+  themeBtn.addEventListener('click', function () {
+    const cur = root.getAttribute('data-theme');
+    const dark = cur === 'dark' || (!cur && matchMedia('(prefers-color-scheme:dark)').matches);
+    const next = dark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('bij-theme', next); } catch {}
+  });
+
+  /* MOBILE NAV */
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+  hamburger.addEventListener('click', function () {
+    const open = navMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', String(open));
+    hamburger.textContent = open ? '✕' : '☰';
+  });
+  navMenu.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      navMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.textContent = '☰';
+    });
+  });
+
+  /* ACTIVE NAV */
+  const anchors = document.querySelectorAll('main [id]');
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  function markActive() {
+    let cur = '';
+    anchors.forEach(function (el) {
+      if (el.getBoundingClientRect().top <= 80) cur = el.id;
+    });
+    navLinks.forEach(function (a) {
+      const id = a.getAttribute('href').slice(1);
+      id === cur ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current');
+    });
+  }
+  addEventListener('scroll', markActive, { passive: true });
+  markActive();
+
+  /* SMOOTH details toggle — scroll into view if partially off-screen */
+  document.querySelectorAll('details').forEach(function (det) {
+    det.addEventListener('toggle', function () {
+      if (det.open) {
+        setTimeout(function () {
+          const rect = det.getBoundingClientRect();
+          if (rect.top < 60) {
+            det.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 50);
+      }
+    });
+  });
+})();
+</script>
