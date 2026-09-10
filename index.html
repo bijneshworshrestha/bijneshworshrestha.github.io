@@ -31,6 +31,7 @@
   --line:        #C4D4CE;
   --expand-bg:   #F2F6F4;
   --expand-border: rgba(90,122,110,0.18);
+  --modal-overlay: rgba(0,0,0,0.55);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -54,6 +55,7 @@
     --accent:      #7AADA0;
     --expand-bg:   #1E2825;
     --expand-border: rgba(122,173,160,0.18);
+    --modal-overlay: rgba(0,0,0,0.72);
   }
 }
 :root[data-theme="dark"] {
@@ -77,6 +79,7 @@
   --accent:      #7AADA0;
   --expand-bg:   #1E2825;
   --expand-border: rgba(122,173,160,0.18);
+  --modal-overlay: rgba(0,0,0,0.72);
 }
 
 /* ── RESET ───────────────────────────────────────── */
@@ -93,6 +96,7 @@ body {
   background: var(--surface);
   -webkit-font-smoothing: antialiased;
 }
+body.modal-open { overflow: hidden; }
 img { max-width: 100%; display: block; }
 a { color: var(--accent); text-underline-offset: 3px; }
 a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
@@ -133,7 +137,6 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   transition: background 0.15s, color 0.15s;
 }
 .nav-links a:hover, .nav-links a[aria-current="page"] { background: var(--nav-hover); color: #fff; }
-.nav-links a:focus-visible { outline: 2px solid rgba(255,255,255,0.6); outline-offset: 2px; }
 .nav-right { display: flex; align-items: center; gap: 0.5rem; }
 .theme-toggle, .nav-hamburger {
   background: none; border: 1px solid rgba(255,255,255,0.25); color: var(--nav-fg);
@@ -142,7 +145,6 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   transition: background 0.15s, border-color 0.15s;
 }
 .theme-toggle:hover, .nav-hamburger:hover { background: var(--nav-hover); border-color: rgba(255,255,255,0.4); }
-.theme-toggle:focus-visible, .nav-hamburger:focus-visible { outline: 2px solid rgba(255,255,255,0.6); outline-offset: 2px; }
 .nav-hamburger { display: none; }
 @media (max-width: 640px) {
   .nav-hamburger { display: block; }
@@ -165,11 +167,11 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   display: flex; gap: 3rem; align-items: flex-start;
 }
 .avatar {
-  flex-shrink: 0; width: 120px; height: 120px; border-radius: 50%;
-  background: rgba(255,255,255,0.15); border: 3px solid rgba(255,255,255,0.35);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Poppins', sans-serif; font-size: 2.25rem; font-weight: 800;
-  color: rgba(255,255,255,0.9); letter-spacing: -0.02em; user-select: none;
+  flex-shrink: 0; width: 140px; height: 140px; border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.45);
+  object-fit: cover; object-position: center top;
+  display: block;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.35);
 }
 .hero-text { flex: 1; }
 .hero-eyebrow {
@@ -187,6 +189,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
 }
 .hero-bio { font-size: 1rem; line-height: 1.7; color: var(--hero-sub); max-width: 60ch; margin-bottom: 1.75rem; }
 .hero-bio p + p { margin-top: 0.75rem; }
+.hero-bio strong { color: #fff; font-weight: 600; }
 .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 .btn {
   display: inline-flex; align-items: center; gap: 0.4rem;
@@ -203,7 +206,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
 .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.7); }
 @media (max-width: 640px) {
   .hero-inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-  .avatar { width: 88px; height: 88px; font-size: 1.75rem; }
+  .avatar { width: 100px; height: 100px; }
 }
 
 /* ── SECTIONS ────────────────────────────────────── */
@@ -230,97 +233,37 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   border-radius: 2px; white-space: nowrap;
 }
 
-/* ── EXPANDABLE BASE ─────────────────────────────── */
-/* Shared styles for all clickable-expand items */
-.expand-item {
+/* ── CLICKABLE CARDS ─────────────────────────────── */
+.card-list { display: flex; flex-direction: column; }
+
+.card-item {
   background: var(--card);
   border: 1px solid var(--border);
   overflow: hidden;
-  transition: box-shadow 0.18s, border-color 0.18s;
+  cursor: pointer;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  position: relative;
 }
-.expand-item + .expand-item { border-top: none; }
-.expand-item:hover { border-color: var(--accent); z-index: 1; }
-.expand-item[open] { border-color: var(--accent); }
+.card-item + .card-item { border-top: none; }
+.card-item:hover { border-color: var(--accent); z-index: 1; box-shadow: 0 2px 12px rgba(90,122,110,0.12); }
+.card-item:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 
-.expand-item > summary {
+.card-row {
   display: flex; align-items: center; justify-content: space-between;
   gap: 1rem; padding: 1.25rem 1.5rem;
-  cursor: pointer; list-style: none;
   user-select: none;
-  transition: background 0.15s;
 }
-.expand-item > summary::-webkit-details-marker { display: none; }
-.expand-item > summary::marker { display: none; }
-.expand-item > summary:hover { background: var(--expand-bg); }
-.expand-item > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-
-/* Chevron */
-.expand-chevron {
+.card-open-hint {
   flex-shrink: 0;
-  width: 1.5rem; height: 1.5rem;
-  border-radius: 50%;
-  background: var(--tag-bg);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.7rem; color: var(--accent);
-  transition: transform 0.22s ease, background 0.15s;
+  font-size: 0.7rem; color: var(--ink-light); letter-spacing: 0.04em;
+  display: flex; align-items: center; gap: 0.4rem;
 }
-.expand-item[open] .expand-chevron { transform: rotate(180deg); background: var(--accent); color: #fff; }
-
-/* Detail panel */
-.expand-body {
-  padding: 0 1.5rem 1.5rem;
-  border-top: 1px solid var(--expand-border);
-  background: var(--expand-bg);
+.card-open-hint::after {
+  content: '↗';
+  font-size: 0.9rem; color: var(--accent);
 }
 
-/* ── COMPETENCIES ────────────────────────────────── */
-.comp-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1px; background: var(--border);
-  border: 1px solid var(--border);
-}
-.comp-item {
-  background: var(--card);
-  overflow: hidden;
-}
-.comp-item > summary {
-  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-  padding: 1.25rem 1.25rem 1rem;
-  cursor: pointer; list-style: none; user-select: none;
-  transition: background 0.15s;
-}
-.comp-item > summary::-webkit-details-marker { display: none; }
-.comp-item > summary:hover { background: var(--expand-bg); }
-.comp-item > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-.comp-item[open] { border-bottom: 2px solid var(--accent); }
-.comp-title {
-  font-family: 'Poppins', sans-serif; font-size: 0.8rem; font-weight: 700;
-  letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent);
-}
-.comp-preview {
-  font-size: 0.75rem; color: var(--ink-light); margin-top: 0.25rem;
-}
-.comp-body { padding: 0 1.25rem 1.25rem; }
-.comp-chevron {
-  flex-shrink: 0; width: 1.25rem; height: 1.25rem; border-radius: 50%;
-  background: var(--tag-bg); display: flex; align-items: center; justify-content: center;
-  font-size: 0.6rem; color: var(--accent);
-  transition: transform 0.2s, background 0.15s;
-}
-.comp-item[open] .comp-chevron { transform: rotate(180deg); background: var(--accent); color: #fff; }
-
-/* ── EXPERIENCE ──────────────────────────────────── */
-.exp-list { display: flex; flex-direction: column; }
-
-/* Summary row */
-.exp-summary-inner {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 0 1.25rem;
-  align-items: center;
-  width: 100%;
-}
+/* Dot for experience timeline */
 .exp-dot-col {
   display: flex; flex-direction: column; align-items: center;
   padding-block: 0.1rem;
@@ -333,6 +276,13 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
 }
 .exp-current .exp-dot { background: var(--sage-deep); box-shadow: 0 0 0 2px var(--sage-deep); }
 
+.exp-summary-inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0 1.25rem;
+  align-items: center;
+  width: 100%;
+}
 .exp-summary-text { min-width: 0; }
 .exp-role {
   font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1rem; color: var(--ink);
@@ -353,34 +303,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
 }
 .exp-industry { font-size: 0.75rem; color: var(--ink-light); font-style: italic; }
 
-.exp-summary-right { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
-.exp-hint {
-  font-size: 0.7rem; color: var(--ink-light); letter-spacing: 0.04em;
-  white-space: nowrap;
-}
-.expand-item[open] .exp-hint { display: none; }
-
-/* Detail body */
-.exp-body { padding: 1.25rem 1.5rem 1.5rem; }
-.exp-overview {
-  font-size: 0.9rem; color: var(--ink-mid); line-height: 1.65;
-  max-width: 65ch; margin-bottom: 1rem;
-  padding-bottom: 1rem; border-bottom: 1px solid var(--border-faint);
-}
-.exp-points { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 1.25rem; }
-.exp-points li {
-  padding-left: 1.25rem; position: relative;
-  font-size: 0.88rem; line-height: 1.6; color: var(--ink);
-}
-.exp-points li::before { content: '›'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
-.exp-tools { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
-.tools-label {
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em;
-  text-transform: uppercase; color: var(--ink-light); margin-right: 0.25rem;
-}
-
-/* ── EDUCATION ───────────────────────────────────── */
-.edu-list { display: flex; flex-direction: column; }
+/* Edu card */
 .edu-summary-inner {
   display: grid; grid-template-columns: 1fr auto; gap: 0.5rem 2rem;
   align-items: start; width: 100%;
@@ -401,17 +324,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   background: rgba(90,122,110,0.1); color: var(--accent);
   border: 1px solid rgba(90,122,110,0.25);
 }
-.edu-body { padding: 1rem 1.5rem 1.5rem; }
-.edu-subjects-full {
-  font-size: 0.85rem; color: var(--ink-mid); line-height: 1.6; margin-bottom: 0.75rem;
-}
-.edu-modules { margin-top: 0.75rem; }
-.edu-modules-label {
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
-  color: var(--ink-light); margin-bottom: 0.5rem;
-}
 
-/* ── PROJECTS ────────────────────────────────────── */
+/* Proj card grid */
 .proj-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -421,36 +335,46 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
 .proj-item {
   background: var(--card);
   overflow: hidden;
-  transition: border-color 0.18s;
-}
-.proj-item > summary {
-  display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
-  padding: 1.5rem;
-  cursor: pointer; list-style: none; user-select: none;
+  cursor: pointer;
   transition: background 0.15s;
 }
-.proj-item > summary::-webkit-details-marker { display: none; }
-.proj-item > summary:hover { background: var(--expand-bg); }
-.proj-item > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-.proj-item[open] { border-bottom: 2px solid var(--accent); }
+.proj-item:hover { background: var(--expand-bg); }
+.proj-item:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.proj-item-inner { padding: 1.5rem; }
 .proj-tag {
   font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--accent); margin-bottom: 0.4rem;
 }
 .proj-title {
   font-family: 'Poppins', sans-serif; font-size: 0.95rem; font-weight: 700;
-  color: var(--ink); text-wrap: balance; line-height: 1.35;
+  color: var(--ink); text-wrap: balance; line-height: 1.35; margin-bottom: 0.35rem;
 }
-.proj-chevron {
-  flex-shrink: 0; margin-top: 0.1rem;
-  width: 1.25rem; height: 1.25rem; border-radius: 50%;
-  background: var(--tag-bg); display: flex; align-items: center; justify-content: center;
-  font-size: 0.6rem; color: var(--accent);
-  transition: transform 0.2s, background 0.15s;
+.proj-open-hint {
+  font-size: 0.7rem; color: var(--ink-light); margin-top: 0.5rem;
 }
-.proj-item[open] .proj-chevron { transform: rotate(180deg); background: var(--accent); color: #fff; }
-.proj-body { padding: 0 1.5rem 1.5rem; background: var(--expand-bg); border-top: 1px solid var(--expand-border); }
-.proj-desc { font-size: 0.875rem; color: var(--ink-mid); line-height: 1.65; margin-bottom: 1rem; padding-top: 1rem; }
+
+/* Comp grid */
+.comp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border);
+}
+.comp-item {
+  background: var(--card);
+  overflow: hidden;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.comp-item:hover { background: var(--expand-bg); }
+.comp-item:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.comp-item-inner { padding: 1.25rem; }
+.comp-title {
+  font-family: 'Poppins', sans-serif; font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent);
+}
+.comp-preview { font-size: 0.75rem; color: var(--ink-light); margin-top: 0.25rem; }
+.comp-open-hint { font-size: 0.68rem; color: var(--ink-light); margin-top: 0.6rem; }
 
 /* ── LANGUAGES ───────────────────────────────────── */
 .lang-row {
@@ -471,6 +395,29 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
 .lang-item:last-child { border-right: none; }
 .lang-name { font-size: 0.925rem; font-weight: 600; color: var(--ink); }
 .lang-level { font-size: 0.78rem; color: var(--ink-light); }
+
+/* ── CV DOWNLOAD ─────────────────────────────────── */
+.cv-section { padding-block: 3rem; padding-inline: 1.5rem; background: var(--nav-bg); }
+.cv-inner {
+  max-width: 1100px; margin-inline: auto;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+}
+.cv-text h2 {
+  font-family: 'Poppins', sans-serif; font-size: 1.35rem; font-weight: 700; color: var(--nav-fg);
+  margin-bottom: 0.4rem;
+}
+.cv-text p { font-size: 0.875rem; color: rgba(202,220,215,0.75); }
+.btn-download {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  font-family: 'Poppins', sans-serif; font-size: 0.9rem; font-weight: 600;
+  background: rgba(255,255,255,0.95); color: var(--nav-bg);
+  text-decoration: none; border-radius: 3px;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.btn-download:hover { background: #fff; }
+.btn-download svg { flex-shrink: 0; }
 
 /* ── CONTACT ─────────────────────────────────────── */
 .contact-grid {
@@ -510,6 +457,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
 .site-footer {
   background: var(--nav-bg); color: var(--nav-fg);
   padding-block: 2rem; padding-inline: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
 }
 .footer-inner {
   max-width: 1100px; margin-inline: auto;
@@ -524,10 +472,100 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
 .footer-links a:hover { color: #fff; }
 .footer-copy { font-size: 0.78rem; color: rgba(202,220,215,0.45); }
 
+/* ── MODAL OVERLAY ───────────────────────────────── */
+.modal-backdrop {
+  display: none;
+  position: fixed; inset: 0; z-index: 200;
+  background: var(--modal-overlay);
+  overflow-y: auto;
+  padding: 2rem 1rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+.modal-backdrop.active { display: flex; }
+
+.modal-panel {
+  position: relative;
+  background: var(--card);
+  width: 100%; max-width: 760px;
+  border-radius: 4px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  margin: auto;
+  animation: modalIn 0.2s ease;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.modal-header {
+  padding: 1.75rem 2rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.modal-close {
+  position: absolute; top: 1.25rem; right: 1.25rem;
+  width: 2rem; height: 2rem;
+  background: var(--tag-bg); border: none; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; color: var(--ink-mid);
+  cursor: pointer; transition: background 0.15s, color 0.15s;
+  line-height: 1;
+}
+.modal-close:hover { background: var(--accent); color: #fff; }
+.modal-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.modal-body { padding: 1.5rem 2rem 2rem; }
+
+/* Modal content styles */
+.modal-role {
+  font-family: 'Poppins', sans-serif; font-size: 1.35rem; font-weight: 700;
+  color: var(--ink); margin-bottom: 0.35rem; padding-right: 2.5rem;
+}
+.modal-company { font-size: 1rem; font-weight: 600; color: var(--accent); margin-bottom: 0.2rem; }
+.modal-meta {
+  display: flex; flex-wrap: wrap; gap: 0.3rem 0.75rem;
+  font-size: 0.8rem; color: var(--ink-mid); align-items: center; margin-bottom: 1.25rem;
+}
+.modal-period {
+  font-size: 0.75rem; font-weight: 500; font-variant-numeric: tabular-nums;
+  color: var(--ink-light); background: var(--tag-bg); padding: 0.1rem 0.45rem; border-radius: 2px;
+}
+.modal-overview {
+  font-size: 0.9rem; color: var(--ink-mid); line-height: 1.7;
+  padding: 1rem 1.25rem; background: var(--expand-bg);
+  border-left: 3px solid var(--accent); margin-bottom: 1.5rem;
+  border-radius: 0 2px 2px 0;
+}
+.modal-section-title {
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.6rem; margin-top: 1.25rem;
+}
+.modal-points { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.modal-points li {
+  padding-left: 1.25rem; position: relative;
+  font-size: 0.875rem; line-height: 1.65; color: var(--ink);
+}
+.modal-points li::before { content: '›'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.modal-tags-row { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border-faint); }
+.modal-tags-label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--ink-light); margin-bottom: 0.5rem;
+}
+
+/* Edu modal */
+.modal-degree { font-family: 'Poppins', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--ink); padding-right: 2.5rem; }
+.modal-spec-text { font-size: 0.85rem; color: var(--ink-mid); margin-top: 0.2rem; }
+
+@media (max-width: 600px) {
+  .modal-header { padding: 1.25rem 1.25rem 1rem; }
+  .modal-body { padding: 1.25rem 1.25rem 1.5rem; }
+  .modal-role { font-size: 1.1rem; }
+}
+
 @media print {
-  .site-nav, .hero-actions, .site-footer { display: none; }
+  .site-nav, .hero-actions, .site-footer, .modal-backdrop, .cv-section { display: none; }
   .section { padding-block: 1.5rem; }
-  .expand-item[open], details[open] { }
 }
 </style>
 
@@ -556,7 +594,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
 <!-- HERO -->
 <header class="hero" id="about" tabindex="-1">
   <div class="hero-inner">
-    <div class="avatar" aria-hidden="true">BS</div>
+    <img class="avatar" src="data:image/jpeg;base64,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" alt="Bijneshwor Shrestha">
     <div class="hero-text">
       <p class="hero-eyebrow">Operations &amp; Coordination Professional</p>
       <h1>Bijneshwor&nbsp;Shrestha</h1>
@@ -565,8 +603,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
         Berlin, Germany
       </p>
       <div class="hero-bio">
-        <p>IT coordination and operations professional specialising in structuring workflows and coordinating delivery between business stakeholders and technical teams, with technical foundations in computer systems and web technologies.</p>
-        <p>Proven ability to design operational tracking frameworks, maintain CRM and documentation systems, and provide leadership visibility through structured KPI reporting — experienced in multi-team environments where disciplined documentation and clear workflows are required to maintain delivery timelines.</p>
+        <p>I specialise in structured <strong>operational coordination</strong>, <strong>stakeholder alignment</strong>, and <strong>workflow execution</strong> within <strong>B2B, B2C</strong> and <strong>cross-functional environments</strong>.</p>
+        <p>I focus on translating business requirements into clear <strong>operational frameworks</strong> and bridging teams through <strong>clear requirements</strong>, <strong>operational accountability</strong>, and stable <strong>execution frameworks</strong>, enabling organisations to maintain alignment, reduce <strong>operational ambiguity</strong>, and ensure <strong>consistent delivery</strong> across complex initiatives.</p>
       </div>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary">Get in touch</a>
@@ -585,84 +623,34 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
       <span class="section-rule" aria-hidden="true"></span>
     </div>
     <div class="comp-grid">
-
-      <details class="comp-item">
-        <summary>
-          <div>
-            <p class="comp-title">IT &amp; Technical Coordination</p>
-            <p class="comp-preview">Requirement translation · ticket structuring · cross-team delivery</p>
-          </div>
-          <span class="comp-chevron" aria-hidden="true">▼</span>
-        </summary>
-        <div class="comp-body">
-          <div class="tags">
-            <span class="tag">Business Requirement Translation</span>
-            <span class="tag">Technical Ticket Structuring</span>
-            <span class="tag">API-Aware Communication</span>
-            <span class="tag">System Workflow Documentation</span>
-            <span class="tag">Cross-Team Delivery Coordination</span>
-          </div>
+      <div class="comp-item" tabindex="0" role="button" aria-label="IT & Technical Coordination — click to expand" onclick="openModal('modal-comp-1')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-comp-1')">
+        <div class="comp-item-inner">
+          <p class="comp-title">IT &amp; Technical Coordination</p>
+          <p class="comp-preview">Requirement translation · ticket structuring · cross-team delivery</p>
+          <p class="comp-open-hint">Click to expand ↗</p>
         </div>
-      </details>
-
-      <details class="comp-item">
-        <summary>
-          <div>
-            <p class="comp-title">Operations &amp; Programme Management</p>
-            <p class="comp-preview">Tracking systems · KPI dashboards · escalation handling</p>
-          </div>
-          <span class="comp-chevron" aria-hidden="true">▼</span>
-        </summary>
-        <div class="comp-body">
-          <div class="tags">
-            <span class="tag">Operational Tracking Systems</span>
-            <span class="tag">KPI Dashboards &amp; Reporting</span>
-            <span class="tag">Workflow Design</span>
-            <span class="tag">Escalation Handling</span>
-            <span class="tag">Delivery Milestone Monitoring</span>
-          </div>
+      </div>
+      <div class="comp-item" tabindex="0" role="button" aria-label="Operations & Programme Management — click to expand" onclick="openModal('modal-comp-2')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-comp-2')">
+        <div class="comp-item-inner">
+          <p class="comp-title">Operations &amp; Programme Management</p>
+          <p class="comp-preview">Tracking systems · KPI dashboards · escalation handling</p>
+          <p class="comp-open-hint">Click to expand ↗</p>
         </div>
-      </details>
-
-      <details class="comp-item">
-        <summary>
-          <div>
-            <p class="comp-title">Systems &amp; Tools</p>
-            <p class="comp-preview">Zoho CRM · Google Workspace · Sheets dashboards</p>
-          </div>
-          <span class="comp-chevron" aria-hidden="true">▼</span>
-        </summary>
-        <div class="comp-body">
-          <div class="tags">
-            <span class="tag">Zoho CRM</span>
-            <span class="tag">Google Workspace</span>
-            <span class="tag">Google Sheets Dashboards</span>
-            <span class="tag">Documentation Systems</span>
-            <span class="tag">Performance Reporting</span>
-            <span class="tag">POS Transaction Systems</span>
-          </div>
+      </div>
+      <div class="comp-item" tabindex="0" role="button" aria-label="Systems & Tools — click to expand" onclick="openModal('modal-comp-3')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-comp-3')">
+        <div class="comp-item-inner">
+          <p class="comp-title">Systems &amp; Tools</p>
+          <p class="comp-preview">Zoho CRM · Google Workspace · Sheets dashboards</p>
+          <p class="comp-open-hint">Click to expand ↗</p>
         </div>
-      </details>
-
-      <details class="comp-item">
-        <summary>
-          <div>
-            <p class="comp-title">Stakeholder &amp; Client Operations</p>
-            <p class="comp-preview">B2B communication · requirement gathering · scope alignment</p>
-          </div>
-          <span class="comp-chevron" aria-hidden="true">▼</span>
-        </summary>
-        <div class="comp-body">
-          <div class="tags">
-            <span class="tag">B2B Stakeholder Communication</span>
-            <span class="tag">Requirement Gathering</span>
-            <span class="tag">Scope Alignment</span>
-            <span class="tag">Client Onboarding Coordination</span>
-            <span class="tag">Executive Reporting</span>
-          </div>
+      </div>
+      <div class="comp-item" tabindex="0" role="button" aria-label="Stakeholder & Client Operations — click to expand" onclick="openModal('modal-comp-4')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-comp-4')">
+        <div class="comp-item-inner">
+          <p class="comp-title">Stakeholder &amp; Client Operations</p>
+          <p class="comp-preview">B2B communication · requirement gathering · scope alignment</p>
+          <p class="comp-open-hint">Click to expand ↗</p>
         </div>
-      </details>
-
+      </div>
     </div>
   </div>
 </section>
@@ -675,12 +663,12 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
       <h2 id="exp-heading">Professional Experience</h2>
       <span class="section-rule" aria-hidden="true"></span>
     </div>
-    <p style="font-size:0.8rem;color:var(--ink-light);margin-bottom:1.5rem;letter-spacing:0.02em;">Click any role to expand full details</p>
-    <div class="exp-list">
+    <p style="font-size:0.8rem;color:var(--ink-light);margin-bottom:1.5rem;letter-spacing:0.02em;">Click any role to view full details</p>
+    <div class="card-list">
 
-      <!-- Role 1 -->
-      <details class="expand-item exp-current">
-        <summary>
+      <!-- Role 1: Muddastadt -->
+      <div class="card-item exp-current" tabindex="0" role="button" aria-label="Customer Support & Sales Operations Associate at Muddastadt GmbH — click to view" onclick="openModal('modal-exp-1')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-1')">
+        <div class="card-row">
           <div class="exp-summary-inner">
             <div class="exp-dot-col" aria-hidden="true"><div class="exp-dot"></div></div>
             <div class="exp-summary-text">
@@ -690,37 +678,16 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
                 <span>Berlin, Germany</span>
                 <span class="exp-period">Dec 2024 – Present</span>
                 <span class="badge-current">Current</span>
-                <span class="exp-industry">Souvenir, Giftware &amp; Textile</span>
               </div>
             </div>
-            <div class="exp-summary-right">
-              <span class="exp-hint">Expand</span>
-              <span class="expand-chevron" aria-hidden="true">▼</span>
-            </div>
-          </div>
-        </summary>
-        <div class="exp-body">
-          <p class="exp-overview">Front-line operations in a high-volume retail environment — managing 150–200 customer interactions per shift, structured service cases, and operational compliance with consistent documentation standards reported to headquarters.</p>
-          <ul class="exp-points">
-            <li>Serve 150–200 customers per shift in a high-volume retail setting, resolving inquiries, disputes, and service issues while maintaining consistent operational efficiency</li>
-            <li>Independently manage approximately 40 structured service cases daily — returns, exchanges, pricing clarifications, and tax-free transactions — each processed through defined compliance workflows</li>
-            <li>Document returns and transaction records and report operational data to headquarters, operating within defined policy limits without unnecessary escalation</li>
-            <li>Escalate operational issues only when policy thresholds require, maintaining customer satisfaction while ensuring procedural compliance</li>
-            <li>Support efficient store operations through clear communication with colleagues and supervisors; verify inventory accuracy during inbound deliveries</li>
-          </ul>
-          <div class="exp-tools">
-            <span class="tools-label">Tools</span>
-            <span class="tag">POS Transaction Systems</span>
-            <span class="tag">Refund &amp; Exchange Workflows</span>
-            <span class="tag">Inventory Verification</span>
-            <span class="tag">Customer Service Protocols</span>
+            <div class="card-open-hint">View details</div>
           </div>
         </div>
-      </details>
+      </div>
 
-      <!-- Role 2 -->
-      <details class="expand-item">
-        <summary>
+      <!-- Role 2: Nepal Republic Media -->
+      <div class="card-item" tabindex="0" role="button" aria-label="Programme Coordinator at Nepal Republic Media — click to view" onclick="openModal('modal-exp-2')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-2')">
+        <div class="card-row">
           <div class="exp-summary-inner">
             <div class="exp-dot-col" aria-hidden="true"><div class="exp-dot"></div></div>
             <div class="exp-summary-text">
@@ -729,80 +696,48 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
                 <span class="exp-company">Nepal Republic Media Ltd.</span>
                 <span>Kathmandu, Nepal</span>
                 <span class="exp-period">Jul 2021 – Jan 2023</span>
-                <span class="exp-industry">Media, Publication &amp; Information</span>
               </div>
             </div>
-            <div class="exp-summary-right">
-              <span class="exp-hint">Expand</span>
-              <span class="expand-chevron" aria-hidden="true">▼</span>
-            </div>
-          </div>
-        </summary>
-        <div class="exp-body">
-          <p class="exp-overview">Operational coordination across multiple departments of one of Nepal's national media organisations — maintaining delivery alignment for 8–14 concurrent programmes with shared deadlines and limited post-COVID staffing.</p>
-          <ul class="exp-points">
-            <li>Coordinated communication between editorial, production, marketing, social media, radio, and executive teams to ensure programme activities progressed according to schedule</li>
-            <li>Designed and maintained Google Sheets–based operational dashboards tracking programme schedules, publication status, contributor assignments, and KPI performance metrics used by leadership for planning</li>
-            <li>Supported the execution of 4–6 concurrent operational and digital initiatives with overlapping deadlines and shared resources</li>
-            <li>Produced structured weekly and monthly operational reports reviewed by Director, CFO, HR, and Marketing for performance monitoring and resource planning</li>
-            <li>Implemented permission-controlled documentation systems to maintain data integrity and accountability across cross-department collaboration</li>
-            <li>Acted as escalation point for operational risks and partner concerns — coordinating stakeholders and documenting decisions to maintain delivery continuity</li>
-            <li>Acted as liaison between internal teams and external partners including NGOs, corporate sponsors, and programme collaborators</li>
-            <li>Prioritised operational tasks and scheduling adjustments in a post-COVID short-staffed environment to maintain programme continuity without increasing cost</li>
-          </ul>
-          <div class="exp-tools">
-            <span class="tools-label">Tools</span>
-            <span class="tag">Google Sheets Dashboards</span>
-            <span class="tag">Google Workspace</span>
-            <span class="tag">KPI Reporting</span>
-            <span class="tag">Stakeholder Coordination</span>
-            <span class="tag">Operational Documentation</span>
+            <div class="card-open-hint">View details</div>
           </div>
         </div>
-      </details>
+      </div>
 
-      <!-- Role 3 -->
-      <details class="expand-item">
-        <summary>
+      <!-- Role 3: Eydean -->
+      <div class="card-item" tabindex="0" role="button" aria-label="Marketing Operations Associate at Eydean — click to view" onclick="openModal('modal-exp-3')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-3')">
+        <div class="card-row">
           <div class="exp-summary-inner">
             <div class="exp-dot-col" aria-hidden="true"><div class="exp-dot"></div></div>
             <div class="exp-summary-text">
               <p class="exp-role">Marketing Operations Associate</p>
               <div class="exp-meta">
-                <span class="exp-company">Eydean Inc.</span>
+                <span class="exp-company">Eydean Inc. Pvt. Ltd.</span>
                 <span>Kathmandu, Nepal</span>
                 <span class="exp-period">Jul 2019 – Jun 2021</span>
-                <span class="exp-industry">AI, SaaS &amp; Web Development</span>
               </div>
             </div>
-            <div class="exp-summary-right">
-              <span class="exp-hint">Expand</span>
-              <span class="expand-chevron" aria-hidden="true">▼</span>
-            </div>
-          </div>
-        </summary>
-        <div class="exp-body">
-          <p class="exp-overview">Primary client-facing coordination role in a B2B technology startup — serving as the interface between clients and internal technical teams, translating business requirements into structured delivery workflows and maintaining CRM pipeline visibility.</p>
-          <ul class="exp-points">
-            <li>Served as the first point of contact for B2B client queries relating to project scope, delivery timelines, delivery status, and operational constraints</li>
-            <li>Conducted consultative meetings with founders and senior client stakeholders to gather requirements and translate non-technical concerns into structured tickets for engineering teams</li>
-            <li>Designed standardised ticket templates and documentation workflows, reducing incomplete client requests and rework during development cycles</li>
-            <li>Maintained Zoho CRM records for prospects and active clients, ensuring pipeline transparency and structured tracking of requirements and project progress</li>
-            <li>Managed scope adjustments and expectation alignment throughout project delivery cycles to prevent disputes and maintain delivery timelines</li>
-            <li>Tracked onboarding milestones and technical dependencies across projects to support coordinated delivery across sales and technical teams</li>
-            <li>Prepared PowerPoint strategy presentations used by leadership and clients during project discussions</li>
-            <li>Coordinated marketing and sales initiatives across a five-member team; conducted cold calls, email campaigns, and social media outreach for lead generation</li>
-          </ul>
-          <div class="exp-tools">
-            <span class="tools-label">Tools</span>
-            <span class="tag">Zoho CRM</span>
-            <span class="tag">Google Workspace</span>
-            <span class="tag">Ticket Templates</span>
-            <span class="tag">PowerPoint</span>
-            <span class="tag">Email &amp; Social Outreach</span>
+            <div class="card-open-hint">View details</div>
           </div>
         </div>
-      </details>
+      </div>
+
+      <!-- Role 4: Cloudfactory -->
+      <div class="card-item" tabindex="0" role="button" aria-label="Data Entry Specialist at Cloudfactory — click to view" onclick="openModal('modal-exp-4')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-4')">
+        <div class="card-row">
+          <div class="exp-summary-inner">
+            <div class="exp-dot-col" aria-hidden="true"><div class="exp-dot"></div></div>
+            <div class="exp-summary-text">
+              <p class="exp-role">Data Entry Specialist</p>
+              <div class="exp-meta">
+                <span class="exp-company">Cloudfactory Ltd</span>
+                <span>Kathmandu, Nepal</span>
+                <span class="exp-period">Feb 2018 – Oct 2018</span>
+              </div>
+            </div>
+            <div class="card-open-hint">View details</div>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>
@@ -816,10 +751,10 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
       <h2 id="edu-heading">Education</h2>
       <span class="section-rule" aria-hidden="true"></span>
     </div>
-    <div class="edu-list">
+    <div class="card-list">
 
-      <details class="expand-item">
-        <summary>
+      <div class="card-item" tabindex="0" role="button" aria-label="MBA — click to view" onclick="openModal('modal-edu-1')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-edu-1')">
+        <div class="card-row">
           <div class="edu-summary-inner">
             <div>
               <p class="edu-degree-name">Global Master's in Business Administration (MBA)</p>
@@ -829,29 +764,13 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
             <div style="text-align:right;flex-shrink:0;">
               <p class="edu-period-badge">2023 – 2024</p>
               <span class="edu-badge">Completed</span>
-              <br><span class="expand-chevron" style="margin-top:0.5rem;display:inline-flex;" aria-hidden="true">▼</span>
-            </div>
-          </div>
-        </summary>
-        <div class="exp-body">
-          <p class="exp-overview" style="margin-bottom:1rem;">Completed September 2024 at the Berlin School of Business and Innovation (accredited by University for the Creative Arts, UK). Overall mark: 66.</p>
-          <div class="edu-modules">
-            <p class="edu-modules-label">Modules completed</p>
-            <div class="tags">
-              <span class="tag">Marketing and Business Environment</span>
-              <span class="tag">Accounting and Managerial Finance</span>
-              <span class="tag">Systems and Operations Management</span>
-              <span class="tag">Strategic Management and Leadership</span>
-              <span class="tag">Project Management and Leadership</span>
-              <span class="tag">Cross-Cultural Management</span>
-              <span class="tag">Dissertation</span>
             </div>
           </div>
         </div>
-      </details>
+      </div>
 
-      <details class="expand-item">
-        <summary>
+      <div class="card-item" tabindex="0" role="button" aria-label="BSc Computer Science — click to view" onclick="openModal('modal-edu-2')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-edu-2')">
+        <div class="card-row">
           <div class="edu-summary-inner">
             <div>
               <p class="edu-degree-name">B.Sc. in Computer Science and Information Technology</p>
@@ -860,27 +779,10 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
             <div style="text-align:right;flex-shrink:0;">
               <p class="edu-period-badge">2013 – 2017</p>
               <span class="edu-badge" style="background:var(--tag-bg);color:var(--tag-fg);border-color:var(--border);">Completed</span>
-              <br><span class="expand-chevron" style="margin-top:0.5rem;display:inline-flex;" aria-hidden="true">▼</span>
-            </div>
-          </div>
-        </summary>
-        <div class="exp-body">
-          <p class="exp-overview" style="margin-bottom:1rem;">Four-year undergraduate programme with a foundation in computer science theory, systems design, and applied web technologies.</p>
-          <div class="edu-modules">
-            <p class="edu-modules-label">Subject areas</p>
-            <div class="tags">
-              <span class="tag">Programming</span>
-              <span class="tag">Web Technologies and Compliance</span>
-              <span class="tag">Data &amp; Database Management</span>
-              <span class="tag">Network &amp; System Administration</span>
-              <span class="tag">Security &amp; Cryptography</span>
-              <span class="tag">Modular System Architecture and Design</span>
-              <span class="tag">Real Time Systems</span>
-              <span class="tag">Simulation</span>
             </div>
           </div>
         </div>
-      </details>
+      </div>
 
     </div>
 
@@ -907,67 +809,44 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
       <h2 id="proj-heading">Projects</h2>
       <span class="section-rule" aria-hidden="true"></span>
     </div>
-    <p style="font-size:0.8rem;color:var(--ink-light);margin-bottom:1.5rem;">Click any project to expand details</p>
+    <p style="font-size:0.8rem;color:var(--ink-light);margin-bottom:1.5rem;">Click any project to view details</p>
     <div class="proj-grid">
-
-      <details class="proj-item">
-        <summary>
-          <div>
-            <p class="proj-tag">Operations Design</p>
-            <p class="proj-title">Media Programme Tracking System</p>
-          </div>
-          <span class="proj-chevron" aria-hidden="true">▼</span>
-        </summary>
-        <div class="proj-body">
-          <p class="proj-desc">Designed and implemented a Google Sheets–based operational dashboard at Nepal Republic Media Ltd. covering 8–14 concurrent media programmes. The system tracked production status, contributor assignments, publication timelines, and KPI performance metrics used by the Director, CFO, HR, and Marketing teams for resource planning and delivery oversight. Included permission-controlled access to maintain data integrity across departments.</p>
-          <div class="tags">
-            <span class="tag">Google Sheets</span>
-            <span class="tag">KPI Reporting</span>
-            <span class="tag">Multi-team Coordination</span>
-            <span class="tag">Permission Management</span>
-          </div>
+      <div class="proj-item" tabindex="0" role="button" onclick="openModal('modal-proj-1')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-proj-1')">
+        <div class="proj-item-inner">
+          <p class="proj-tag">Operations Design</p>
+          <p class="proj-title">Media Programme Tracking System</p>
+          <p class="proj-open-hint">Click to view ↗</p>
         </div>
-      </details>
-
-      <details class="proj-item">
-        <summary>
-          <div>
-            <p class="proj-tag">Process Improvement</p>
-            <p class="proj-title">Client Request Standardisation</p>
-          </div>
-          <span class="proj-chevron" aria-hidden="true">▼</span>
-        </summary>
-        <div class="proj-body">
-          <p class="proj-desc">At Eydean Inc., created standardised ticket templates and structured documentation workflows to reduce incomplete B2B client requests and development rework. The system bridged client expectations with internal engineering teams — each request was structured into a clear, actionable ticket before handover. Combined with CRM pipeline tracking in Zoho, this maintained end-to-end visibility from initial requirement through delivery.</p>
-          <div class="tags">
-            <span class="tag">Zoho CRM</span>
-            <span class="tag">Ticket Templates</span>
-            <span class="tag">Workflow Documentation</span>
-            <span class="tag">B2B Coordination</span>
-          </div>
+      </div>
+      <div class="proj-item" tabindex="0" role="button" onclick="openModal('modal-proj-2')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-proj-2')">
+        <div class="proj-item-inner">
+          <p class="proj-tag">Process Improvement</p>
+          <p class="proj-title">Client Request Standardisation</p>
+          <p class="proj-open-hint">Click to view ↗</p>
         </div>
-      </details>
-
-      <details class="proj-item">
-        <summary>
-          <div>
-            <p class="proj-tag">Programme Operations</p>
-            <p class="proj-title">Post-COVID Programme Continuity</p>
-          </div>
-          <span class="proj-chevron" aria-hidden="true">▼</span>
-        </summary>
-        <div class="proj-body">
-          <p class="proj-desc">During the post-pandemic short-staffed period at Nepal Republic Media Ltd., supported operational decision-making by analysing delivery pipelines and restructuring programme schedules. Prevented disruption of an externally funded programme without increasing operational cost. Maintained cross-department communication and leadership visibility through the transition, documenting all adjustments and escalation decisions to ensure accountability.</p>
-          <div class="tags">
-            <span class="tag">Schedule Restructuring</span>
-            <span class="tag">Stakeholder Communication</span>
-            <span class="tag">Risk Management</span>
-            <span class="tag">Operational Continuity</span>
-          </div>
+      </div>
+      <div class="proj-item" tabindex="0" role="button" onclick="openModal('modal-proj-3')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-proj-3')">
+        <div class="proj-item-inner">
+          <p class="proj-tag">Programme Operations</p>
+          <p class="proj-title">Post-COVID Programme Continuity</p>
+          <p class="proj-open-hint">Click to view ↗</p>
         </div>
-      </details>
-
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- CV DOWNLOAD -->
+<section class="cv-section" id="cv" aria-labelledby="cv-heading">
+  <div class="cv-inner">
+    <div class="cv-text">
+      <h2 id="cv-heading">Download CV</h2>
+      <p>Full curriculum vitae — PDF format, ready to send to employers.</p>
+    </div>
+    <a href="cv.pdf" download="Bijneshwor_Shrestha_CV.pdf" class="btn-download">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 12L3 7h3V1h4v6h3L8 12zm-6 2h12v1H2v-1z"/></svg>
+      Download CV (PDF)
+    </a>
   </div>
 </section>
 
@@ -1042,30 +921,417 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   </div>
 </footer>
 
+<!-- ═══════════════════════════════════════════════════
+     MODALS
+════════════════════════════════════════════════════ -->
+
+<!-- COMP 1 -->
+<div id="modal-comp-1" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="IT & Technical Coordination">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-comp-1')" aria-label="Close">✕</button>
+      <p class="modal-role">IT &amp; Technical Coordination</p>
+    </div>
+    <div class="modal-body">
+      <div class="tags">
+        <span class="tag">Business Requirement Translation</span>
+        <span class="tag">Technical Ticket Structuring</span>
+        <span class="tag">API-Aware Communication</span>
+        <span class="tag">System Workflow Documentation</span>
+        <span class="tag">Cross-Team Delivery Coordination</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMP 2 -->
+<div id="modal-comp-2" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Operations & Programme Management">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-comp-2')" aria-label="Close">✕</button>
+      <p class="modal-role">Operations &amp; Programme Management</p>
+    </div>
+    <div class="modal-body">
+      <div class="tags">
+        <span class="tag">Operational Tracking Systems</span>
+        <span class="tag">KPI Dashboards &amp; Reporting</span>
+        <span class="tag">Workflow Design</span>
+        <span class="tag">Escalation Handling</span>
+        <span class="tag">Delivery Milestone Monitoring</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMP 3 -->
+<div id="modal-comp-3" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Systems & Tools">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-comp-3')" aria-label="Close">✕</button>
+      <p class="modal-role">Systems &amp; Tools</p>
+    </div>
+    <div class="modal-body">
+      <div class="tags">
+        <span class="tag">Zoho CRM</span>
+        <span class="tag">Google Workspace</span>
+        <span class="tag">Google Sheets Dashboards</span>
+        <span class="tag">Documentation Systems</span>
+        <span class="tag">Performance Reporting</span>
+        <span class="tag">POS Transaction Systems</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMP 4 -->
+<div id="modal-comp-4" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Stakeholder & Client Operations">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-comp-4')" aria-label="Close">✕</button>
+      <p class="modal-role">Stakeholder &amp; Client Operations</p>
+    </div>
+    <div class="modal-body">
+      <div class="tags">
+        <span class="tag">B2B Stakeholder Communication</span>
+        <span class="tag">Requirement Gathering</span>
+        <span class="tag">Scope Alignment</span>
+        <span class="tag">Client Onboarding Coordination</span>
+        <span class="tag">Executive Reporting</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXP 1: Muddastadt -->
+<div id="modal-exp-1" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Customer Support & Sales Operations Associate">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-exp-1')" aria-label="Close">✕</button>
+      <p class="modal-role">Customer Support &amp; Sales Operations Associate</p>
+      <p class="modal-company">Muddastadt GmbH</p>
+      <div class="modal-meta">
+        <span>Berlin, Germany</span>
+        <span class="modal-period">Dec 2024 – Present</span>
+        <span class="badge-current">Current</span>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p class="modal-overview">This role operates as a frontline service operations function within a high-volume retail environment, requiring consistent policy execution, transaction accuracy, and structured documentation under continuous time pressure. The position involves resolving customer cases within defined authority limits while ensuring operational integrity of transactions, inventory records, and reporting processes.</p>
+      <p class="modal-section-title">Key Responsibilities</p>
+      <ul class="modal-points">
+        <li>Serving 150–200 customers per shift, acting as the first point of contact for purchases, service questions, and transaction issues</li>
+        <li>Resolving approximately 40 structured customer cases daily, including returns, exchanges, tax-free transactions, and pricing clarifications</li>
+        <li>Applying written company policies while operating within defined authority limits</li>
+        <li>Documenting all returns and exchanges and reporting transaction adjustments to headquarters</li>
+        <li>Maintaining transaction accuracy through responsible cash handling and reconciliation</li>
+        <li>Verifying inbound inventory deliveries and reporting discrepancies affecting stock records</li>
+      </ul>
+      <div class="modal-tags-row">
+        <p class="modal-tags-label">Tools &amp; Skills</p>
+        <div class="tags">
+          <span class="tag">POS Transaction Systems</span>
+          <span class="tag">Refund &amp; Exchange Workflows</span>
+          <span class="tag">Inventory Verification</span>
+          <span class="tag">Customer Service Protocols</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXP 2: Nepal Republic Media -->
+<div id="modal-exp-2" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Programme Coordinator">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-exp-2')" aria-label="Close">✕</button>
+      <p class="modal-role">Programme Coordinator</p>
+      <p class="modal-company">Nepal Republic Media Ltd.</p>
+      <div class="modal-meta">
+        <span>Kathmandu, Nepal</span>
+        <span class="modal-period">Jul 2021 – Jan 2023</span>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p class="modal-overview">Coordinated cross-department programme execution across editorial, production, marketing, HR, social media, and radio teams while managing multiple concurrent initiatives under shared production timelines. Designed and maintained operational tracking systems and KPI dashboards supporting leadership visibility, stakeholder communication, and delivery continuity across internal teams and external partners.</p>
+
+      <p class="modal-section-title">Cross-Department Coordination</p>
+      <ul class="modal-points">
+        <li>Coordinated communication across editorial, production, social media, HR, marketing, and radio teams</li>
+        <li>Managed 8–14 concurrent media programmes with shared operational timelines</li>
+        <li>Coordinated 4–6 operational and digital initiatives simultaneously under resource constraints</li>
+        <li>Served as liaison between leadership, internal teams, and external partners, including NGOs, advertisers, and corporate stakeholders</li>
+        <li>Handled partner concerns and delivery issues through documented communication and structured escalation</li>
+      </ul>
+
+      <p class="modal-section-title">Operational Systems &amp; Performance Tracking</p>
+      <ul class="modal-points">
+        <li>Designed and maintained Google Sheets–based operational tracking systems covering production workflows, deadlines, creators, publication status, and performance metrics</li>
+        <li>Built KPI dashboards used by the Director, CFO, HR, and marketing leadership for operational monitoring</li>
+        <li>Produced weekly and monthly operational reports consolidating workflow performance data</li>
+        <li>Used reporting insights to support resource allocation decisions and scheduling adjustments</li>
+      </ul>
+
+      <p class="modal-section-title">Operational Governance &amp; Documentation</p>
+      <ul class="modal-points">
+        <li>Introduced permission-based access controls to shared operational documentation to maintain data integrity and accountability</li>
+        <li>Prepared structured executive summaries and operational briefings for leadership review</li>
+        <li>Ensured strategic initiatives were documented and formally approved before execution</li>
+      </ul>
+
+      <p class="modal-section-title">Delivery Stability &amp; Problem Resolution</p>
+      <ul class="modal-points">
+        <li>Prevented disruption to a major externally funded programme by restructuring its delivery schedule without increasing cost</li>
+        <li>Managed operational risks through documented approvals and structured communication rather than informal decisions</li>
+        <li>Co-organised the Brand Nepal event series involving approximately 50 brand participants</li>
+        <li>Coordinated vendor communication, event materials, and reporting for press and media coverage</li>
+        <li>Supported the Nagarik Nayak annual recognition event with around 100 participants</li>
+        <li>Organised quarterly internal workshops, including scheduling, materials preparation, and progress tracking</li>
+      </ul>
+
+      <div class="modal-tags-row">
+        <p class="modal-tags-label">Tools &amp; Skills</p>
+        <div class="tags">
+          <span class="tag">Google Sheets Dashboards</span>
+          <span class="tag">Google Workspace</span>
+          <span class="tag">KPI Reporting</span>
+          <span class="tag">Stakeholder Coordination</span>
+          <span class="tag">Operational Documentation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXP 3: Eydean -->
+<div id="modal-exp-3" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Marketing Operations Associate">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-exp-3')" aria-label="Close">✕</button>
+      <p class="modal-role">Marketing Operations Associate</p>
+      <p class="modal-company">Eydean Inc. Pvt. Ltd.</p>
+      <div class="modal-meta">
+        <span>Kathmandu, Nepal</span>
+        <span class="modal-period">Jul 2019 – Jun 2021</span>
+        <span class="exp-industry">AI, SaaS &amp; Web Development</span>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p class="modal-overview">Coordinated B2B client onboarding and delivery workflows within a technology services environment, acting as the operational interface between business stakeholders and internal technical teams. Structured client requirements through consultative meetings, translated business needs into technical tickets, maintained CRM pipeline visibility, and tracked onboarding milestones to ensure realistic delivery timelines and clear scope alignment.</p>
+
+      <p class="modal-section-title">Client Coordination &amp; Requirement Structuring</p>
+      <ul class="modal-points">
+        <li>Served as first contact for B2B client queries related to project scope, timelines, and delivery status</li>
+        <li>Conducted consultative meetings with founders and senior stakeholders</li>
+        <li>Coordinated client meetings and requirement-gathering sessions</li>
+        <li>Documented client concerns and translated non-technical requirements into structured tickets for technical teams</li>
+        <li>Managed scope adjustments by documenting limitations and resetting client expectations</li>
+      </ul>
+
+      <p class="modal-section-title">CRM &amp; Pipeline Visibility</p>
+      <ul class="modal-points">
+        <li>Maintained Zoho CRM records for prospects and active clients</li>
+        <li>Updated pipeline data to ensure leadership visibility into project progress and client workload</li>
+        <li>Logged structured meeting notes, requirements, and follow-up actions</li>
+      </ul>
+
+      <p class="modal-section-title">Operational Workflow Coordination</p>
+      <ul class="modal-points">
+        <li>Created standardised ticket templates to reduce ambiguity in client requests</li>
+        <li>Coordinated between sales and technical teams to ensure delivery timelines were realistic</li>
+        <li>Tracked onboarding milestones and dependencies across projects</li>
+        <li>Supported contract tracking and service timeline management</li>
+      </ul>
+
+      <p class="modal-section-title">Client Relationship Management</p>
+      <ul class="modal-points">
+        <li>Maintained long-term client relationships through structured communication and expectation management</li>
+        <li>Built trust with clients, resulting in referrals and additional engagement opportunities</li>
+      </ul>
+
+      <div class="modal-tags-row">
+        <p class="modal-tags-label">Tools &amp; Skills</p>
+        <div class="tags">
+          <span class="tag">Zoho CRM</span>
+          <span class="tag">Google Workspace</span>
+          <span class="tag">Ticket Templates</span>
+          <span class="tag">PowerPoint</span>
+          <span class="tag">Email &amp; Social Outreach</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXP 4: Cloudfactory -->
+<div id="modal-exp-4" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Data Entry Specialist">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-exp-4')" aria-label="Close">✕</button>
+      <p class="modal-role">Data Entry Specialist</p>
+      <p class="modal-company">Cloudfactory Ltd</p>
+      <div class="modal-meta">
+        <span>Kathmandu, Nepal</span>
+        <span class="modal-period">Feb 2018 – Oct 2018</span>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p class="modal-overview">Maintained structured datasets within a process-controlled data operations environment where accuracy directly affected downstream operational workflows. Followed strict quality standards and standardised procedures while ensuring confidentiality and compliance with data protection requirements.</p>
+      <p class="modal-section-title">Key Responsibilities</p>
+      <ul class="modal-points">
+        <li>Maintaining structured datasets used for downstream operational processes</li>
+        <li>Following strict accuracy standards in data handling</li>
+        <li>Operating within standardised workflows where errors had operational consequences</li>
+        <li>Maintaining confidentiality and compliance with data protection standards</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- EDU 1: MBA -->
+<div id="modal-edu-1" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="MBA">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-edu-1')" aria-label="Close">✕</button>
+      <p class="modal-degree">Global Master's in Business Administration (MBA)</p>
+      <p class="modal-spec-text">Specialisation: Project Management</p>
+      <p class="modal-company" style="margin-top:0.4rem;">University for the Creative Arts (UCA) · Berlin School of Business &amp; Innovation</p>
+      <div class="modal-meta"><span class="modal-period">2023 – 2024</span><span class="edu-badge">Completed</span></div>
+    </div>
+    <div class="modal-body">
+      <p class="modal-overview">Completed September 2024 at the Berlin School of Business and Innovation (accredited by University for the Creative Arts, UK). Overall mark: 66.</p>
+      <p class="modal-section-title">Modules Completed</p>
+      <div class="tags">
+        <span class="tag">Marketing and Business Environment</span>
+        <span class="tag">Accounting and Managerial Finance</span>
+        <span class="tag">Systems and Operations Management</span>
+        <span class="tag">Strategic Management and Leadership</span>
+        <span class="tag">Project Management and Leadership</span>
+        <span class="tag">Cross-Cultural Management</span>
+        <span class="tag">Dissertation</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDU 2: BSc -->
+<div id="modal-edu-2" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="BSc Computer Science">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-edu-2')" aria-label="Close">✕</button>
+      <p class="modal-degree">B.Sc. in Computer Science and Information Technology</p>
+      <p class="modal-company" style="margin-top:0.4rem;">Tribhuvan University · St. Xavier's College, Kathmandu, Nepal</p>
+      <div class="modal-meta"><span class="modal-period">2013 – 2017</span><span class="edu-badge" style="background:var(--tag-bg);color:var(--tag-fg);border-color:var(--border);">Completed</span></div>
+    </div>
+    <div class="modal-body">
+      <p class="modal-overview">Four-year undergraduate programme with a foundation in computer science theory, systems design, and applied web technologies.</p>
+      <p class="modal-section-title">Subject Areas</p>
+      <div class="tags">
+        <span class="tag">Programming</span>
+        <span class="tag">Web Technologies and Compliance</span>
+        <span class="tag">Data &amp; Database Management</span>
+        <span class="tag">Network &amp; System Administration</span>
+        <span class="tag">Security &amp; Cryptography</span>
+        <span class="tag">Modular System Architecture and Design</span>
+        <span class="tag">Real Time Systems</span>
+        <span class="tag">Simulation</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJ 1 -->
+<div id="modal-proj-1" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Media Programme Tracking System">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-proj-1')" aria-label="Close">✕</button>
+      <p class="proj-tag" style="margin-bottom:0.4rem;">Operations Design</p>
+      <p class="modal-role">Media Programme Tracking System</p>
+    </div>
+    <div class="modal-body">
+      <p class="modal-overview">Designed and implemented a Google Sheets–based operational dashboard at Nepal Republic Media Ltd. covering 8–14 concurrent media programmes. The system tracked production status, contributor assignments, publication timelines, and KPI performance metrics used by the Director, CFO, HR, and Marketing teams for resource planning and delivery oversight. Included permission-controlled access to maintain data integrity across departments.</p>
+      <div class="modal-tags-row">
+        <p class="modal-tags-label">Skills &amp; Tools</p>
+        <div class="tags">
+          <span class="tag">Google Sheets</span>
+          <span class="tag">KPI Reporting</span>
+          <span class="tag">Multi-team Coordination</span>
+          <span class="tag">Permission Management</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJ 2 -->
+<div id="modal-proj-2" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Client Request Standardisation">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-proj-2')" aria-label="Close">✕</button>
+      <p class="proj-tag" style="margin-bottom:0.4rem;">Process Improvement</p>
+      <p class="modal-role">Client Request Standardisation</p>
+    </div>
+    <div class="modal-body">
+      <p class="modal-overview">At Eydean Inc., created standardised ticket templates and structured documentation workflows to reduce incomplete B2B client requests and development rework. The system bridged client expectations with internal engineering teams — each request was structured into a clear, actionable ticket before handover. Combined with CRM pipeline tracking in Zoho, this maintained end-to-end visibility from initial requirement through delivery.</p>
+      <div class="modal-tags-row">
+        <p class="modal-tags-label">Skills &amp; Tools</p>
+        <div class="tags">
+          <span class="tag">Zoho CRM</span>
+          <span class="tag">Ticket Templates</span>
+          <span class="tag">Workflow Documentation</span>
+          <span class="tag">B2B Coordination</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJ 3 -->
+<div id="modal-proj-3" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Post-COVID Programme Continuity">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-proj-3')" aria-label="Close">✕</button>
+      <p class="proj-tag" style="margin-bottom:0.4rem;">Programme Operations</p>
+      <p class="modal-role">Post-COVID Programme Continuity</p>
+    </div>
+    <div class="modal-body">
+      <p class="modal-overview">During the post-pandemic short-staffed period at Nepal Republic Media Ltd., supported operational decision-making by analysing delivery pipelines and restructuring programme schedules. Prevented disruption of an externally funded programme without increasing operational cost. Maintained cross-department communication and leadership visibility through the transition, documenting all adjustments and escalation decisions to ensure accountability.</p>
+      <div class="modal-tags-row">
+        <p class="modal-tags-label">Skills &amp; Tools</p>
+        <div class="tags">
+          <span class="tag">Schedule Restructuring</span>
+          <span class="tag">Stakeholder Communication</span>
+          <span class="tag">Risk Management</span>
+          <span class="tag">Operational Continuity</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 (function () {
   'use strict';
 
   /* THEME */
-  const root = document.documentElement;
-  const themeBtn = document.getElementById('theme-btn');
+  var root = document.documentElement;
+  var themeBtn = document.getElementById('theme-btn');
   try {
-    const saved = localStorage.getItem('bij-theme');
+    var saved = localStorage.getItem('bij-theme');
     if (saved) root.setAttribute('data-theme', saved);
-  } catch {}
+  } catch(e) {}
   themeBtn.addEventListener('click', function () {
-    const cur = root.getAttribute('data-theme');
-    const dark = cur === 'dark' || (!cur && matchMedia('(prefers-color-scheme:dark)').matches);
-    const next = dark ? 'light' : 'dark';
+    var cur = root.getAttribute('data-theme');
+    var dark = cur === 'dark' || (!cur && matchMedia('(prefers-color-scheme:dark)').matches);
+    var next = dark ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
-    try { localStorage.setItem('bij-theme', next); } catch {}
+    try { localStorage.setItem('bij-theme', next); } catch(e) {}
   });
 
   /* MOBILE NAV */
-  const hamburger = document.getElementById('hamburger');
-  const navMenu = document.getElementById('nav-menu');
+  var hamburger = document.getElementById('hamburger');
+  var navMenu = document.getElementById('nav-menu');
   hamburger.addEventListener('click', function () {
-    const open = navMenu.classList.toggle('open');
+    var open = navMenu.classList.toggle('open');
     hamburger.setAttribute('aria-expanded', String(open));
     hamburger.textContent = open ? '✕' : '☰';
   });
@@ -1078,33 +1344,55 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   });
 
   /* ACTIVE NAV */
-  const anchors = document.querySelectorAll('main [id]');
-  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  var anchors = document.querySelectorAll('main [id]');
+  var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
   function markActive() {
-    let cur = '';
+    var cur = '';
     anchors.forEach(function (el) {
       if (el.getBoundingClientRect().top <= 80) cur = el.id;
     });
     navLinks.forEach(function (a) {
-      const id = a.getAttribute('href').slice(1);
+      var id = a.getAttribute('href').slice(1);
       id === cur ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current');
     });
   }
   addEventListener('scroll', markActive, { passive: true });
   markActive();
 
-  /* SMOOTH details toggle — scroll into view if partially off-screen */
-  document.querySelectorAll('details').forEach(function (det) {
-    det.addEventListener('toggle', function () {
-      if (det.open) {
-        setTimeout(function () {
-          const rect = det.getBoundingClientRect();
-          if (rect.top < 60) {
-            det.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }, 50);
-      }
+  /* MODAL */
+  var currentModal = null;
+
+  window.openModal = function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    if (currentModal) closeModal(currentModal);
+    el.classList.add('active');
+    document.body.classList.add('modal-open');
+    currentModal = id;
+    // Focus the close button
+    var closeBtn = el.querySelector('.modal-close');
+    if (closeBtn) setTimeout(function(){ closeBtn.focus(); }, 50);
+  };
+
+  window.closeModal = function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.classList.remove('active');
+    document.body.classList.remove('modal-open');
+    currentModal = null;
+  };
+
+  // Close on backdrop click
+  document.querySelectorAll('.modal-backdrop').forEach(function(backdrop) {
+    backdrop.addEventListener('click', function(e) {
+      if (e.target === backdrop) closeModal(backdrop.id);
     });
   });
+
+  // Close on ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && currentModal) closeModal(currentModal);
+  });
+
 })();
 </script>
