@@ -1,4 +1,5 @@
 <title>Bijneshwor Shrestha</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -286,7 +287,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
 .exp-summary-text { min-width: 0; }
 .exp-role {
   font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1rem; color: var(--ink);
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  overflow-wrap: break-word; word-break: break-word;
 }
 .exp-meta {
   display: flex; flex-wrap: wrap; gap: 0.3rem 0.75rem; margin-top: 0.2rem;
@@ -567,6 +568,106 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   .site-nav, .hero-actions, .site-footer, .modal-backdrop, .cv-section { display: none; }
   .section { padding-block: 1.5rem; }
 }
+
+/* ── MOBILE & TABLET RESPONSIVE ─────────────────── */
+
+/* Touch targets: ensure all interactive elements are ≥44px */
+.card-item, .proj-item, .comp-item {
+  -webkit-tap-highlight-color: transparent;
+}
+.card-row { min-height: 44px; }
+.modal-close { min-width: 44px; min-height: 44px; }
+
+/* Tablet (≤900px) */
+@media (max-width: 900px) {
+  .proj-grid { grid-template-columns: 1fr 1fr; }
+  .comp-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Mobile landscape + large phones (≤768px) */
+@media (max-width: 768px) {
+  .hero { padding-block: 3rem 2.5rem; padding-inline: 1.25rem; }
+  .hero-inner { gap: 1.5rem; align-items: center; }
+  .hero h1 { font-size: clamp(1.75rem, 7vw, 2.5rem); }
+  .hero-bio { font-size: 0.9375rem; }
+
+  .section { padding-block: 3rem; padding-inline: 1.25rem; }
+  .section-inner { padding-inline: 0; }
+
+  .exp-summary-inner {
+    grid-template-columns: auto 1fr;
+    gap: 0 0.875rem;
+  }
+  .exp-period { display: none; }  /* period shown in modal; avoid overflow */
+  .card-row { padding: 1rem 1.25rem; gap: 0.75rem; }
+
+  .edu-summary-inner { grid-template-columns: 1fr; gap: 0.25rem; }
+  .edu-period-badge { text-align: left; }
+
+  .proj-grid { grid-template-columns: 1fr; }
+  .comp-grid { grid-template-columns: 1fr; }
+
+  .lang-row { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .lang-item { border-right: none; padding-right: 0; margin-right: 0; }
+
+  .modal-header { padding: 1.25rem 1.25rem 1rem; }
+  .modal-body { padding: 1.25rem 1.25rem 1.75rem; }
+  .modal-close { top: 0.875rem; right: 0.875rem; }
+  .modal-backdrop { padding: 0.75rem 0.5rem; }
+
+  .cv-inner { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+  .btn-download { width: 100%; justify-content: center; }
+
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .footer-links { flex-wrap: wrap; gap: 0.75rem; }
+}
+
+/* Small phones (≤480px) */
+@media (max-width: 480px) {
+  .hero { padding-block: 2.5rem 2rem; padding-inline: 1rem; }
+  .hero-inner { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+  .hero h1 { font-size: clamp(1.6rem, 8vw, 2.25rem); }
+  .hero-bio { font-size: 0.9rem; max-width: 100%; }
+
+  .section { padding-block: 2.5rem; padding-inline: 1rem; }
+  .section h2 { font-size: 1.4rem; }
+  .section-header { flex-wrap: wrap; gap: 0.5rem; }
+  .section-rule { display: none; }
+
+  .card-row { padding: 0.875rem 1rem; }
+  .card-open-hint { display: none; }
+
+  .exp-summary-inner { grid-template-columns: auto 1fr; gap: 0 0.75rem; }
+  .exp-dot-col { display: none; }
+  .exp-meta { gap: 0.2rem 0.5rem; font-size: 0.75rem; }
+
+  .proj-item-inner { padding: 1.125rem 1rem; }
+  .comp-item-inner { padding: 1rem; }
+
+  .contact-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+
+  .modal-panel { border-radius: 2px; }
+  .modal-header { padding: 1rem 1rem 0.875rem; }
+  .modal-body { padding: 1rem 1rem 1.5rem; }
+
+  .cv-section { padding-block: 2.25rem; padding-inline: 1rem; }
+  .cv-text h2 { font-size: 1.2rem; }
+
+  .site-footer { padding-inline: 1rem; }
+  .footer-links { gap: 0.6rem 1rem; }
+  .footer-copy { font-size: 0.72rem; }
+}
+
+/* Very small phones (≤360px) */
+@media (max-width: 360px) {
+  .hero { padding-inline: 0.875rem; }
+  .section { padding-inline: 0.875rem; }
+  .card-row { padding: 0.75rem 0.875rem; }
+  .avatar { width: 80px; height: 80px; }
+  .nav-inner { padding-inline: 1rem; }
+  .modal-header, .modal-body { padding-inline: 0.875rem; }
+}
+
 </style>
 
 <a href="#main" class="skip-link">Skip to main content</a>
