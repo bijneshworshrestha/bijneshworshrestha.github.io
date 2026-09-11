@@ -397,28 +397,6 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
 .lang-name { font-size: 0.925rem; font-weight: 600; color: var(--ink); }
 .lang-level { font-size: 0.78rem; color: var(--ink-light); }
 
-/* ── CV DOWNLOAD ─────────────────────────────────── */
-.cv-section { padding-block: 3rem; padding-inline: 1.5rem; background: var(--nav-bg); }
-.cv-inner {
-  max-width: 1100px; margin-inline: auto;
-  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
-}
-.cv-text h2 {
-  font-family: 'Poppins', sans-serif; font-size: 1.35rem; font-weight: 700; color: var(--nav-fg);
-  margin-bottom: 0.4rem;
-}
-.cv-text p { font-size: 0.875rem; color: rgba(202,220,215,0.75); }
-.btn-download {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  padding: 0.75rem 1.75rem;
-  font-family: 'Poppins', sans-serif; font-size: 0.9rem; font-weight: 600;
-  background: rgba(255,255,255,0.95); color: var(--nav-bg);
-  text-decoration: none; border-radius: 3px;
-  transition: background 0.15s;
-  white-space: nowrap;
-}
-.btn-download:hover { background: #fff; }
-.btn-download svg { flex-shrink: 0; }
 
 /* ── CONTACT ─────────────────────────────────────── */
 .contact-grid {
@@ -565,8 +543,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
 }
 
 @media print {
-  .site-nav, .hero-actions, .site-footer, .modal-backdrop, .cv-section { display: none; }
-  .section { padding-block: 1.5rem; }
+  .site-nav, .hero-actions, .site-footer, .modal-backdrop,  .section { padding-block: 1.5rem; }
 }
 
 /* ── MOBILE & TABLET RESPONSIVE ─────────────────── */
@@ -614,10 +591,6 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   .modal-body { padding: 1.25rem 1.25rem 1.75rem; }
   .modal-close { top: 0.875rem; right: 0.875rem; }
   .modal-backdrop { padding: 0.75rem 0.5rem; }
-
-  .cv-inner { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
-  .btn-download { width: 100%; justify-content: center; }
-
   .footer-inner { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
   .footer-links { flex-wrap: wrap; gap: 0.75rem; }
 }
@@ -649,10 +622,6 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   .modal-panel { border-radius: 2px; }
   .modal-header { padding: 1rem 1rem 0.875rem; }
   .modal-body { padding: 1rem 1rem 1.5rem; }
-
-  .cv-section { padding-block: 2.25rem; padding-inline: 1rem; }
-  .cv-text h2 { font-size: 1.2rem; }
-
   .site-footer { padding-inline: 1rem; }
   .footer-links { gap: 0.6rem 1rem; }
   .footer-copy { font-size: 0.72rem; }
@@ -934,20 +903,6 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- CV DOWNLOAD -->
-<section class="cv-section" id="cv" aria-labelledby="cv-heading">
-  <div class="cv-inner">
-    <div class="cv-text">
-      <h2 id="cv-heading">Download CV</h2>
-      <p>Full curriculum vitae — PDF format, ready to send to employers.</p>
-    </div>
-    <a href="cv.pdf" download="Bijneshwor_Shrestha_CV.pdf" class="btn-download">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 12L3 7h3V1h4v6h3L8 12zm-6 2h12v1H2v-1z"/></svg>
-      Download CV (PDF)
-    </a>
   </div>
 </section>
 
