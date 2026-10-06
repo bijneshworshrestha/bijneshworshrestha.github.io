@@ -1,86 +1,76 @@
 <title>Bijneshwor Shrestha</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Bijneshwor Shrestha — Operations & Programme Coordination, Berlin">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Syne:wght@400;500;600;700;800&display=swap">
 
 <style>
-/* ── TOKENS ──────────────────────────────────────── */
+/* ── TOKENS ─────────────────────────────────────── */
 :root {
-  color-scheme: light dark;
-  --sage:        #5A7A6E;
-  --sage-deep:   #3C5A50;
-  --sage-light:  #EAF0EE;
-  --surface:     #F5F5F2;
-  --card:        #FFFFFF;
-  --card-alt:    #F9F9F7;
-  --ink:         #1A1E1D;
-  --ink-mid:     #4A5C56;
-  --ink-light:   #7A8E89;
-  --border:      #D6DDD9;
-  --border-faint:#E8EEEB;
-  --accent:      #5A7A6E;
-  --nav-bg:      #3C5A50;
-  --nav-fg:      #EAF0EE;
-  --nav-hover:   rgba(255,255,255,0.12);
-  --hero-bg:     #5A7A6E;
-  --hero-fg:     #FFFFFF;
-  --hero-sub:    rgba(255,255,255,0.80);
-  --tag-bg:      #EAF0EE;
-  --tag-fg:      #3C5A50;
-  --line:        #C4D4CE;
-  --expand-bg:   #F2F6F4;
-  --expand-border: rgba(90,122,110,0.18);
-  --modal-overlay: rgba(0,0,0,0.55);
+  color-scheme: light;
+  --bg:          #F5F2EC;
+  --bg-alt:      #EDE9E0;
+  --bg-modal:    #F9F7F3;
+  --ink:         #1A1610;
+  --ink-mid:     #4A3F2F;
+  --ink-light:   #8B7A60;
+  --ink-faint:   #B8AB98;
+  --rule:        #CEC9BF;
+  --rule-heavy:  #1A1610;
+  --accent:      #8B6B30;
+  --accent-lt:   #C8A96A;
+  --tag-bg:      transparent;
+  --tag-fg:      #8B6B30;
+  --tag-border:  #C8B99A;
+  --modal-overlay: rgba(20,16,10,0.55);
+  --nav-bg:      #1A1610;
+  --nav-fg:      #F0EDE6;
+  --nav-hover:   rgba(240,237,230,0.12);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --surface:     #181C1B;
-    --card:        #222827;
-    --card-alt:    #1C2120;
-    --ink:         #E8EDEA;
-    --ink-mid:     #A0B0AA;
-    --ink-light:   #687873;
-    --border:      #303A36;
-    --border-faint:#252E2B;
-    --nav-bg:      #1A2420;
-    --nav-fg:      #C8DCD5;
-    --nav-hover:   rgba(255,255,255,0.08);
-    --hero-bg:     #2A3E38;
-    --hero-fg:     #E8EDEA;
-    --hero-sub:    rgba(232,237,234,0.72);
-    --tag-bg:      #2A3834;
-    --tag-fg:      #8DBFB0;
-    --line:        #3A4E48;
-    --accent:      #7AADA0;
-    --expand-bg:   #1E2825;
-    --expand-border: rgba(122,173,160,0.18);
+    color-scheme: dark;
+    --bg:          #1C1810;
+    --bg-alt:      #221E14;
+    --bg-modal:    #201C12;
+    --ink:         #EDE8DF;
+    --ink-mid:     #C0B49A;
+    --ink-light:   #8A7A60;
+    --ink-faint:   #554A38;
+    --rule:        #3A3424;
+    --rule-heavy:  #EDE8DF;
+    --accent:      #C8A870;
+    --accent-lt:   #E8CC9A;
+    --tag-bg:      transparent;
+    --tag-fg:      #C8A870;
+    --tag-border:  #5A4E38;
     --modal-overlay: rgba(0,0,0,0.72);
+    --nav-bg:      #110F09;
+    --nav-fg:      #EDE8DF;
+    --nav-hover:   rgba(237,232,223,0.1);
   }
 }
 :root[data-theme="dark"] {
-  --surface:     #181C1B;
-  --card:        #222827;
-  --card-alt:    #1C2120;
-  --ink:         #E8EDEA;
-  --ink-mid:     #A0B0AA;
-  --ink-light:   #687873;
-  --border:      #303A36;
-  --border-faint:#252E2B;
-  --nav-bg:      #1A2420;
-  --nav-fg:      #C8DCD5;
-  --nav-hover:   rgba(255,255,255,0.08);
-  --hero-bg:     #2A3E38;
-  --hero-fg:     #E8EDEA;
-  --hero-sub:    rgba(232,237,234,0.72);
-  --tag-bg:      #2A3834;
-  --tag-fg:      #8DBFB0;
-  --line:        #3A4E48;
-  --accent:      #7AADA0;
-  --expand-bg:   #1E2825;
-  --expand-border: rgba(122,173,160,0.18);
+  color-scheme: dark;
+  --bg:          #1C1810;
+  --bg-alt:      #221E14;
+  --bg-modal:    #201C12;
+  --ink:         #EDE8DF;
+  --ink-mid:     #C0B49A;
+  --ink-light:   #8A7A60;
+  --ink-faint:   #554A38;
+  --rule:        #3A3424;
+  --rule-heavy:  #EDE8DF;
+  --accent:      #C8A870;
+  --accent-lt:   #E8CC9A;
+  --tag-bg:      transparent;
+  --tag-fg:      #C8A870;
+  --tag-border:  #5A4E38;
   --modal-overlay: rgba(0,0,0,0.72);
+  --nav-bg:      #110F09;
+  --nav-fg:      #EDE8DF;
+  --nav-hover:   rgba(237,232,223,0.1);
 }
 
 /* ── RESET ───────────────────────────────────────── */
@@ -91,877 +81,929 @@ html { scroll-behavior: smooth; font-size: 16px; }
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
 body {
-  font-family: 'Poppins', system-ui, sans-serif;
-  line-height: 1.65;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  background: var(--bg);
   color: var(--ink);
-  background: var(--surface);
   -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
 }
 body.modal-open { overflow: hidden; }
 img { max-width: 100%; display: block; }
 a { color: var(--accent); text-underline-offset: 3px; }
-a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
-.visually-hidden {
-  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-}
-.skip-link {
-  position: absolute; top: -100%; left: 1rem;
-  background: var(--ink); color: var(--surface);
-  padding: 0.5rem 1rem; font-size: 0.875rem; z-index: 9999; text-decoration: none;
-  border-radius: 0 0 4px 4px;
-}
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.skip-link { position: absolute; top: -100%; left: 1rem; background: var(--ink); color: var(--bg); padding: 0.5rem 1rem; z-index: 9999; text-decoration: none; }
 .skip-link:focus { top: 0; }
 
-/* ── NAV ─────────────────────────────────────────── */
+/* ── STICKY NAV ──────────────────────────────────── */
 .site-nav {
-  position: sticky; top: 0; z-index: 100;
+  position: sticky; top: 0; z-index: 200;
   background: var(--nav-bg);
-  border-bottom: 1px solid rgba(0,0,0,0.15);
+  border-bottom: 1px solid rgba(0,0,0,0.3);
 }
 .nav-inner {
   max-width: 1100px; margin-inline: auto;
-  padding-inline: 1.5rem;
+  padding-inline: 2rem;
   display: flex; align-items: center; justify-content: space-between;
-  height: 3.25rem;
+  height: 3rem;
 }
 .nav-brand {
-  font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.05rem;
-  color: var(--nav-fg); text-decoration: none; letter-spacing: 0.02em; white-space: nowrap;
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.75rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--nav-fg); text-decoration: none;
 }
 .nav-brand:hover { color: #fff; }
-.nav-links { display: flex; gap: 0.25rem; list-style: none; }
+.nav-links { display: flex; gap: 0; list-style: none; }
 .nav-links a {
-  display: block; padding: 0.35rem 0.75rem;
-  font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--nav-fg); text-decoration: none; border-radius: 3px;
-  transition: background 0.15s, color 0.15s;
+  display: block; padding: 0.35rem 0.7rem;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--nav-fg); opacity: 0.65; text-decoration: none;
+  transition: opacity 0.15s;
 }
-.nav-links a:hover, .nav-links a[aria-current="page"] { background: var(--nav-hover); color: #fff; }
+.nav-links a:hover, .nav-links a[aria-current="page"] { opacity: 1; }
 .nav-right { display: flex; align-items: center; gap: 0.5rem; }
 .theme-toggle, .nav-hamburger {
-  background: none; border: 1px solid rgba(255,255,255,0.25); color: var(--nav-fg);
-  padding: 0.35rem 0.6rem; border-radius: 3px; cursor: pointer;
-  font-size: 0.875rem; line-height: 1;
-  transition: background 0.15s, border-color 0.15s;
+  background: none; border: 1px solid rgba(255,255,255,0.2); color: var(--nav-fg);
+  padding: 0.3rem 0.55rem; cursor: pointer;
+  font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em;
+  text-transform: uppercase; line-height: 1;
+  transition: border-color 0.15s;
 }
-.theme-toggle:hover, .nav-hamburger:hover { background: var(--nav-hover); border-color: rgba(255,255,255,0.4); }
+.theme-toggle:hover, .nav-hamburger:hover { border-color: rgba(255,255,255,0.5); }
 .nav-hamburger { display: none; }
-@media (max-width: 640px) {
+@media (max-width: 680px) {
   .nav-hamburger { display: block; }
   .nav-links {
     display: none; flex-direction: column;
-    position: absolute; top: 3.25rem; left: 0; right: 0;
-    background: var(--nav-bg);
-    padding: 0.75rem 1rem 1rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    gap: 0.125rem; z-index: 99;
+    position: absolute; top: 3rem; left: 0; right: 0;
+    background: var(--nav-bg); padding: 0.5rem 1rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    gap: 0;
   }
   .nav-links.open { display: flex; }
-  .nav-links a { padding: 0.6rem 0.75rem; font-size: 0.875rem; }
+  .nav-links a { padding: 0.6rem 0.5rem; opacity: 0.8; }
 }
 
-/* ── HERO ────────────────────────────────────────── */
-.hero { background: var(--hero-bg); padding-block: 4.5rem 3.5rem; padding-inline: 1.5rem; }
-.hero-inner {
+/* ── MASTHEAD ────────────────────────────────────── */
+.masthead {
+  border-bottom: 3px solid var(--rule-heavy);
+  padding: 2rem 2rem 1.25rem;
   max-width: 1100px; margin-inline: auto;
-  display: flex; gap: 3rem; align-items: flex-start;
 }
-.avatar {
-  flex-shrink: 0; width: 140px; height: 140px; border-radius: 50%;
-  border: 3px solid rgba(255,255,255,0.45);
-  object-fit: cover; object-position: center top;
-  display: block;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+.masthead-inner {
+  display: flex; align-items: baseline; justify-content: space-between;
+  flex-wrap: wrap; gap: 0.75rem;
 }
-.hero-text { flex: 1; }
-.hero-eyebrow {
-  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--hero-sub); margin-bottom: 0.5rem;
+.masthead-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 300; letter-spacing: 0.06em;
+  line-height: 1; text-transform: uppercase;
+  color: var(--ink);
 }
-.hero h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 800; line-height: 1.1;
-  color: var(--hero-fg); text-wrap: balance; letter-spacing: -0.02em; margin-bottom: 0.5rem;
+.masthead-right {
+  display: flex; flex-direction: column; align-items: flex-end; gap: 0.3rem;
+  padding-bottom: 0.2rem;
 }
-.hero-location {
-  font-size: 0.875rem; color: var(--hero-sub); margin-bottom: 1.5rem;
-  display: flex; align-items: center; gap: 0.4rem;
+.masthead-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-mid);
 }
-.hero-bio { font-size: 1rem; line-height: 1.7; color: var(--hero-sub); max-width: 60ch; margin-bottom: 1.75rem; }
-.hero-bio p + p { margin-top: 0.75rem; }
-.hero-bio strong { color: #fff; font-weight: 600; }
-.hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-.btn {
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  padding: 0.6rem 1.25rem;
-  font-family: 'Poppins', sans-serif; font-size: 0.875rem; font-weight: 600;
-  text-decoration: none; border-radius: 3px;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
-  cursor: pointer; border: none;
+.masthead-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9375rem; font-style: italic; color: var(--ink-light);
 }
-.btn:focus-visible { outline: 2px solid rgba(255,255,255,0.6); outline-offset: 2px; }
-.btn-primary { background: rgba(255,255,255,0.95); color: var(--hero-bg); }
-.btn-primary:hover { background: #fff; }
-.btn-outline { background: transparent; border: 1.5px solid rgba(255,255,255,0.45); color: #fff; }
-.btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.7); }
+.masthead-avail {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent);
+}
 @media (max-width: 640px) {
-  .hero-inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-  .avatar { width: 100px; height: 100px; }
+  .masthead { padding-inline: 1rem; }
+  .masthead-inner { flex-direction: column; gap: 0.5rem; }
+  .masthead-right { align-items: flex-start; }
 }
 
-/* ── SECTIONS ────────────────────────────────────── */
-.section { padding-block: 4rem; padding-inline: 1.5rem; }
-.section.alt { background: var(--card-alt); }
-.section-inner { max-width: 1100px; margin-inline: auto; }
-.section-header { margin-bottom: 2.5rem; display: flex; align-items: baseline; gap: 1rem; }
-.section-eyebrow {
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
-  text-transform: uppercase; color: var(--accent);
+/* ── MASTHEAD DATELINE ───────────────────────────── */
+.dateline {
+  max-width: 1100px; margin-inline: auto;
+  padding: 0.6rem 2rem;
+  border-bottom: 1px solid var(--rule);
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
 }
-.section h2 {
-  font-family: 'Poppins', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700;
-  color: var(--ink); text-wrap: balance; letter-spacing: -0.015em;
+.dateline-text {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-faint);
 }
-.section-rule { flex: 1; height: 1px; background: var(--border); }
+@media (max-width: 640px) {
+  .dateline { padding-inline: 1rem; }
+}
 
-/* TAGS */
+/* ── BODY LAYOUT ─────────────────────────────────── */
+.page-body {
+  max-width: 1100px; margin-inline: auto;
+  padding-inline: 2rem;
+}
+@media (max-width: 640px) {
+  .page-body { padding-inline: 1rem; }
+}
+
+/* ── HERO / ABOUT ────────────────────────────────── */
+.about-section {
+  display: grid;
+  grid-template-columns: 120px 1px 1fr;
+  gap: 0 2.5rem;
+  padding-block: 2.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.about-photo-col { display: flex; flex-direction: column; align-items: center; padding-top: 0.25rem; }
+.avatar {
+  width: 108px; height: 108px; border-radius: 50%;
+  object-fit: cover; object-position: center top;
+  border: 1px solid var(--rule);
+  display: block;
+}
+.about-rule-col { background: var(--rule); }
+.about-text-col {}
+.section-mark {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-faint); margin-bottom: 0.9rem;
+}
+.bio-text {
+  font-size: 1.125rem; line-height: 1.75; color: var(--ink-mid);
+  font-style: italic; font-weight: 300; max-width: 62ch;
+}
+.bio-text strong { font-style: normal; font-weight: 600; color: var(--ink); }
+.bio-text p + p { margin-top: 0.75rem; }
+.hero-cta {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  margin-top: 1.5rem; align-items: center;
+}
+.btn-editorial {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.55rem 1.25rem;
+  text-decoration: none; cursor: pointer; border: none;
+  display: inline-block;
+  transition: background 0.15s, color 0.15s;
+}
+.btn-filled { background: var(--ink); color: var(--bg); }
+.btn-filled:hover { background: var(--accent); color: var(--bg); }
+.btn-outline { background: transparent; border: 1.5px solid var(--rule); color: var(--ink-mid); }
+.btn-outline:hover { border-color: var(--ink-mid); color: var(--ink); }
+@media (max-width: 680px) {
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 1.5rem 0;
+  }
+  .about-photo-col { align-items: flex-start; }
+  .about-rule-col { display: none; }
+}
+
+/* ── SECTION CHROME ──────────────────────────────── */
+.ed-section {
+  padding-block: 2.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.ed-section-header {
+  display: flex; align-items: baseline; gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+.ed-section-header .section-mark { margin-bottom: 0; }
+.ed-section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 300; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--ink);
+}
+.section-rule-line { flex: 1; height: 1px; background: var(--rule); }
+
+/* ── COMPETENCIES ────────────────────────────────── */
+.comp-list { display: flex; flex-direction: column; }
+.comp-item {
+  border-top: 1px solid var(--rule);
+  cursor: pointer;
+}
+.comp-item:last-child { border-bottom: 1px solid var(--rule); }
+.comp-row {
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding: 0.9rem 0; gap: 1rem;
+  user-select: none;
+}
+.comp-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.0625rem; font-weight: 500; color: var(--ink); line-height: 1.3;
+}
+.comp-preview {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.7rem; color: var(--ink-light); letter-spacing: 0.06em;
+}
+.comp-chevron {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem; color: var(--ink-faint); letter-spacing: 0.06em;
+  flex-shrink: 0; transition: color 0.15s;
+}
+.comp-item:hover .comp-chevron { color: var(--accent); }
+.comp-expand {
+  display: none;
+  padding: 0 0 1rem;
+}
+.comp-expand.open { display: block; }
 .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
 .tag {
   display: inline-block; padding: 0.2rem 0.55rem;
-  font-size: 0.75rem; font-weight: 500;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
   background: var(--tag-bg); color: var(--tag-fg);
-  border-radius: 2px; white-space: nowrap;
+  border: 1px solid var(--tag-border); border-radius: 0;
 }
 
-/* ── CLICKABLE CARDS ─────────────────────────────── */
-.card-list { display: flex; flex-direction: column; }
-
-.card-item {
-  background: var(--card);
-  border: 1px solid var(--border);
-  overflow: hidden;
+/* ── EXPERIENCE LIST ─────────────────────────────── */
+.exp-list { display: flex; flex-direction: column; }
+.exp-item {
+  border-top: 1px solid var(--rule);
   cursor: pointer;
-  transition: border-color 0.18s, box-shadow 0.18s;
-  position: relative;
+  transition: background 0.12s;
 }
-.card-item + .card-item { border-top: none; }
-.card-item:hover { border-color: var(--accent); z-index: 1; box-shadow: 0 2px 12px rgba(90,122,110,0.12); }
-.card-item:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-
-.card-row {
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 1rem; padding: 1.25rem 1.5rem;
+.exp-item:last-child { border-bottom: 1px solid var(--rule); }
+.exp-item:hover { background: var(--bg-alt); }
+.exp-row {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr auto;
+  gap: 0 1.5rem; align-items: baseline;
+  padding: 0.9rem 0;
   user-select: none;
 }
-.card-open-hint {
-  flex-shrink: 0;
-  font-size: 0.7rem; color: var(--ink-light); letter-spacing: 0.04em;
-  display: flex; align-items: center; gap: 0.4rem;
+.exp-period-col {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.68rem; color: var(--ink-faint); letter-spacing: 0.04em;
+  line-height: 1.3; padding-top: 0.15rem;
 }
-.card-open-hint::after {
-  content: '↗';
-  font-size: 0.9rem; color: var(--accent);
-}
-
-/* Dot for experience timeline */
-.exp-dot-col {
-  display: flex; flex-direction: column; align-items: center;
-  padding-block: 0.1rem;
-}
-.exp-dot {
-  width: 0.875rem; height: 0.875rem; border-radius: 50%;
-  background: var(--accent); border: 2px solid var(--card);
-  box-shadow: 0 0 0 2px var(--accent);
-  flex-shrink: 0;
-}
-.exp-current .exp-dot { background: var(--sage-deep); box-shadow: 0 0 0 2px var(--sage-deep); }
-
-.exp-summary-inner {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 0 1.25rem;
-  align-items: center;
-  width: 100%;
-}
-.exp-summary-text { min-width: 0; }
+.exp-main-col {}
 .exp-role {
-  font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1rem; color: var(--ink);
-  overflow-wrap: break-word; word-break: break-word;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.0625rem; font-weight: 500; color: var(--ink); line-height: 1.3;
 }
-.exp-meta {
-  display: flex; flex-wrap: wrap; gap: 0.3rem 0.75rem; margin-top: 0.2rem;
-  font-size: 0.8rem; color: var(--ink-mid); align-items: center;
+.exp-meta-row {
+  display: flex; flex-wrap: wrap; gap: 0.3rem 1rem;
+  margin-top: 0.15rem; align-items: baseline;
 }
-.exp-company { font-weight: 600; }
-.exp-period {
-  font-size: 0.75rem; font-weight: 500; font-variant-numeric: tabular-nums;
-  color: var(--ink-light); background: var(--tag-bg); padding: 0.1rem 0.45rem; border-radius: 2px;
+.exp-company {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em;
+  color: var(--accent);
 }
-.badge-current {
-  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
-  color: #fff; background: var(--accent); padding: 0.15rem 0.45rem; border-radius: 2px;
+.exp-location {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.875rem; font-style: italic; color: var(--ink-light);
 }
-.exp-industry { font-size: 0.75rem; color: var(--ink-light); font-style: italic; }
-
-/* Edu card */
-.edu-summary-inner {
-  display: grid; grid-template-columns: 1fr auto; gap: 0.5rem 2rem;
-  align-items: start; width: 100%;
+.exp-current-badge {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); border: 1px solid var(--accent); padding: 0.1rem 0.4rem;
 }
-.edu-degree-name {
-  font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 700; color: var(--ink);
+.exp-arrow {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem; color: var(--ink-faint); flex-shrink: 0;
+  transition: color 0.15s;
 }
-.edu-spec { font-size: 0.8rem; color: var(--ink-mid); margin-top: 0.1rem; }
-.edu-school-name { font-size: 0.85rem; font-weight: 600; color: var(--accent); margin-top: 0.2rem; }
-.edu-period-badge {
-  font-size: 0.8rem; font-weight: 600; font-variant-numeric: tabular-nums;
-  color: var(--ink-light); white-space: nowrap; text-align: right;
-}
-.edu-badge {
-  display: inline-block; margin-top: 0.4rem;
-  font-size: 0.67rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-  padding: 0.18rem 0.5rem; border-radius: 2px;
-  background: rgba(90,122,110,0.1); color: var(--accent);
-  border: 1px solid rgba(90,122,110,0.25);
+.exp-item:hover .exp-arrow { color: var(--accent); }
+@media (max-width: 680px) {
+  .exp-row { grid-template-columns: 1fr auto; }
+  .exp-period-col { display: none; }
+  .exp-meta-row { gap: 0.2rem 0.75rem; }
 }
 
-/* Proj card grid */
-.proj-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1px; background: var(--border);
-  border: 1px solid var(--border);
-}
-.proj-item {
-  background: var(--card);
-  overflow: hidden;
+/* ── EDUCATION LIST ──────────────────────────────── */
+.edu-list { display: flex; flex-direction: column; }
+.edu-item {
+  border-top: 1px solid var(--rule);
   cursor: pointer;
-  transition: background 0.15s;
+  transition: background 0.12s;
 }
-.proj-item:hover { background: var(--expand-bg); }
-.proj-item:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-.proj-item-inner { padding: 1.5rem; }
-.proj-tag {
-  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 0.4rem;
-}
-.proj-title {
-  font-family: 'Poppins', sans-serif; font-size: 0.95rem; font-weight: 700;
-  color: var(--ink); text-wrap: balance; line-height: 1.35; margin-bottom: 0.35rem;
-}
-.proj-open-hint {
-  font-size: 0.7rem; color: var(--ink-light); margin-top: 0.5rem;
-}
-
-/* Comp grid */
-.comp-grid {
+.edu-item:last-child { border-bottom: 1px solid var(--rule); }
+.edu-item:hover { background: var(--bg-alt); }
+.edu-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1px; background: var(--border);
-  border: 1px solid var(--border);
+  grid-template-columns: 7.5rem 1fr auto;
+  gap: 0 1.5rem; align-items: baseline;
+  padding: 0.9rem 0; user-select: none;
 }
-.comp-item {
-  background: var(--card);
-  overflow: hidden;
-  cursor: pointer;
-  transition: background 0.15s;
+.edu-period-col {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.68rem; color: var(--ink-faint); letter-spacing: 0.04em;
 }
-.comp-item:hover { background: var(--expand-bg); }
-.comp-item:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-.comp-item-inner { padding: 1.25rem; }
-.comp-title {
-  font-family: 'Poppins', sans-serif; font-size: 0.8rem; font-weight: 700;
-  letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent);
+.edu-degree {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.0625rem; font-weight: 500; color: var(--ink); line-height: 1.3;
 }
-.comp-preview { font-size: 0.75rem; color: var(--ink-light); margin-top: 0.25rem; }
-.comp-open-hint { font-size: 0.68rem; color: var(--ink-light); margin-top: 0.6rem; }
+.edu-spec {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9375rem; font-style: italic; color: var(--ink-light);
+  margin-top: 0.1rem;
+}
+.edu-school {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em;
+  color: var(--ink-mid); margin-top: 0.2rem;
+}
+@media (max-width: 680px) {
+  .edu-row { grid-template-columns: 1fr auto; }
+  .edu-period-col { display: none; }
+}
 
-/* ── LANGUAGES ───────────────────────────────────── */
-.lang-row {
-  display: flex; gap: 0; flex-wrap: wrap;
-  margin-top: 2rem; padding-top: 2rem;
-  border-top: 1px solid var(--border-faint);
-  align-items: center;
+/* LANGUAGES */
+.lang-strip {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  display: flex; gap: 2.5rem; flex-wrap: wrap; align-items: baseline;
 }
 .lang-label {
-  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--ink-light); margin-right: 1.5rem;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-faint);
 }
-.lang-item {
-  display: flex; align-items: baseline; gap: 0.5rem;
-  padding-right: 1.5rem; margin-right: 1.5rem;
-  border-right: 1px solid var(--border-faint);
+.lang-item { display: flex; gap: 0.6rem; align-items: baseline; }
+.lang-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 500; color: var(--ink);
 }
-.lang-item:last-child { border-right: none; }
-.lang-name { font-size: 0.925rem; font-weight: 600; color: var(--ink); }
-.lang-level { font-size: 0.78rem; color: var(--ink-light); }
+.lang-level {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem; color: var(--ink-light); letter-spacing: 0.06em;
+}
 
+/* ── PROJECTS GRID ───────────────────────────────── */
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--rule);
+}
+.proj-item {
+  padding: 1.5rem 1.25rem;
+  cursor: pointer;
+  border-right: 1px solid var(--rule);
+  transition: background 0.12s;
+}
+.proj-item:last-child { border-right: none; }
+.proj-item:hover { background: var(--bg-alt); }
+.proj-category {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.6rem;
+}
+.proj-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.125rem; font-weight: 500; line-height: 1.3; color: var(--ink);
+}
+.proj-arrow {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem; color: var(--ink-faint);
+  margin-top: 0.75rem; display: block;
+  transition: color 0.15s;
+}
+.proj-item:hover .proj-arrow { color: var(--accent); }
+@media (max-width: 680px) {
+  .proj-grid { grid-template-columns: 1fr; }
+  .proj-item { border-right: none; border-bottom: 1px solid var(--rule); }
+  .proj-item:last-child { border-bottom: none; }
+}
 
 /* ── CONTACT ─────────────────────────────────────── */
 .contact-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
 }
-.contact-intro { font-size: 1rem; color: var(--ink-mid); line-height: 1.7; max-width: 48ch; margin-bottom: 1.5rem; }
-.contact-list { list-style: none; display: flex; flex-direction: column; gap: 0.875rem; }
-.contact-item { display: flex; align-items: center; gap: 0.875rem; }
-.contact-icon {
-  width: 2rem; height: 2rem; flex-shrink: 0;
-  background: var(--sage-light); border-radius: 3px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.8rem; color: var(--sage-deep);
+.contact-intro {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.125rem; line-height: 1.75; color: var(--ink-mid);
+  font-style: italic; margin-bottom: 1.5rem;
 }
-.contact-detail { display: flex; flex-direction: column; }
-.contact-label {
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--ink-light);
+.contact-list { list-style: none; display: flex; flex-direction: column; }
+.contact-row {
+  display: flex; align-items: baseline; gap: 1.25rem;
+  border-top: 1px solid var(--rule); padding: 0.7rem 0;
 }
-.contact-value { font-size: 0.9rem; color: var(--ink); font-weight: 500; }
-.contact-value a { color: var(--ink); text-decoration: none; }
-.contact-value a:hover { color: var(--accent); text-decoration: underline; }
-.contact-card {
-  padding: 1.25rem 1.5rem; background: var(--card); border: 1px solid var(--border);
+.contact-list li:last-child .contact-row { border-bottom: 1px solid var(--rule); }
+.contact-label-text {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-faint); width: 5rem; flex-shrink: 0;
+}
+.contact-value-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; color: var(--ink-mid);
+}
+.contact-value-text a { color: var(--ink-mid); text-decoration: none; }
+.contact-value-text a:hover { color: var(--accent); text-decoration: underline; }
+.copy-btn {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  background: none; border: 1px solid var(--rule); color: var(--ink-faint);
+  padding: 0.15rem 0.4rem; cursor: pointer; margin-left: 0.5rem;
+  transition: border-color 0.15s, color 0.15s;
+}
+.copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+.contact-aside {}
+.contact-aside-block {
+  border: 1px solid var(--rule);
+  padding: 1.25rem 1.5rem;
   margin-bottom: 1rem;
 }
-.contact-card + .contact-card { border-top: none; }
-.contact-card-label {
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 0.4rem;
+.contact-aside-block + .contact-aside-block { margin-top: 1rem; }
+.contact-aside-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.6rem;
 }
-.contact-card p { font-size: 0.875rem; color: var(--ink-mid); line-height: 1.6; }
-.contact-card.accent-left { border-left: 3px solid var(--accent); }
-@media (max-width: 720px) { .contact-grid { grid-template-columns: 1fr; gap: 2rem; } }
+.contact-aside-body {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; line-height: 1.65; color: var(--ink-mid);
+}
+@media (max-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
 
 /* ── FOOTER ──────────────────────────────────────── */
 .site-footer {
-  background: var(--nav-bg); color: var(--nav-fg);
-  padding-block: 2rem; padding-inline: 1.5rem;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 3px solid var(--rule-heavy);
+  padding: 1.5rem 2rem;
 }
 .footer-inner {
   max-width: 1100px; margin-inline: auto;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 1rem; flex-wrap: wrap;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;
 }
 .footer-brand {
-  font-family: 'Poppins', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--nav-fg);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--ink);
 }
-.footer-links { display: flex; gap: 1.25rem; list-style: none; }
-.footer-links a { font-size: 0.8rem; color: rgba(202,220,215,0.75); text-decoration: none; }
-.footer-links a:hover { color: #fff; }
-.footer-copy { font-size: 0.78rem; color: rgba(202,220,215,0.45); }
+.footer-links { list-style: none; display: flex; gap: 1.5rem; }
+.footer-links a {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-light); text-decoration: none; transition: color 0.15s;
+}
+.footer-links a:hover { color: var(--ink); }
+.footer-copy {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem; letter-spacing: 0.08em;
+  color: var(--ink-faint);
+}
+@media (max-width: 640px) {
+  .footer-links { display: none; }
+  .site-footer { padding-inline: 1rem; }
+}
 
-/* ── MODAL OVERLAY ───────────────────────────────── */
+/* ── MODALS ──────────────────────────────────────── */
 .modal-backdrop {
-  display: none;
-  position: fixed; inset: 0; z-index: 200;
+  display: none; position: fixed; inset: 0; z-index: 500;
   background: var(--modal-overlay);
-  overflow-y: auto;
-  padding: 2rem 1rem;
-  align-items: flex-start;
-  justify-content: center;
+  align-items: center; justify-content: center;
+  padding: 1.5rem;
 }
 .modal-backdrop.active { display: flex; }
-
 .modal-panel {
+  background: var(--bg-modal);
+  border: 1px solid var(--rule);
+  max-width: 680px; width: 100%;
+  max-height: 90vh; overflow-y: auto;
   position: relative;
-  background: var(--card);
-  width: 100%; max-width: 760px;
-  border-radius: 4px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-  margin: auto;
-  animation: modalIn 0.2s ease;
 }
-@keyframes modalIn {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
 .modal-header {
-  padding: 1.75rem 2rem 1.25rem;
-  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 1.75rem 1.25rem;
+  border-bottom: 1px solid var(--rule);
   position: relative;
 }
 .modal-close {
-  position: absolute; top: 1.25rem; right: 1.25rem;
-  width: 2rem; height: 2rem;
-  background: var(--tag-bg); border: none; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1rem; color: var(--ink-mid);
-  cursor: pointer; transition: background 0.15s, color 0.15s;
-  line-height: 1;
+  position: absolute; top: 1rem; right: 1rem;
+  background: none; border: 1px solid var(--rule); color: var(--ink-light);
+  width: 1.75rem; height: 1.75rem; cursor: pointer;
+  font-size: 0.75rem; display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.12s, color 0.12s;
 }
-.modal-close:hover { background: var(--accent); color: #fff; }
-.modal-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-
-.modal-body { padding: 1.5rem 2rem 2rem; }
-
-/* Modal content styles */
-.modal-role {
-  font-family: 'Poppins', sans-serif; font-size: 1.35rem; font-weight: 700;
-  color: var(--ink); margin-bottom: 0.35rem; padding-right: 2.5rem;
+.modal-close:hover { border-color: var(--ink); color: var(--ink); }
+.modal-category {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.5rem;
 }
-.modal-company { font-size: 1rem; font-weight: 600; color: var(--accent); margin-bottom: 0.2rem; }
-.modal-meta {
-  display: flex; flex-wrap: wrap; gap: 0.3rem 0.75rem;
-  font-size: 0.8rem; color: var(--ink-mid); align-items: center; margin-bottom: 1.25rem;
+.modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.375rem; font-weight: 500; line-height: 1.25; color: var(--ink);
+  padding-right: 2rem;
 }
-.modal-period {
-  font-size: 0.75rem; font-weight: 500; font-variant-numeric: tabular-nums;
-  color: var(--ink-light); background: var(--tag-bg); padding: 0.1rem 0.45rem; border-radius: 2px;
+.modal-company-text {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em;
+  color: var(--accent); margin-top: 0.4rem;
+}
+.modal-meta-row {
+  display: flex; flex-wrap: wrap; gap: 0.4rem 1rem;
+  margin-top: 0.4rem; align-items: center;
+}
+.modal-meta-row span {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.68rem; color: var(--ink-light); letter-spacing: 0.04em;
+}
+.modal-period-text {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.68rem; color: var(--ink-faint); letter-spacing: 0.04em;
+}
+.badge-current {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); border: 1px solid var(--accent); padding: 0.1rem 0.4rem;
+}
+.badge-done {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-light); border: 1px solid var(--rule); padding: 0.1rem 0.4rem;
+}
+.modal-body {
+  padding: 1.5rem 1.75rem;
 }
 .modal-overview {
-  font-size: 0.9rem; color: var(--ink-mid); line-height: 1.7;
-  padding: 1rem 1.25rem; background: var(--expand-bg);
-  border-left: 3px solid var(--accent); margin-bottom: 1.5rem;
-  border-radius: 0 2px 2px 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; line-height: 1.75; color: var(--ink-mid);
+  font-style: italic; margin-bottom: 1.25rem;
 }
-.modal-section-title {
-  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 0.6rem; margin-top: 1.25rem;
+.modal-sub {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-faint); margin-top: 1.25rem; margin-bottom: 0.6rem;
 }
-.modal-points { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.modal-points { list-style: none; display: flex; flex-direction: column; }
 .modal-points li {
-  padding-left: 1.25rem; position: relative;
-  font-size: 0.875rem; line-height: 1.65; color: var(--ink);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9375rem; line-height: 1.7; color: var(--ink-mid);
+  padding: 0.4rem 0; border-top: 1px solid var(--rule);
+  padding-left: 1rem; position: relative;
 }
-.modal-points li::before { content: '›'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
-.modal-tags-row { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border-faint); }
+.modal-points li::before { content: '—'; position: absolute; left: 0; color: var(--ink-faint); }
+.modal-tags-group { margin-top: 1.5rem; }
 .modal-tags-label {
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
-  color: var(--ink-light); margin-bottom: 0.5rem;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-faint); margin-bottom: 0.6rem;
 }
-
-/* Edu modal */
-.modal-degree { font-family: 'Poppins', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--ink); padding-right: 2.5rem; }
-.modal-spec-text { font-size: 0.85rem; color: var(--ink-mid); margin-top: 0.2rem; }
-
-@media (max-width: 600px) {
-  .modal-header { padding: 1.25rem 1.25rem 1rem; }
-  .modal-body { padding: 1.25rem 1.25rem 1.5rem; }
-  .modal-role { font-size: 1.1rem; }
-}
-
-@media print {
-  .site-nav, .hero-actions, .site-footer, .modal-backdrop,  .section { padding-block: 1.5rem; }
-}
-
-/* ── MOBILE & TABLET RESPONSIVE ─────────────────── */
-
-/* Touch targets: ensure all interactive elements are ≥44px */
-.card-item, .proj-item, .comp-item {
-  -webkit-tap-highlight-color: transparent;
-}
-.card-row { min-height: 44px; }
-.modal-close { min-width: 44px; min-height: 44px; }
-
-/* Tablet (≤900px) */
-@media (max-width: 900px) {
-  .proj-grid { grid-template-columns: 1fr 1fr; }
-  .comp-grid { grid-template-columns: 1fr 1fr; }
-}
-
-/* Mobile landscape + large phones (≤768px) */
-@media (max-width: 768px) {
-  .hero { padding-block: 3rem 2.5rem; padding-inline: 1.25rem; }
-  .hero-inner { gap: 1.5rem; align-items: center; }
-  .hero h1 { font-size: clamp(1.75rem, 7vw, 2.5rem); }
-  .hero-bio { font-size: 0.9375rem; }
-
-  .section { padding-block: 3rem; padding-inline: 1.25rem; }
-  .section-inner { padding-inline: 0; }
-
-  .exp-summary-inner {
-    grid-template-columns: auto 1fr;
-    gap: 0 0.875rem;
-  }
-  .exp-period { display: none; }  /* period shown in modal; avoid overflow */
-  .card-row { padding: 1rem 1.25rem; gap: 0.75rem; }
-
-  .edu-summary-inner { grid-template-columns: 1fr; gap: 0.25rem; }
-  .edu-period-badge { text-align: left; }
-
-  .proj-grid { grid-template-columns: 1fr; }
-  .comp-grid { grid-template-columns: 1fr; }
-
-  .lang-row { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
-  .lang-item { border-right: none; padding-right: 0; margin-right: 0; }
-
-  .modal-header { padding: 1.25rem 1.25rem 1rem; }
-  .modal-body { padding: 1.25rem 1.25rem 1.75rem; }
-  .modal-close { top: 0.875rem; right: 0.875rem; }
-  .modal-backdrop { padding: 0.75rem 0.5rem; }
-  .footer-inner { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
-  .footer-links { flex-wrap: wrap; gap: 0.75rem; }
-}
-
-/* Small phones (≤480px) */
-@media (max-width: 480px) {
-  .hero { padding-block: 2.5rem 2rem; padding-inline: 1rem; }
-  .hero-inner { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
-  .hero h1 { font-size: clamp(1.6rem, 8vw, 2.25rem); }
-  .hero-bio { font-size: 0.9rem; max-width: 100%; }
-
-  .section { padding-block: 2.5rem; padding-inline: 1rem; }
-  .section h2 { font-size: 1.4rem; }
-  .section-header { flex-wrap: wrap; gap: 0.5rem; }
-  .section-rule { display: none; }
-
-  .card-row { padding: 0.875rem 1rem; }
-  .card-open-hint { display: none; }
-
-  .exp-summary-inner { grid-template-columns: auto 1fr; gap: 0 0.75rem; }
-  .exp-dot-col { display: none; }
-  .exp-meta { gap: 0.2rem 0.5rem; font-size: 0.75rem; }
-
-  .proj-item-inner { padding: 1.125rem 1rem; }
-  .comp-item-inner { padding: 1rem; }
-
-  .contact-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-
-  .modal-panel { border-radius: 2px; }
-  .modal-header { padding: 1rem 1rem 0.875rem; }
-  .modal-body { padding: 1rem 1rem 1.5rem; }
-  .site-footer { padding-inline: 1rem; }
-  .footer-links { gap: 0.6rem 1rem; }
-  .footer-copy { font-size: 0.72rem; }
-}
-
-/* Very small phones (≤360px) */
-@media (max-width: 360px) {
-  .hero { padding-inline: 0.875rem; }
-  .section { padding-inline: 0.875rem; }
-  .card-row { padding: 0.75rem 0.875rem; }
-  .avatar { width: 80px; height: 80px; }
-  .nav-inner { padding-inline: 1rem; }
-  .modal-header, .modal-body { padding-inline: 0.875rem; }
-}
-
 </style>
 
-<a href="#main" class="skip-link">Skip to main content</a>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<!-- NAV -->
-<nav class="site-nav" aria-label="Main navigation">
+<nav class="site-nav" aria-label="Site navigation">
   <div class="nav-inner">
-    <a href="#top" class="nav-brand">Bijneshwor Shrestha</a>
+    <a class="nav-brand" href="#top">B. Shrestha</a>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="#about">About</a></li>
+      <li><a href="#competencies">Competencies</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
     <div class="nav-right">
-      <ul class="nav-links" id="nav-menu" role="list">
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="theme-toggle" id="theme-btn" aria-label="Toggle colour theme">◑</button>
-      <button class="nav-hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-menu">☰</button>
+      <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme">Light/Dark</button>
+      <button class="nav-hamburger" id="hamburger" aria-expanded="false" aria-label="Menu">☰</button>
     </div>
   </div>
 </nav>
 
 <main id="main">
 
-<!-- HERO -->
-<header class="hero" id="about" tabindex="-1">
-  <div class="hero-inner">
-    <img class="avatar" src="data:image/jpeg;base64,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" alt="Bijneshwor Shrestha">
-    <div class="hero-text">
-      <p class="hero-eyebrow">Operations &amp; Coordination Professional</p>
-      <h1>Bijneshwor&nbsp;Shrestha</h1>
-      <p class="hero-location">
-        <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0a6 6 0 0 1 6 6c0 4-6 10-6 10S2 10 2 6a6 6 0 0 1 6-6zm0 2a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm0 1.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5z"/></svg>
-        Berlin, Germany
-      </p>
-      <div class="hero-bio">
-        <p>I specialise in structured <strong>operational coordination</strong>, <strong>stakeholder alignment</strong>, and <strong>workflow execution</strong> within <strong>B2B, B2C</strong> and <strong>cross-functional environments</strong>.</p>
-        <p>I focus on translating business requirements into clear <strong>operational frameworks</strong> and bridging teams through <strong>clear requirements</strong>, <strong>operational accountability</strong>, and stable <strong>execution frameworks</strong>, enabling organisations to maintain alignment, reduce <strong>operational ambiguity</strong>, and ensure <strong>consistent delivery</strong> across complex initiatives.</p>
-      </div>
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">Get in touch</a>
-        <a href="#experience" class="btn btn-outline">View experience</a>
+<!-- ── MASTHEAD ──────────────────────────────────── -->
+<div id="top" style="max-width:1100px;margin-inline:auto;">
+  <div class="masthead">
+    <div class="masthead-inner">
+      <div class="masthead-name">Bijneshwor Shrestha</div>
+      <div class="masthead-right">
+        <span class="masthead-title">Operations &amp; Programme Coordination</span>
+        <span class="masthead-sub">MBA · B.Sc. Computer Science</span>
+        <span class="masthead-avail">● Available · Berlin</span>
       </div>
     </div>
   </div>
-</header>
+  <div class="dateline">
+    <span class="dateline-text">Portfolio · 2026</span>
+    <span class="dateline-text">Berlin, Germany</span>
+  </div>
+</div>
 
-<!-- COMPETENCIES -->
-<section class="section alt" aria-labelledby="comp-heading">
-  <div class="section-inner">
-    <div class="section-header">
-      <p class="section-eyebrow" aria-hidden="true">Capabilities</p>
-      <h2 id="comp-heading">Core Competencies</h2>
-      <span class="section-rule" aria-hidden="true"></span>
+<!-- ── ABOUT ─────────────────────────────────────── -->
+<div class="page-body">
+
+<section id="about" aria-labelledby="about-heading">
+  <h2 id="about-heading" class="visually-hidden">About</h2>
+  <div class="about-section">
+    <div class="about-photo-col">
+      <img class="avatar" src="data:image/jpeg;base64,data:image/jpeg;base64,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" alt="Portrait of Bijneshwor Shrestha" width="108" height="108">
     </div>
-    <div class="comp-grid">
-      <div class="comp-item" tabindex="0" role="button" aria-label="IT & Technical Coordination — click to expand" onclick="openModal('modal-comp-1')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-comp-1')">
-        <div class="comp-item-inner">
+    <div class="about-rule-col" aria-hidden="true"></div>
+    <div class="about-text-col">
+      <p class="section-mark">Profile</p>
+      <div class="bio-text">
+        <p>I translate business requirements into <strong>operational clarity</strong> — coordinating across teams, building the tracking systems that keep delivery on schedule, and maintaining accountability from brief to completion.</p>
+        <p>MBA graduate in <strong>Project Management</strong>, with a background in Computer Science and hands-on experience spanning media operations, B2B technology services, and retail. Equally at home managing multi-team programme logistics and structuring the documentation that makes decisions auditable.</p>
+        <p><strong>Open to roles</strong> in operations coordination, programme management, and IT operations support. Available on-site, hybrid, or remote in Berlin.</p>
+      </div>
+      <div class="hero-cta">
+        <a class="btn-editorial btn-filled" href="mailto:bijneshworshrestha@gmail.com">Get in touch</a>
+        <a class="btn-editorial btn-outline" href="https://linkedin.com/in/bijneshworshrestha" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPETENCIES ───────────────────────────────── -->
+<section id="competencies" class="ed-section" aria-labelledby="comp-heading">
+  <div class="ed-section-header">
+    <p class="section-mark">Areas</p>
+    <h2 id="comp-heading" class="ed-section-title">Competencies</h2>
+    <span class="section-rule-line" aria-hidden="true"></span>
+  </div>
+  <div class="comp-list">
+
+    <div class="comp-item" tabindex="0" role="button" aria-expanded="false" aria-controls="comp-expand-1" onclick="toggleComp(this,'comp-expand-1')" onkeydown="if(event.key==='Enter'||event.key===' ')toggleComp(this,'comp-expand-1')">
+      <div class="comp-row">
+        <div>
           <p class="comp-title">IT &amp; Technical Coordination</p>
-          <p class="comp-preview">Requirement translation · ticket structuring · cross-team delivery</p>
-          <p class="comp-open-hint">Click to expand ↗</p>
+          <p class="comp-preview">Requirement translation · technical tickets · API-aware communication</p>
+        </div>
+        <span class="comp-chevron" aria-hidden="true">+ Expand</span>
+      </div>
+      <div class="comp-expand" id="comp-expand-1">
+        <div class="tags">
+          <span class="tag">Business Requirement Translation</span>
+          <span class="tag">Technical Ticket Structuring</span>
+          <span class="tag">API-Aware Communication</span>
+          <span class="tag">System Workflow Documentation</span>
+          <span class="tag">Cross-Team Delivery Coordination</span>
         </div>
       </div>
-      <div class="comp-item" tabindex="0" role="button" aria-label="Operations & Programme Management — click to expand" onclick="openModal('modal-comp-2')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-comp-2')">
-        <div class="comp-item-inner">
+    </div>
+
+    <div class="comp-item" tabindex="0" role="button" aria-expanded="false" aria-controls="comp-expand-2" onclick="toggleComp(this,'comp-expand-2')" onkeydown="if(event.key==='Enter'||event.key===' ')toggleComp(this,'comp-expand-2')">
+      <div class="comp-row">
+        <div>
           <p class="comp-title">Operations &amp; Programme Management</p>
           <p class="comp-preview">Tracking systems · KPI dashboards · escalation handling</p>
-          <p class="comp-open-hint">Click to expand ↗</p>
+        </div>
+        <span class="comp-chevron" aria-hidden="true">+ Expand</span>
+      </div>
+      <div class="comp-expand" id="comp-expand-2">
+        <div class="tags">
+          <span class="tag">Operational Tracking Systems</span>
+          <span class="tag">KPI Dashboards &amp; Reporting</span>
+          <span class="tag">Workflow Design</span>
+          <span class="tag">Escalation Handling</span>
+          <span class="tag">Delivery Milestone Monitoring</span>
         </div>
       </div>
-      <div class="comp-item" tabindex="0" role="button" aria-label="Systems & Tools — click to expand" onclick="openModal('modal-comp-3')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-comp-3')">
-        <div class="comp-item-inner">
+    </div>
+
+    <div class="comp-item" tabindex="0" role="button" aria-expanded="false" aria-controls="comp-expand-3" onclick="toggleComp(this,'comp-expand-3')" onkeydown="if(event.key==='Enter'||event.key===' ')toggleComp(this,'comp-expand-3')">
+      <div class="comp-row">
+        <div>
           <p class="comp-title">Systems &amp; Tools</p>
           <p class="comp-preview">Zoho CRM · Google Workspace · Sheets dashboards</p>
-          <p class="comp-open-hint">Click to expand ↗</p>
+        </div>
+        <span class="comp-chevron" aria-hidden="true">+ Expand</span>
+      </div>
+      <div class="comp-expand" id="comp-expand-3">
+        <div class="tags">
+          <span class="tag">Zoho CRM</span>
+          <span class="tag">Google Workspace</span>
+          <span class="tag">Google Sheets Dashboards</span>
+          <span class="tag">Documentation Systems</span>
+          <span class="tag">Performance Reporting</span>
+          <span class="tag">POS Transaction Systems</span>
         </div>
       </div>
-      <div class="comp-item" tabindex="0" role="button" aria-label="Stakeholder & Client Operations — click to expand" onclick="openModal('modal-comp-4')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-comp-4')">
-        <div class="comp-item-inner">
+    </div>
+
+    <div class="comp-item" tabindex="0" role="button" aria-expanded="false" aria-controls="comp-expand-4" onclick="toggleComp(this,'comp-expand-4')" onkeydown="if(event.key==='Enter'||event.key===' ')toggleComp(this,'comp-expand-4')">
+      <div class="comp-row">
+        <div>
           <p class="comp-title">Stakeholder &amp; Client Operations</p>
           <p class="comp-preview">B2B communication · requirement gathering · scope alignment</p>
-          <p class="comp-open-hint">Click to expand ↗</p>
         </div>
+        <span class="comp-chevron" aria-hidden="true">+ Expand</span>
+      </div>
+      <div class="comp-expand" id="comp-expand-4">
+        <div class="tags">
+          <span class="tag">B2B Stakeholder Communication</span>
+          <span class="tag">Requirement Gathering</span>
+          <span class="tag">Scope Alignment</span>
+          <span class="tag">Client Onboarding Coordination</span>
+          <span class="tag">Executive Reporting</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ─────────────────────────────────── -->
+<section id="experience" class="ed-section" aria-labelledby="exp-heading">
+  <div class="ed-section-header">
+    <p class="section-mark">Career</p>
+    <h2 id="exp-heading" class="ed-section-title">Professional Experience</h2>
+    <span class="section-rule-line" aria-hidden="true"></span>
+  </div>
+  <div class="exp-list">
+
+    <div class="exp-item" tabindex="0" role="button" aria-label="Customer Support &amp; Sales Operations Associate at Muddastadt GmbH" onclick="openModal('modal-exp-1')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-1')">
+      <div class="exp-row">
+        <div class="exp-period-col">Dec 2024<br>Present</div>
+        <div class="exp-main-col">
+          <p class="exp-role">Customer Support &amp; Sales Operations Associate</p>
+          <div class="exp-meta-row">
+            <span class="exp-company">Muddastadt GmbH</span>
+            <span class="exp-location">Berlin, Germany</span>
+            <span class="exp-current-badge">Current</span>
+          </div>
+        </div>
+        <span class="exp-arrow" aria-hidden="true">↗</span>
+      </div>
+    </div>
+
+    <div class="exp-item" tabindex="0" role="button" aria-label="Programme Coordinator at Nepal Republic Media" onclick="openModal('modal-exp-2')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-2')">
+      <div class="exp-row">
+        <div class="exp-period-col">Jul 2021<br>Jan 2023</div>
+        <div class="exp-main-col">
+          <p class="exp-role">Programme Coordinator</p>
+          <div class="exp-meta-row">
+            <span class="exp-company">Nepal Republic Media Ltd.</span>
+            <span class="exp-location">Kathmandu, Nepal</span>
+          </div>
+        </div>
+        <span class="exp-arrow" aria-hidden="true">↗</span>
+      </div>
+    </div>
+
+    <div class="exp-item" tabindex="0" role="button" aria-label="Marketing Operations Associate at Eydean Inc." onclick="openModal('modal-exp-3')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-3')">
+      <div class="exp-row">
+        <div class="exp-period-col">Jul 2019<br>Jun 2021</div>
+        <div class="exp-main-col">
+          <p class="exp-role">Marketing Operations Associate</p>
+          <div class="exp-meta-row">
+            <span class="exp-company">Eydean Inc. Pvt. Ltd.</span>
+            <span class="exp-location">Kathmandu, Nepal</span>
+          </div>
+        </div>
+        <span class="exp-arrow" aria-hidden="true">↗</span>
+      </div>
+    </div>
+
+    <div class="exp-item" tabindex="0" role="button" aria-label="Data Entry Specialist at Cloudfactory" onclick="openModal('modal-exp-4')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-4')">
+      <div class="exp-row">
+        <div class="exp-period-col">Feb 2018<br>Oct 2018</div>
+        <div class="exp-main-col">
+          <p class="exp-role">Data Entry Specialist</p>
+          <div class="exp-meta-row">
+            <span class="exp-company">Cloudfactory Ltd</span>
+            <span class="exp-location">Kathmandu, Nepal</span>
+          </div>
+        </div>
+        <span class="exp-arrow" aria-hidden="true">↗</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── EDUCATION ──────────────────────────────────── -->
+<section id="education" class="ed-section" aria-labelledby="edu-heading">
+  <div class="ed-section-header">
+    <p class="section-mark">Background</p>
+    <h2 id="edu-heading" class="ed-section-title">Education</h2>
+    <span class="section-rule-line" aria-hidden="true"></span>
+  </div>
+  <div class="edu-list">
+
+    <div class="edu-item" tabindex="0" role="button" aria-label="Global MBA in Project Management" onclick="openModal('modal-edu-1')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-edu-1')">
+      <div class="edu-row">
+        <div class="edu-period-col">2023 – 2024</div>
+        <div>
+          <p class="edu-degree">Global MBA — Project Management</p>
+          <p class="edu-spec">Specialisation: Project Management</p>
+          <p class="edu-school">University for the Creative Arts (UCA) · Berlin School of Business &amp; Innovation</p>
+        </div>
+        <span class="exp-arrow" aria-hidden="true">↗</span>
+      </div>
+    </div>
+
+    <div class="edu-item" tabindex="0" role="button" aria-label="BSc Computer Science and IT" onclick="openModal('modal-edu-2')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-edu-2')">
+      <div class="edu-row">
+        <div class="edu-period-col">2013 – 2017</div>
+        <div>
+          <p class="edu-degree">B.Sc. Computer Science &amp; Information Technology</p>
+          <p class="edu-school">Tribhuvan University · St. Xavier's College, Kathmandu</p>
+        </div>
+        <span class="exp-arrow" aria-hidden="true">↗</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="lang-strip" aria-label="Languages">
+    <span class="lang-label">Languages</span>
+    <div class="lang-item">
+      <span class="lang-name">English</span>
+      <span class="lang-level">C1 — Advanced</span>
+    </div>
+    <div class="lang-item">
+      <span class="lang-name">Nepali</span>
+      <span class="lang-level">Native</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ───────────────────────────────────── -->
+<section id="projects" class="ed-section" aria-labelledby="proj-heading">
+  <div class="ed-section-header">
+    <p class="section-mark">Work</p>
+    <h2 id="proj-heading" class="ed-section-title">Projects</h2>
+    <span class="section-rule-line" aria-hidden="true"></span>
+  </div>
+  <div class="proj-grid">
+
+    <div class="proj-item" tabindex="0" role="button" aria-label="Media Programme Tracking System" onclick="openModal('modal-proj-1')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-proj-1')">
+      <p class="proj-category">Operations Design</p>
+      <p class="proj-title">Media Programme Tracking System</p>
+      <span class="proj-arrow">View ↗</span>
+    </div>
+
+    <div class="proj-item" tabindex="0" role="button" aria-label="Client Request Standardisation" onclick="openModal('modal-proj-2')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-proj-2')">
+      <p class="proj-category">Process Improvement</p>
+      <p class="proj-title">Client Request Standardisation</p>
+      <span class="proj-arrow">View ↗</span>
+    </div>
+
+    <div class="proj-item" tabindex="0" role="button" aria-label="Post-COVID Programme Continuity" onclick="openModal('modal-proj-3')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-proj-3')">
+      <p class="proj-category">Programme Operations</p>
+      <p class="proj-title">Post-COVID Programme Continuity</p>
+      <span class="proj-arrow">View ↗</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CONTACT ────────────────────────────────────── -->
+<section id="contact" class="ed-section" aria-labelledby="contact-heading">
+  <div class="ed-section-header">
+    <p class="section-mark">Reach out</p>
+    <h2 id="contact-heading" class="ed-section-title">Contact</h2>
+    <span class="section-rule-line" aria-hidden="true"></span>
+  </div>
+  <div class="contact-grid">
+    <div>
+      <p class="contact-intro">Open to roles in operations coordination, programme management, and IT operations support. Based in Berlin — available for on-site, hybrid, or remote positions.</p>
+      <ul class="contact-list" aria-label="Contact details">
+        <li>
+          <div class="contact-row">
+            <span class="contact-label-text">Email</span>
+            <span class="contact-value-text"><a href="mailto:bijneshworshrestha@gmail.com">Send an email →</a></span>
+          </div>
+        </li>
+        <li>
+          <div class="contact-row">
+            <span class="contact-label-text">Phone</span>
+            <span class="contact-value-text"><a href="tel:+491792588982">Call or message →</a></span>
+          </div>
+        </li>
+        <li>
+          <div class="contact-row">
+            <span class="contact-label-text">LinkedIn</span>
+            <span class="contact-value-text"><a href="https://linkedin.com/in/bijneshworshrestha" target="_blank" rel="noopener">View profile →</a></span>
+          </div>
+        </li>
+        <li>
+          <div class="contact-row">
+            <span class="contact-label-text">Location</span>
+            <span class="contact-value-text">Berlin, Germany</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="contact-aside">
+      <div class="contact-aside-block">
+        <p class="contact-aside-label">Availability</p>
+        <p class="contact-aside-body">Currently open to new opportunities in operations, coordination, or programme support roles in Berlin. References available upon request.</p>
+      </div>
+      <div class="contact-aside-block">
+        <p class="contact-aside-label" style="color:var(--ink-light);">Background in brief</p>
+        <p class="contact-aside-body">MBA graduate (Project Management, BSBI/UCA) with a B.Sc. in Computer Science. Experienced working across media, technology, and retail — equally comfortable in fast-paced operational environments and structured coordination roles.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section class="section" id="experience" aria-labelledby="exp-heading">
-  <div class="section-inner">
-    <div class="section-header">
-      <p class="section-eyebrow" aria-hidden="true">Career</p>
-      <h2 id="exp-heading">Professional Experience</h2>
-      <span class="section-rule" aria-hidden="true"></span>
-    </div>
-    <p style="font-size:0.8rem;color:var(--ink-light);margin-bottom:1.5rem;letter-spacing:0.02em;">Click any role to view full details</p>
-    <div class="card-list">
-
-      <!-- Role 1: Muddastadt -->
-      <div class="card-item exp-current" tabindex="0" role="button" aria-label="Customer Support & Sales Operations Associate at Muddastadt GmbH — click to view" onclick="openModal('modal-exp-1')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-1')">
-        <div class="card-row">
-          <div class="exp-summary-inner">
-            <div class="exp-dot-col" aria-hidden="true"><div class="exp-dot"></div></div>
-            <div class="exp-summary-text">
-              <p class="exp-role">Customer Support &amp; Sales Operations Associate</p>
-              <div class="exp-meta">
-                <span class="exp-company">Muddastadt GmbH</span>
-                <span>Berlin, Germany</span>
-                <span class="exp-period">Dec 2024 – Present</span>
-                <span class="badge-current">Current</span>
-              </div>
-            </div>
-            <div class="card-open-hint">View details</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Role 2: Nepal Republic Media -->
-      <div class="card-item" tabindex="0" role="button" aria-label="Programme Coordinator at Nepal Republic Media — click to view" onclick="openModal('modal-exp-2')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-2')">
-        <div class="card-row">
-          <div class="exp-summary-inner">
-            <div class="exp-dot-col" aria-hidden="true"><div class="exp-dot"></div></div>
-            <div class="exp-summary-text">
-              <p class="exp-role">Programme Coordinator</p>
-              <div class="exp-meta">
-                <span class="exp-company">Nepal Republic Media Ltd.</span>
-                <span>Kathmandu, Nepal</span>
-                <span class="exp-period">Jul 2021 – Jan 2023</span>
-              </div>
-            </div>
-            <div class="card-open-hint">View details</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Role 3: Eydean -->
-      <div class="card-item" tabindex="0" role="button" aria-label="Marketing Operations Associate at Eydean — click to view" onclick="openModal('modal-exp-3')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-3')">
-        <div class="card-row">
-          <div class="exp-summary-inner">
-            <div class="exp-dot-col" aria-hidden="true"><div class="exp-dot"></div></div>
-            <div class="exp-summary-text">
-              <p class="exp-role">Marketing Operations Associate</p>
-              <div class="exp-meta">
-                <span class="exp-company">Eydean Inc. Pvt. Ltd.</span>
-                <span>Kathmandu, Nepal</span>
-                <span class="exp-period">Jul 2019 – Jun 2021</span>
-              </div>
-            </div>
-            <div class="card-open-hint">View details</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Role 4: Cloudfactory -->
-      <div class="card-item" tabindex="0" role="button" aria-label="Data Entry Specialist at Cloudfactory — click to view" onclick="openModal('modal-exp-4')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-4')">
-        <div class="card-row">
-          <div class="exp-summary-inner">
-            <div class="exp-dot-col" aria-hidden="true"><div class="exp-dot"></div></div>
-            <div class="exp-summary-text">
-              <p class="exp-role">Data Entry Specialist</p>
-              <div class="exp-meta">
-                <span class="exp-company">Cloudfactory Ltd</span>
-                <span>Kathmandu, Nepal</span>
-                <span class="exp-period">Feb 2018 – Oct 2018</span>
-              </div>
-            </div>
-            <div class="card-open-hint">View details</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section class="section alt" id="education" aria-labelledby="edu-heading">
-  <div class="section-inner">
-    <div class="section-header">
-      <p class="section-eyebrow" aria-hidden="true">Background</p>
-      <h2 id="edu-heading">Education</h2>
-      <span class="section-rule" aria-hidden="true"></span>
-    </div>
-    <div class="card-list">
-
-      <div class="card-item" tabindex="0" role="button" aria-label="MBA — click to view" onclick="openModal('modal-edu-1')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-edu-1')">
-        <div class="card-row">
-          <div class="edu-summary-inner">
-            <div>
-              <p class="edu-degree-name">Global Master's in Business Administration (MBA)</p>
-              <p class="edu-spec">Specialisation: Project Management</p>
-              <p class="edu-school-name">University for the Creative Arts (UCA) · Berlin School of Business &amp; Innovation</p>
-            </div>
-            <div style="text-align:right;flex-shrink:0;">
-              <p class="edu-period-badge">2023 – 2024</p>
-              <span class="edu-badge">Completed</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-item" tabindex="0" role="button" aria-label="BSc Computer Science — click to view" onclick="openModal('modal-edu-2')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-edu-2')">
-        <div class="card-row">
-          <div class="edu-summary-inner">
-            <div>
-              <p class="edu-degree-name">B.Sc. in Computer Science and Information Technology</p>
-              <p class="edu-school-name">Tribhuvan University · St. Xavier's College, Kathmandu, Nepal</p>
-            </div>
-            <div style="text-align:right;flex-shrink:0;">
-              <p class="edu-period-badge">2013 – 2017</p>
-              <span class="edu-badge" style="background:var(--tag-bg);color:var(--tag-fg);border-color:var(--border);">Completed</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Languages -->
-    <div class="lang-row" aria-label="Languages">
-      <span class="lang-label">Languages</span>
-      <div class="lang-item">
-        <span class="lang-name">English</span>
-        <span class="lang-level">C1 — Advanced</span>
-      </div>
-      <div class="lang-item">
-        <span class="lang-name">Nepali</span>
-        <span class="lang-level">Native</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section class="section" id="projects" aria-labelledby="proj-heading">
-  <div class="section-inner">
-    <div class="section-header">
-      <p class="section-eyebrow" aria-hidden="true">Work</p>
-      <h2 id="proj-heading">Projects</h2>
-      <span class="section-rule" aria-hidden="true"></span>
-    </div>
-    <p style="font-size:0.8rem;color:var(--ink-light);margin-bottom:1.5rem;">Click any project to view details</p>
-    <div class="proj-grid">
-      <div class="proj-item" tabindex="0" role="button" onclick="openModal('modal-proj-1')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-proj-1')">
-        <div class="proj-item-inner">
-          <p class="proj-tag">Operations Design</p>
-          <p class="proj-title">Media Programme Tracking System</p>
-          <p class="proj-open-hint">Click to view ↗</p>
-        </div>
-      </div>
-      <div class="proj-item" tabindex="0" role="button" onclick="openModal('modal-proj-2')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-proj-2')">
-        <div class="proj-item-inner">
-          <p class="proj-tag">Process Improvement</p>
-          <p class="proj-title">Client Request Standardisation</p>
-          <p class="proj-open-hint">Click to view ↗</p>
-        </div>
-      </div>
-      <div class="proj-item" tabindex="0" role="button" onclick="openModal('modal-proj-3')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-proj-3')">
-        <div class="proj-item-inner">
-          <p class="proj-tag">Programme Operations</p>
-          <p class="proj-title">Post-COVID Programme Continuity</p>
-          <p class="proj-open-hint">Click to view ↗</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="section alt" id="contact" aria-labelledby="contact-heading">
-  <div class="section-inner">
-    <div class="section-header">
-      <p class="section-eyebrow" aria-hidden="true">Reach out</p>
-      <h2 id="contact-heading">Contact</h2>
-      <span class="section-rule" aria-hidden="true"></span>
-    </div>
-    <div class="contact-grid">
-      <div>
-        <p class="contact-intro">Open to roles in operations coordination, programme management, and IT operations support. Based in Berlin and available for on-site, hybrid, or remote positions.</p>
-        <ul class="contact-list" aria-label="Contact details">
-          <li class="contact-item">
-            <div class="contact-icon" aria-hidden="true">✉</div>
-            <div class="contact-detail">
-              <span class="contact-label">Email</span>
-              <span class="contact-value"><a href="mailto:bijneshworshrestha@gmail.com">Send email</a></span>
-            </div>
-          </li>
-          <li class="contact-item">
-            <div class="contact-icon" aria-hidden="true">☎</div>
-            <div class="contact-detail">
-              <span class="contact-label">Phone</span>
-              <span class="contact-value"><a href="tel:+491792588982">Call</a></span>
-            </div>
-          </li>
-          <li class="contact-item">
-            <div class="contact-icon" aria-hidden="true">in</div>
-            <div class="contact-detail">
-              <span class="contact-label">LinkedIn</span>
-              <span class="contact-value"><a href="https://linkedin.com/in/bijneshworshrestha" target="_blank" rel="noopener noreferrer">/bijneshworshrestha</a></span>
-            </div>
-          </li>
-          <li class="contact-item">
-            <div class="contact-icon" aria-hidden="true">📍</div>
-            <div class="contact-detail">
-              <span class="contact-label">Location</span>
-              <span class="contact-value">Berlin, Germany</span>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <div class="contact-card accent-left">
-          <p class="contact-card-label">Availability</p>
-          <p>Currently open to new opportunities in operations, coordination, or programme support roles in Berlin. References available upon request.</p>
-        </div>
-        <div class="contact-card">
-          <p class="contact-card-label" style="color:var(--ink-light);">Background in brief</p>
-          <p>MBA graduate (Project Management, BSBI/UCA) with a B.Sc. in Computer Science. Experienced working across media, technology, and retail sectors — equally comfortable in fast-paced operational environments and structured coordination roles.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+</div><!-- /page-body -->
 </main>
 
 <footer class="site-footer">
@@ -971,109 +1013,34 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <span class="footer-copy">Berlin · 2026</span>
   </div>
 </footer>
 
-<!-- ═══════════════════════════════════════════════════
+<!-- ══════════════════════════════════════════════
      MODALS
-════════════════════════════════════════════════════ -->
-
-<!-- COMP 1 -->
-<div id="modal-comp-1" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="IT & Technical Coordination">
-  <div class="modal-panel">
-    <div class="modal-header">
-      <button class="modal-close" onclick="closeModal('modal-comp-1')" aria-label="Close">✕</button>
-      <p class="modal-role">IT &amp; Technical Coordination</p>
-    </div>
-    <div class="modal-body">
-      <div class="tags">
-        <span class="tag">Business Requirement Translation</span>
-        <span class="tag">Technical Ticket Structuring</span>
-        <span class="tag">API-Aware Communication</span>
-        <span class="tag">System Workflow Documentation</span>
-        <span class="tag">Cross-Team Delivery Coordination</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- COMP 2 -->
-<div id="modal-comp-2" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Operations & Programme Management">
-  <div class="modal-panel">
-    <div class="modal-header">
-      <button class="modal-close" onclick="closeModal('modal-comp-2')" aria-label="Close">✕</button>
-      <p class="modal-role">Operations &amp; Programme Management</p>
-    </div>
-    <div class="modal-body">
-      <div class="tags">
-        <span class="tag">Operational Tracking Systems</span>
-        <span class="tag">KPI Dashboards &amp; Reporting</span>
-        <span class="tag">Workflow Design</span>
-        <span class="tag">Escalation Handling</span>
-        <span class="tag">Delivery Milestone Monitoring</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- COMP 3 -->
-<div id="modal-comp-3" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Systems & Tools">
-  <div class="modal-panel">
-    <div class="modal-header">
-      <button class="modal-close" onclick="closeModal('modal-comp-3')" aria-label="Close">✕</button>
-      <p class="modal-role">Systems &amp; Tools</p>
-    </div>
-    <div class="modal-body">
-      <div class="tags">
-        <span class="tag">Zoho CRM</span>
-        <span class="tag">Google Workspace</span>
-        <span class="tag">Google Sheets Dashboards</span>
-        <span class="tag">Documentation Systems</span>
-        <span class="tag">Performance Reporting</span>
-        <span class="tag">POS Transaction Systems</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- COMP 4 -->
-<div id="modal-comp-4" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Stakeholder & Client Operations">
-  <div class="modal-panel">
-    <div class="modal-header">
-      <button class="modal-close" onclick="closeModal('modal-comp-4')" aria-label="Close">✕</button>
-      <p class="modal-role">Stakeholder &amp; Client Operations</p>
-    </div>
-    <div class="modal-body">
-      <div class="tags">
-        <span class="tag">B2B Stakeholder Communication</span>
-        <span class="tag">Requirement Gathering</span>
-        <span class="tag">Scope Alignment</span>
-        <span class="tag">Client Onboarding Coordination</span>
-        <span class="tag">Executive Reporting</span>
-      </div>
-    </div>
-  </div>
-</div>
+═════════════════════════════════════════════════ -->
 
 <!-- EXP 1: Muddastadt -->
 <div id="modal-exp-1" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Customer Support & Sales Operations Associate">
   <div class="modal-panel">
     <div class="modal-header">
       <button class="modal-close" onclick="closeModal('modal-exp-1')" aria-label="Close">✕</button>
-      <p class="modal-role">Customer Support &amp; Sales Operations Associate</p>
-      <p class="modal-company">Muddastadt GmbH</p>
-      <div class="modal-meta">
+      <p class="modal-category">Current Role</p>
+      <p class="modal-title">Customer Support &amp; Sales Operations Associate</p>
+      <p class="modal-company-text">Muddastadt GmbH</p>
+      <div class="modal-meta-row">
         <span>Berlin, Germany</span>
-        <span class="modal-period">Dec 2024 – Present</span>
+        <span class="modal-period-text">Dec 2024 – Present</span>
         <span class="badge-current">Current</span>
       </div>
     </div>
     <div class="modal-body">
       <p class="modal-overview">This role operates as a frontline service operations function within a high-volume retail environment, requiring consistent policy execution, transaction accuracy, and structured documentation under continuous time pressure. The position involves resolving customer cases within defined authority limits while ensuring operational integrity of transactions, inventory records, and reporting processes.</p>
-      <p class="modal-section-title">Key Responsibilities</p>
+      <p class="modal-sub">Key Responsibilities</p>
       <ul class="modal-points">
         <li>Serving 150–200 customers per shift, acting as the first point of contact for purchases, service questions, and transaction issues</li>
         <li>Resolving approximately 40 structured customer cases daily, including returns, exchanges, tax-free transactions, and pricing clarifications</li>
@@ -1082,7 +1049,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
         <li>Maintaining transaction accuracy through responsible cash handling and reconciliation</li>
         <li>Verifying inbound inventory deliveries and reporting discrepancies affecting stock records</li>
       </ul>
-      <div class="modal-tags-row">
+      <div class="modal-tags-group">
         <p class="modal-tags-label">Tools &amp; Skills</p>
         <div class="tags">
           <span class="tag">POS Transaction Systems</span>
@@ -1100,17 +1067,17 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   <div class="modal-panel">
     <div class="modal-header">
       <button class="modal-close" onclick="closeModal('modal-exp-2')" aria-label="Close">✕</button>
-      <p class="modal-role">Programme Coordinator</p>
-      <p class="modal-company">Nepal Republic Media Ltd.</p>
-      <div class="modal-meta">
+      <p class="modal-category">Experience</p>
+      <p class="modal-title">Programme Coordinator</p>
+      <p class="modal-company-text">Nepal Republic Media Ltd.</p>
+      <div class="modal-meta-row">
         <span>Kathmandu, Nepal</span>
-        <span class="modal-period">Jul 2021 – Jan 2023</span>
+        <span class="modal-period-text">Jul 2021 – Jan 2023</span>
       </div>
     </div>
     <div class="modal-body">
-      <p class="modal-overview">Coordinated cross-department programme execution across editorial, production, marketing, HR, social media, and radio teams while managing multiple concurrent initiatives under shared production timelines. Designed and maintained operational tracking systems and KPI dashboards supporting leadership visibility, stakeholder communication, and delivery continuity across internal teams and external partners.</p>
-
-      <p class="modal-section-title">Cross-Department Coordination</p>
+      <p class="modal-overview">Coordinated cross-department programme execution across editorial, production, marketing, HR, social media, and radio teams while managing multiple concurrent initiatives under shared production timelines. Designed and maintained operational tracking systems and KPI dashboards supporting leadership visibility, stakeholder communication, and delivery continuity.</p>
+      <p class="modal-sub">Cross-Department Coordination</p>
       <ul class="modal-points">
         <li>Coordinated communication across editorial, production, social media, HR, marketing, and radio teams</li>
         <li>Managed 8–14 concurrent media programmes with shared operational timelines</li>
@@ -1118,33 +1085,27 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
         <li>Served as liaison between leadership, internal teams, and external partners, including NGOs, advertisers, and corporate stakeholders</li>
         <li>Handled partner concerns and delivery issues through documented communication and structured escalation</li>
       </ul>
-
-      <p class="modal-section-title">Operational Systems &amp; Performance Tracking</p>
+      <p class="modal-sub">Operational Systems &amp; Performance Tracking</p>
       <ul class="modal-points">
         <li>Designed and maintained Google Sheets–based operational tracking systems covering production workflows, deadlines, creators, publication status, and performance metrics</li>
         <li>Built KPI dashboards used by the Director, CFO, HR, and marketing leadership for operational monitoring</li>
         <li>Produced weekly and monthly operational reports consolidating workflow performance data</li>
         <li>Used reporting insights to support resource allocation decisions and scheduling adjustments</li>
       </ul>
-
-      <p class="modal-section-title">Operational Governance &amp; Documentation</p>
+      <p class="modal-sub">Governance &amp; Documentation</p>
       <ul class="modal-points">
-        <li>Introduced permission-based access controls to shared operational documentation to maintain data integrity and accountability</li>
+        <li>Introduced permission-based access controls to shared operational documentation</li>
         <li>Prepared structured executive summaries and operational briefings for leadership review</li>
         <li>Ensured strategic initiatives were documented and formally approved before execution</li>
       </ul>
-
-      <p class="modal-section-title">Delivery Stability &amp; Problem Resolution</p>
+      <p class="modal-sub">Delivery &amp; Events</p>
       <ul class="modal-points">
         <li>Prevented disruption to a major externally funded programme by restructuring its delivery schedule without increasing cost</li>
-        <li>Managed operational risks through documented approvals and structured communication rather than informal decisions</li>
         <li>Co-organised the Brand Nepal event series involving approximately 50 brand participants</li>
-        <li>Coordinated vendor communication, event materials, and reporting for press and media coverage</li>
         <li>Supported the Nagarik Nayak annual recognition event with around 100 participants</li>
-        <li>Organised quarterly internal workshops, including scheduling, materials preparation, and progress tracking</li>
+        <li>Organised quarterly internal workshops including scheduling, materials preparation, and progress tracking</li>
       </ul>
-
-      <div class="modal-tags-row">
+      <div class="modal-tags-group">
         <p class="modal-tags-label">Tools &amp; Skills</p>
         <div class="tags">
           <span class="tag">Google Sheets Dashboards</span>
@@ -1163,48 +1124,37 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   <div class="modal-panel">
     <div class="modal-header">
       <button class="modal-close" onclick="closeModal('modal-exp-3')" aria-label="Close">✕</button>
-      <p class="modal-role">Marketing Operations Associate</p>
-      <p class="modal-company">Eydean Inc. Pvt. Ltd.</p>
-      <div class="modal-meta">
+      <p class="modal-category">Experience</p>
+      <p class="modal-title">Marketing Operations Associate</p>
+      <p class="modal-company-text">Eydean Inc. Pvt. Ltd.</p>
+      <div class="modal-meta-row">
         <span>Kathmandu, Nepal</span>
-        <span class="modal-period">Jul 2019 – Jun 2021</span>
-        <span class="exp-industry">AI, SaaS &amp; Web Development</span>
+        <span class="modal-period-text">Jul 2019 – Jun 2021</span>
+        <span style="color:var(--ink-light);">AI, SaaS &amp; Web Development</span>
       </div>
     </div>
     <div class="modal-body">
-      <p class="modal-overview">Coordinated B2B client onboarding and delivery workflows within a technology services environment, acting as the operational interface between business stakeholders and internal technical teams. Structured client requirements through consultative meetings, translated business needs into technical tickets, maintained CRM pipeline visibility, and tracked onboarding milestones to ensure realistic delivery timelines and clear scope alignment.</p>
-
-      <p class="modal-section-title">Client Coordination &amp; Requirement Structuring</p>
+      <p class="modal-overview">Coordinated B2B client onboarding and delivery workflows within a technology services environment, acting as the operational interface between business stakeholders and internal technical teams. Structured client requirements through consultative meetings, translated business needs into technical tickets, maintained CRM pipeline visibility, and tracked onboarding milestones.</p>
+      <p class="modal-sub">Client Coordination &amp; Requirements</p>
       <ul class="modal-points">
         <li>Served as first contact for B2B client queries related to project scope, timelines, and delivery status</li>
         <li>Conducted consultative meetings with founders and senior stakeholders</li>
-        <li>Coordinated client meetings and requirement-gathering sessions</li>
         <li>Documented client concerns and translated non-technical requirements into structured tickets for technical teams</li>
         <li>Managed scope adjustments by documenting limitations and resetting client expectations</li>
       </ul>
-
-      <p class="modal-section-title">CRM &amp; Pipeline Visibility</p>
+      <p class="modal-sub">CRM &amp; Pipeline Visibility</p>
       <ul class="modal-points">
         <li>Maintained Zoho CRM records for prospects and active clients</li>
         <li>Updated pipeline data to ensure leadership visibility into project progress and client workload</li>
         <li>Logged structured meeting notes, requirements, and follow-up actions</li>
       </ul>
-
-      <p class="modal-section-title">Operational Workflow Coordination</p>
+      <p class="modal-sub">Workflow Coordination</p>
       <ul class="modal-points">
         <li>Created standardised ticket templates to reduce ambiguity in client requests</li>
-        <li>Coordinated between sales and technical teams to ensure delivery timelines were realistic</li>
-        <li>Tracked onboarding milestones and dependencies across projects</li>
-        <li>Supported contract tracking and service timeline management</li>
+        <li>Coordinated between sales and technical teams to ensure realistic delivery timelines</li>
+        <li>Maintained long-term client relationships resulting in referrals and additional engagement opportunities</li>
       </ul>
-
-      <p class="modal-section-title">Client Relationship Management</p>
-      <ul class="modal-points">
-        <li>Maintained long-term client relationships through structured communication and expectation management</li>
-        <li>Built trust with clients, resulting in referrals and additional engagement opportunities</li>
-      </ul>
-
-      <div class="modal-tags-row">
+      <div class="modal-tags-group">
         <p class="modal-tags-label">Tools &amp; Skills</p>
         <div class="tags">
           <span class="tag">Zoho CRM</span>
@@ -1223,16 +1173,17 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   <div class="modal-panel">
     <div class="modal-header">
       <button class="modal-close" onclick="closeModal('modal-exp-4')" aria-label="Close">✕</button>
-      <p class="modal-role">Data Entry Specialist</p>
-      <p class="modal-company">Cloudfactory Ltd</p>
-      <div class="modal-meta">
+      <p class="modal-category">Experience</p>
+      <p class="modal-title">Data Entry Specialist</p>
+      <p class="modal-company-text">Cloudfactory Ltd</p>
+      <div class="modal-meta-row">
         <span>Kathmandu, Nepal</span>
-        <span class="modal-period">Feb 2018 – Oct 2018</span>
+        <span class="modal-period-text">Feb 2018 – Oct 2018</span>
       </div>
     </div>
     <div class="modal-body">
       <p class="modal-overview">Maintained structured datasets within a process-controlled data operations environment where accuracy directly affected downstream operational workflows. Followed strict quality standards and standardised procedures while ensuring confidentiality and compliance with data protection requirements.</p>
-      <p class="modal-section-title">Key Responsibilities</p>
+      <p class="modal-sub">Key Responsibilities</p>
       <ul class="modal-points">
         <li>Maintaining structured datasets used for downstream operational processes</li>
         <li>Following strict accuracy standards in data handling</li>
@@ -1248,14 +1199,18 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   <div class="modal-panel">
     <div class="modal-header">
       <button class="modal-close" onclick="closeModal('modal-edu-1')" aria-label="Close">✕</button>
-      <p class="modal-degree">Global Master's in Business Administration (MBA)</p>
-      <p class="modal-spec-text">Specialisation: Project Management</p>
-      <p class="modal-company" style="margin-top:0.4rem;">University for the Creative Arts (UCA) · Berlin School of Business &amp; Innovation</p>
-      <div class="modal-meta"><span class="modal-period">2023 – 2024</span><span class="edu-badge">Completed</span></div>
+      <p class="modal-category">Education</p>
+      <p class="modal-title">Global Master's in Business Administration (MBA)</p>
+      <p class="modal-company-text" style="color:var(--ink-mid);font-family:'Cormorant Garamond',serif;font-size:0.9375rem;font-style:italic;">Specialisation: Project Management</p>
+      <p class="modal-company-text">University for the Creative Arts (UCA) · Berlin School of Business &amp; Innovation</p>
+      <div class="modal-meta-row">
+        <span class="modal-period-text">2023 – 2024</span>
+        <span class="badge-done">Completed</span>
+      </div>
     </div>
     <div class="modal-body">
       <p class="modal-overview">Completed September 2024 at the Berlin School of Business and Innovation (accredited by University for the Creative Arts, UK). Overall mark: 66.</p>
-      <p class="modal-section-title">Modules Completed</p>
+      <p class="modal-sub">Modules Completed</p>
       <div class="tags">
         <span class="tag">Marketing and Business Environment</span>
         <span class="tag">Accounting and Managerial Finance</span>
@@ -1274,13 +1229,17 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   <div class="modal-panel">
     <div class="modal-header">
       <button class="modal-close" onclick="closeModal('modal-edu-2')" aria-label="Close">✕</button>
-      <p class="modal-degree">B.Sc. in Computer Science and Information Technology</p>
-      <p class="modal-company" style="margin-top:0.4rem;">Tribhuvan University · St. Xavier's College, Kathmandu, Nepal</p>
-      <div class="modal-meta"><span class="modal-period">2013 – 2017</span><span class="edu-badge" style="background:var(--tag-bg);color:var(--tag-fg);border-color:var(--border);">Completed</span></div>
+      <p class="modal-category">Education</p>
+      <p class="modal-title">B.Sc. in Computer Science and Information Technology</p>
+      <p class="modal-company-text">Tribhuvan University · St. Xavier's College, Kathmandu, Nepal</p>
+      <div class="modal-meta-row">
+        <span class="modal-period-text">2013 – 2017</span>
+        <span class="badge-done">Completed</span>
+      </div>
     </div>
     <div class="modal-body">
       <p class="modal-overview">Four-year undergraduate programme with a foundation in computer science theory, systems design, and applied web technologies.</p>
-      <p class="modal-section-title">Subject Areas</p>
+      <p class="modal-sub">Subject Areas</p>
       <div class="tags">
         <span class="tag">Programming</span>
         <span class="tag">Web Technologies and Compliance</span>
@@ -1300,12 +1259,12 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   <div class="modal-panel">
     <div class="modal-header">
       <button class="modal-close" onclick="closeModal('modal-proj-1')" aria-label="Close">✕</button>
-      <p class="proj-tag" style="margin-bottom:0.4rem;">Operations Design</p>
-      <p class="modal-role">Media Programme Tracking System</p>
+      <p class="modal-category">Operations Design</p>
+      <p class="modal-title">Media Programme Tracking System</p>
     </div>
     <div class="modal-body">
       <p class="modal-overview">Designed and implemented a Google Sheets–based operational dashboard at Nepal Republic Media Ltd. covering 8–14 concurrent media programmes. The system tracked production status, contributor assignments, publication timelines, and KPI performance metrics used by the Director, CFO, HR, and Marketing teams for resource planning and delivery oversight. Included permission-controlled access to maintain data integrity across departments.</p>
-      <div class="modal-tags-row">
+      <div class="modal-tags-group">
         <p class="modal-tags-label">Skills &amp; Tools</p>
         <div class="tags">
           <span class="tag">Google Sheets</span>
@@ -1323,12 +1282,12 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   <div class="modal-panel">
     <div class="modal-header">
       <button class="modal-close" onclick="closeModal('modal-proj-2')" aria-label="Close">✕</button>
-      <p class="proj-tag" style="margin-bottom:0.4rem;">Process Improvement</p>
-      <p class="modal-role">Client Request Standardisation</p>
+      <p class="modal-category">Process Improvement</p>
+      <p class="modal-title">Client Request Standardisation</p>
     </div>
     <div class="modal-body">
       <p class="modal-overview">At Eydean Inc., created standardised ticket templates and structured documentation workflows to reduce incomplete B2B client requests and development rework. The system bridged client expectations with internal engineering teams — each request was structured into a clear, actionable ticket before handover. Combined with CRM pipeline tracking in Zoho, this maintained end-to-end visibility from initial requirement through delivery.</p>
-      <div class="modal-tags-row">
+      <div class="modal-tags-group">
         <p class="modal-tags-label">Skills &amp; Tools</p>
         <div class="tags">
           <span class="tag">Zoho CRM</span>
@@ -1346,12 +1305,12 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   <div class="modal-panel">
     <div class="modal-header">
       <button class="modal-close" onclick="closeModal('modal-proj-3')" aria-label="Close">✕</button>
-      <p class="proj-tag" style="margin-bottom:0.4rem;">Programme Operations</p>
-      <p class="modal-role">Post-COVID Programme Continuity</p>
+      <p class="modal-category">Programme Operations</p>
+      <p class="modal-title">Post-COVID Programme Continuity</p>
     </div>
     <div class="modal-body">
       <p class="modal-overview">During the post-pandemic short-staffed period at Nepal Republic Media Ltd., supported operational decision-making by analysing delivery pipelines and restructuring programme schedules. Prevented disruption of an externally funded programme without increasing operational cost. Maintained cross-department communication and leadership visibility through the transition, documenting all adjustments and escalation decisions to ensure accountability.</p>
-      <div class="modal-tags-row">
+      <div class="modal-tags-group">
         <p class="modal-tags-label">Skills &amp; Tools</p>
         <div class="tags">
           <span class="tag">Schedule Restructuring</span>
@@ -1400,11 +1359,11 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   });
 
   /* ACTIVE NAV */
-  var anchors = document.querySelectorAll('main [id]');
+  var sections = document.querySelectorAll('main [id]');
   var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
   function markActive() {
     var cur = '';
-    anchors.forEach(function (el) {
+    sections.forEach(function (el) {
       if (el.getBoundingClientRect().top <= 80) cur = el.id;
     });
     navLinks.forEach(function (a) {
@@ -1414,6 +1373,16 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   }
   addEventListener('scroll', markActive, { passive: true });
   markActive();
+
+  /* COMPETENCY ACCORDION */
+  window.toggleComp = function(btn, expandId) {
+    var expand = document.getElementById(expandId);
+    if (!expand) return;
+    var open = expand.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(open));
+    var chevron = btn.querySelector('.comp-chevron');
+    if (chevron) chevron.textContent = open ? '− Collapse' : '+ Expand';
+  };
 
   /* MODAL */
   var currentModal = null;
@@ -1425,7 +1394,6 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
     el.classList.add('active');
     document.body.classList.add('modal-open');
     currentModal = id;
-    // Focus the close button
     var closeBtn = el.querySelector('.modal-close');
     if (closeBtn) setTimeout(function(){ closeBtn.focus(); }, 50);
   };
@@ -1438,17 +1406,36 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
     currentModal = null;
   };
 
-  // Close on backdrop click
-  document.querySelectorAll('.modal-backdrop').forEach(function(backdrop) {
-    backdrop.addEventListener('click', function(e) {
-      if (e.target === backdrop) closeModal(backdrop.id);
+  document.querySelectorAll('.modal-backdrop').forEach(function(bd) {
+    bd.addEventListener('click', function(e) {
+      if (e.target === bd) closeModal(bd.id);
     });
   });
 
-  // Close on ESC
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && currentModal) closeModal(currentModal);
   });
+
+  /* COPY BUTTONS */
+  window.copyText = function(text, btn) {
+    var orig = btn.textContent;
+    navigator.clipboard.writeText(text).then(function() {
+      btn.textContent = 'Copied';
+      setTimeout(function(){ btn.textContent = orig; }, 2000);
+    }).catch(function() {
+      var range = document.createRange();
+      var span = document.createElement('span');
+      span.textContent = text;
+      document.body.appendChild(span);
+      range.selectNode(span);
+      var sel = getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      document.body.removeChild(span);
+      btn.textContent = 'Selected';
+      setTimeout(function(){ btn.textContent = orig; }, 2000);
+    });
+  };
 
 })();
 </script>
