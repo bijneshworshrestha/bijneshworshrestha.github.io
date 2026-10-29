@@ -324,6 +324,7 @@ section { scroll-margin-top: 72px; }
   font-size: 1rem; line-height: 1.6; color: var(--ink-mid);
 }
 .modal-points li::before { content: ""; position: absolute; left: 0; top: 1.25rem; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.modal-points li strong { color: var(--ink); font-weight: 650; }
 .modal-tags-group { margin-top: 1.5rem; }
 .modal-tags-label { margin-bottom: .6rem; font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-light); }
 
@@ -522,11 +523,11 @@ section { scroll-margin-top: 72px; }
   </div>
   <div class="exp-list">
 
-    <div class="exp-item" tabindex="0" role="button" aria-label="Customer Support &amp; Sales Operations Associate at Muddastadt GmbH" onclick="openModal('modal-exp-1')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-1')">
+    <div class="exp-item" tabindex="0" role="button" aria-label="Retail Sales Associate &amp; Customer Support at Muddastadt GmbH" onclick="openModal('modal-exp-1')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-1')">
       <div class="exp-row">
         <div class="exp-period-col">Dec 2024<br>Present</div>
         <div class="exp-main-col">
-          <p class="exp-role">Customer Support &amp; Sales Operations Associate</p>
+          <p class="exp-role">Retail Sales Associate &amp; Customer Support</p>
           <div class="exp-meta-row">
             <span class="exp-company">Muddastadt GmbH</span>
             <span class="exp-location">Berlin, Germany</span>
@@ -537,7 +538,7 @@ section { scroll-margin-top: 72px; }
       </div>
     </div>
 
-    <div class="exp-item" tabindex="0" role="button" aria-label="Programme Coordinator at Nepal Republic Media" onclick="openModal('modal-exp-2')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-2')">
+    <div class="exp-item" tabindex="0" role="button" aria-label="Programme Coordinator at Nepal Republic Media Ltd." onclick="openModal('modal-exp-2')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-2')">
       <div class="exp-row">
         <div class="exp-period-col">Jul 2021<br>Jan 2023</div>
         <div class="exp-main-col">
@@ -557,7 +558,7 @@ section { scroll-margin-top: 72px; }
         <div class="exp-main-col">
           <p class="exp-role">Marketing Operations Associate</p>
           <div class="exp-meta-row">
-            <span class="exp-company">Eydean Inc. Pvt. Ltd.</span>
+            <span class="exp-company">Eydean Inc.</span>
             <span class="exp-location">Kathmandu, Nepal</span>
           </div>
         </div>
@@ -565,14 +566,42 @@ section { scroll-margin-top: 72px; }
       </div>
     </div>
 
-    <div class="exp-item" tabindex="0" role="button" aria-label="Data Entry Specialist at Cloudfactory" onclick="openModal('modal-exp-4')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-4')">
+    <div class="exp-item" tabindex="0" role="button" aria-label="Freelance Technical Trainer at Central Department of Nepalbhasa, Tribhuvan University" onclick="openModal('modal-exp-4')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-4')">
+      <div class="exp-row">
+        <div class="exp-period-col">2020<br>2021</div>
+        <div class="exp-main-col">
+          <p class="exp-role">Freelance Technical Trainer</p>
+          <div class="exp-meta-row">
+            <span class="exp-company">Central Department of Nepalbhasa, Tribhuvan University</span>
+            <span class="exp-location">Nepal</span>
+          </div>
+        </div>
+        <span class="exp-arrow" aria-hidden="true">↗</span>
+      </div>
+    </div>
+
+    <div class="exp-item" tabindex="0" role="button" aria-label="Data Entry Specialist at CloudFactory Ltd" onclick="openModal('modal-exp-5')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-5')">
       <div class="exp-row">
         <div class="exp-period-col">Feb 2018<br>Oct 2018</div>
         <div class="exp-main-col">
           <p class="exp-role">Data Entry Specialist</p>
           <div class="exp-meta-row">
-            <span class="exp-company">Cloudfactory Ltd</span>
-            <span class="exp-location">Kathmandu, Nepal</span>
+            <span class="exp-company">CloudFactory Ltd</span>
+            <span class="exp-location">Lalitpur and Kathmandu, Nepal</span>
+          </div>
+        </div>
+        <span class="exp-arrow" aria-hidden="true">↗</span>
+      </div>
+    </div>
+
+    <div class="exp-item" tabindex="0" role="button" aria-label="Intern at Access World Tech" onclick="openModal('modal-exp-6')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-6')">
+      <div class="exp-row">
+        <div class="exp-period-col">Aug 2017<br>Nov 2017</div>
+        <div class="exp-main-col">
+          <p class="exp-role">Intern</p>
+          <div class="exp-meta-row">
+            <span class="exp-company">Access World Tech</span>
+            <span class="exp-location">Lalitpur, Nepal</span>
           </div>
         </div>
         <span class="exp-arrow" aria-hidden="true">↗</span>
@@ -730,13 +759,13 @@ section { scroll-margin-top: 72px; }
      MODALS
 ═════════════════════════════════════════════════ -->
 
-<!-- EXP 1: Muddastadt -->
-<div id="modal-exp-1" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Customer Support & Sales Operations Associate">
+<!-- EXP 1: Muddastadt GmbH -->
+<div id="modal-exp-1" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Retail Sales Associate &amp; Customer Support">
   <div class="modal-panel">
     <div class="modal-header">
       <button class="modal-close" onclick="closeModal('modal-exp-1')" aria-label="Close">✕</button>
       <p class="modal-category">Current Role</p>
-      <p class="modal-title">Customer Support &amp; Sales Operations Associate</p>
+      <p class="modal-title">Retail Sales Associate &amp; Customer Support</p>
       <p class="modal-company-text">Muddastadt GmbH</p>
       <div class="modal-meta-row">
         <span>Berlin, Germany</span>
@@ -745,30 +774,33 @@ section { scroll-margin-top: 72px; }
       </div>
     </div>
     <div class="modal-body">
-      <p class="modal-overview">This role operates as a frontline service operations function within a high-volume retail environment, requiring consistent policy execution, transaction accuracy, and structured documentation under continuous time pressure. The position involves resolving customer cases within defined authority limits while ensuring operational integrity of transactions, inventory records, and reporting processes.</p>
-      <p class="modal-sub">Key Responsibilities</p>
+      <p class="modal-overview">Front-of-house sales and customer support in a high-volume souvenir, giftware and textile store in Berlin. The role combines selling with the service work behind it: returns, exchanges, price clarifications, tax-free transactions and daily cash handling. It is also my first role in the German working environment, and I report to the branch manager.</p>
+      <p class="modal-sub">Customer service</p>
       <ul class="modal-points">
-        <li>Serving 150–200 customers per shift, acting as the first point of contact for purchases, service questions, and transaction issues</li>
-        <li>Resolving approximately 40 structured customer cases daily, including returns, exchanges, tax-free transactions, and pricing clarifications</li>
-        <li>Applying written company policies while operating within defined authority limits</li>
-        <li>Documenting all returns and exchanges and reporting transaction adjustments to headquarters</li>
-        <li>Maintaining transaction accuracy through responsible cash handling and reconciliation</li>
-        <li>Verifying inbound inventory deliveries and reporting discrepancies affecting stock records</li>
+        <li><strong>Volume:</strong> Serve customers in a high-volume retail store, up to about 250 per shift on peak days. In the off-season, the number is 40 or fewer.</li>
+        <li><strong>Case handling:</strong> Handle up to about 20–25 customer cases a day on busy days, including returns, exchanges, pricing clarifications and tax-free transactions.</li>
+      </ul>
+      <p class="modal-sub">Store operations</p>
+      <ul class="modal-points">
+        <li><strong>Cash and refunds:</strong> Handle cash, process refunds and reconcile the cash daily as part of customer service.</li>
+        <li><strong>Inventory:</strong> Verify inbound inventory deliveries and report discrepancies to the branch manager.</li>
+        <li><strong>Store layout:</strong> Carry out store layout changes occasionally, when the manager decides.</li>
       </ul>
       <div class="modal-tags-group">
         <p class="modal-tags-label">Tools &amp; Skills</p>
         <div class="tags">
-          <span class="tag">POS Transaction Systems</span>
-          <span class="tag">Refund &amp; Exchange Workflows</span>
+          <span class="tag">Customer Service</span>
+          <span class="tag">Cash Handling and Daily Reconciliation</span>
+          <span class="tag">Returns and Refund Processing</span>
+          <span class="tag">Tax-Free Transactions</span>
           <span class="tag">Inventory Verification</span>
-          <span class="tag">Customer Service Protocols</span>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- EXP 2: Nepal Republic Media -->
+<!-- EXP 2: Nepal Republic Media Ltd. -->
 <div id="modal-exp-2" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Programme Coordinator">
   <div class="modal-panel">
     <div class="modal-header">
@@ -782,120 +814,224 @@ section { scroll-margin-top: 72px; }
       </div>
     </div>
     <div class="modal-body">
-      <p class="modal-overview">Coordinated cross-department programme execution across editorial, production, marketing, HR, social media, and radio teams while managing multiple concurrent initiatives under shared production timelines. Designed and maintained operational tracking systems and KPI dashboards supporting leadership visibility, stakeholder communication, and delivery continuity.</p>
-      <p class="modal-sub">Cross-Department Coordination</p>
+      <p class="modal-overview">Coordinated programme operations at Nepal Republic Media, the company behind Nagarik News and Republica. The role covered 13 programmes across news (English and Nepali), youth and social impact, delivered through YouTube, radio, the Nagarik newspaper, social media and the news website. Worked with eight departments (news, social media, radio, production, marketing, HR, finance and programmes) and reported directly to the Director. The common thread was the system underneath the content: schedules, documentation, reporting, budgets and the people who had to line up for every release.</p>
+      <p class="modal-sub">Operations and systems</p>
       <ul class="modal-points">
-        <li>Coordinated communication across editorial, production, social media, HR, marketing, and radio teams</li>
-        <li>Managed 8–14 concurrent media programmes with shared operational timelines</li>
-        <li>Coordinated 4–6 operational and digital initiatives simultaneously under resource constraints</li>
-        <li>Served as liaison between leadership, internal teams, and external partners, including NGOs, advertisers, and corporate stakeholders</li>
-        <li>Handled partner concerns and delivery issues through documented communication and structured escalation</li>
+        <li><strong>Tracking system:</strong> Proposed and implemented a Google Sheets tracking system and shoot-schedule log. Peers adopted it, and it became the shared reference for what was filming, what was publishing and who was assigned.</li>
+        <li><strong>Daily operations layer:</strong> Ran the work that sat beside the programmes: documentation, reporting, communication, and mechanisms that kept processes running smoothly. Each day started with the tracker, the messages and the shoot schedule, and ended with the social media and programme associates updating the sheets.</li>
+        <li><strong>Schedule recovery:</strong> When a shoot could not go ahead, checked the schedule for open slots, offered the original guest an earlier date, moved to the second person on the list if needed, and coordinated with the assigned team member so the programme kept its slot.</li>
+        <li><strong>Escalation:</strong> Escalated operational risks to the Director and other senior people before they reached the audience.</li>
       </ul>
-      <p class="modal-sub">Operational Systems &amp; Performance Tracking</p>
+      <p class="modal-sub">Programme delivery</p>
       <ul class="modal-points">
-        <li>Designed and maintained Google Sheets–based operational tracking systems covering production workflows, deadlines, creators, publication status, and performance metrics</li>
-        <li>Built KPI dashboards used by the Director, CFO, HR, and marketing leadership for operational monitoring</li>
-        <li>Produced weekly and monthly operational reports consolidating workflow performance data</li>
-        <li>Used reporting insights to support resource allocation decisions and scheduling adjustments</li>
+        <li><strong>Daily news output:</strong> Coordinated a daily target of six videos plus an end-of-day news programme of ten items, presented by one of two anchors and covering Nepal and the world. Field videos supplied three to six a day, and voxpop, subjective interviews and expert interviews filled the gap.</li>
+        <li><strong>Editorial judgement:</strong> Decided which field videos were reportable, based on evidence and substantiated claims, and consulted the editors when unsure.</li>
+        <li><strong>Programme slate:</strong> Coordinated Nagarik 360 (investigative journalism across video, the Nagarik newspaper with a QR code, and social media), Sexploration, Spoken Words, Game of Drinks and Nagarik Auto Show, alongside the daily news formats. Six of these ran as continuous digital campaigns promoted across all platforms.</li>
+        <li><strong>Restructuring under pressure:</strong> When the old studio was torn down and a new one built mid-run, proposed splitting the partner-produced podcast Sexploration (with YUWA Nepal and Rutgers International) into two seasons with a three-month gap, and evaluated how to make it work. The Director approved, and the show's cost stayed unchanged.</li>
       </ul>
-      <p class="modal-sub">Governance &amp; Documentation</p>
+      <p class="modal-sub">Budget, advertising and revenue</p>
       <ul class="modal-points">
-        <li>Introduced permission-based access controls to shared operational documentation</li>
-        <li>Prepared structured executive summaries and operational briefings for leadership review</li>
-        <li>Ensured strategic initiatives were documented and formally approved before execution</li>
+        <li><strong>Planning input:</strong> Evaluated staffing, budget costs and what to prioritise or drop, then recommended decisions to the Director and made the case for them.</li>
+        <li><strong>Advertising packages:</strong> Prepared packages with costs and placement spots across the newspaper, website and news and programme videos. Worked out the costs, and the Director approved them.</li>
+        <li><strong>Proposals and contracts:</strong> Wrote marketing proposals and drafted advertising and sponsorship contracts. The legal team reviewed and approved them before they went to clients.</li>
+        <li><strong>Reporting to leadership:</strong> Prepared monthly KPI reports for HR, campaign progress and slots for Marketing, monthly expenses and estimated budget for further programmes for the CFO, and campaign financial requirements together with the Director.</li>
       </ul>
-      <p class="modal-sub">Delivery &amp; Events</p>
+      <p class="modal-sub">Campaigns and events</p>
       <ul class="modal-points">
-        <li>Prevented disruption to a major externally funded programme by restructuring its delivery schedule without increasing cost</li>
-        <li>Co-organised the Brand Nepal event series involving approximately 50 brand participants</li>
-        <li>Supported the Nagarik Nayak annual recognition event with around 100 participants</li>
-        <li>Organised quarterly internal workshops including scheduling, materials preparation, and progress tracking</li>
+        <li><strong>Brand Nepal:</strong> Coordinated two editions of the annual event, with 50 local brands in each.</li>
+        <li><strong>Nagarik Nayak:</strong> Handled coordination, the digital campaign and proposals for the annual award event honouring three social and revolutionary workers, with more than 100 guests.</li>
+        <li><strong>Digital marketing:</strong> Oversaw Meta Ads and SEO for the company's own products, and Buffer scheduling, while the social media team handled the technical side. Evaluated performance with the team in Google Analytics.</li>
+      </ul>
+      <p class="modal-sub">People and representation</p>
+      <ul class="modal-points">
+        <li><strong>Team coordination:</strong> Coordinated news team leads, the social media head, the programme associate, the radio editor and production team members, and worked with the heads of the other departments and the people they assigned.</li>
+        <li><strong>Internal workshops:</strong> Proposed workshops on teamwork and emotional intelligence in the workplace to HR, then designed and delivered five, capped at ten participants so they stayed productive.</li>
+        <li><strong>External representation:</strong> In 2022, represented NRM as a speaker at a workshop on modern radio programmes and the Radio Nagarik revamp, and at an ILO workshop on entrepreneurship in social change and education.</li>
       </ul>
       <div class="modal-tags-group">
         <p class="modal-tags-label">Tools &amp; Skills</p>
         <div class="tags">
-          <span class="tag">Google Sheets Dashboards</span>
           <span class="tag">Google Workspace</span>
+          <span class="tag">Google Sheets</span>
+          <span class="tag">Google Analytics</span>
+          <span class="tag">Word</span>
+          <span class="tag">Buffer (oversight)</span>
           <span class="tag">KPI Reporting</span>
-          <span class="tag">Stakeholder Coordination</span>
           <span class="tag">Operational Documentation</span>
+          <span class="tag">Cross-Department Coordination</span>
+          <span class="tag">Proposals and Contracts</span>
+          <span class="tag">Stakeholder Reporting</span>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- EXP 3: Eydean -->
+<!-- EXP 3: Eydean Inc. -->
 <div id="modal-exp-3" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Marketing Operations Associate">
   <div class="modal-panel">
     <div class="modal-header">
       <button class="modal-close" onclick="closeModal('modal-exp-3')" aria-label="Close">✕</button>
       <p class="modal-category">Experience</p>
       <p class="modal-title">Marketing Operations Associate</p>
-      <p class="modal-company-text">Eydean Inc. Pvt. Ltd.</p>
+      <p class="modal-company-text">Eydean Inc.</p>
       <div class="modal-meta-row">
         <span>Kathmandu, Nepal</span>
         <span class="modal-period-text">Jul 2019 – Jun 2021</span>
-        <span style="color:var(--ink-light);">AI, SaaS &amp; Web Development</span>
       </div>
     </div>
     <div class="modal-body">
-      <p class="modal-overview">Coordinated B2B client onboarding and delivery workflows within a technology services environment, acting as the operational interface between business stakeholders and internal technical teams. Structured client requirements through consultative meetings, translated business needs into technical tickets, maintained CRM pipeline visibility, and tracked onboarding milestones.</p>
-      <p class="modal-sub">Client Coordination &amp; Requirements</p>
+      <p class="modal-overview">First operations hire at a technology startup providing business intelligence, SaaS and other cloud-based software, plus web development for clients. The role sat where clients, sales and the technical team met: bringing clients in, shaping what they needed into something the technical team could build, building the reporting that showed leadership where leads and budget went, and designing the ticket system that made client requests clear. Reported directly to the CEO, and led a team of five interns.</p>
+      <p class="modal-sub">Sales and client acquisition</p>
       <ul class="modal-points">
-        <li>Served as first contact for B2B client queries related to project scope, timelines, and delivery status</li>
-        <li>Conducted consultative meetings with founders and senior stakeholders</li>
-        <li>Documented client concerns and translated non-technical requirements into structured tickets for technical teams</li>
-        <li>Managed scope adjustments by documenting limitations and resetting client expectations</li>
+        <li><strong>Outreach and pitching:</strong> Ran cold calls, client research and pitching to bring in new clients, and worked to lead-generation targets.</li>
+        <li><strong>Contract negotiation:</strong> Negotiated client contract terms, noted them and prepared updated drafts for the CEO, and signed most client contracts on Eydean's behalf.</li>
+        <li><strong>Social media marketing:</strong> Ran Eydean's marketing on LinkedIn and Instagram, using Buffer for scheduling, alongside a monthly budget split between social media marketing and campaigns.</li>
+        <li><strong>Lead providers:</strong> Researched and shortlisted third-party lead-generation providers, presented the findings to the CEO and set up meetings with each. The CEO made the decision.</li>
       </ul>
-      <p class="modal-sub">CRM &amp; Pipeline Visibility</p>
+      <p class="modal-sub">Client requirements and delivery</p>
       <ul class="modal-points">
-        <li>Maintained Zoho CRM records for prospects and active clients</li>
-        <li>Updated pipeline data to ensure leadership visibility into project progress and client workload</li>
-        <li>Logged structured meeting notes, requirements, and follow-up actions</li>
+        <li><strong>Requirement gathering:</strong> Met clients and founders to understand what they needed before any technical work began, and carried that understanding to the technical team.</li>
+        <li><strong>Scope alignment:</strong> When client scope changed, relayed the changes to the technical team and arranged alignment meetings so both sides worked from the same picture.</li>
+        <li><strong>Onboarding:</strong> Coordinated client onboarding.</li>
+        <li><strong>Client growth:</strong> Worked with clients whose engagements typically began with web development or redevelopment and later grew to SaaS ERP, social media planning and business intelligence, under long-term service agreements that included annual maintenance contracts.</li>
+        <li><strong>Strategy presentations:</strong> Prepared PowerPoint presentations for leadership and for clients.</li>
       </ul>
-      <p class="modal-sub">Workflow Coordination</p>
+      <p class="modal-sub">Systems and reporting</p>
       <ul class="modal-points">
-        <li>Created standardised ticket templates to reduce ambiguity in client requests</li>
-        <li>Coordinated between sales and technical teams to ensure realistic delivery timelines</li>
-        <li>Maintained long-term client relationships resulting in referrals and additional engagement opportunities</li>
+        <li><strong>Ticket system:</strong> As client work grew beyond direct calls, was assigned to design a mechanism that became Eydean's ticket templates and system. The templates reduced incomplete client requests and rework.</li>
+        <li><strong>Zoho CRM reporting:</strong> Built reports and visualisations in Zoho on lead generation by month and quarter, marketing budget expenditure, lead sources by channel and client category, and the progress and outcomes of third-party lead providers.</li>
+      </ul>
+      <p class="modal-sub">Team and growth</p>
+      <ul class="modal-points">
+        <li><strong>Intern team:</strong> Led five interns on rotating weekly research covering SEO, social media trends and lead prospects. Held weekly reviews, and the interns presented which clients to approach and what to offer, with reasons for each idea.</li>
+        <li><strong>Client trust:</strong> Several clients later offered positions, and one became Director at his next employer.</li>
       </ul>
       <div class="modal-tags-group">
         <p class="modal-tags-label">Tools &amp; Skills</p>
         <div class="tags">
           <span class="tag">Zoho CRM</span>
           <span class="tag">Google Workspace</span>
-          <span class="tag">Ticket Templates</span>
           <span class="tag">PowerPoint</span>
-          <span class="tag">Email &amp; Social Outreach</span>
+          <span class="tag">Buffer</span>
+          <span class="tag">LinkedIn and Instagram Marketing</span>
+          <span class="tag">Requirement Gathering</span>
+          <span class="tag">Contract Negotiation</span>
+          <span class="tag">Ticket Templates</span>
+          <span class="tag">Client Onboarding</span>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- EXP 4: Cloudfactory -->
-<div id="modal-exp-4" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Data Entry Specialist">
+<!-- EXP 4: Central Department of Nepalbhasa, Tribhuvan University -->
+<div id="modal-exp-4" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Freelance Technical Trainer">
   <div class="modal-panel">
     <div class="modal-header">
       <button class="modal-close" onclick="closeModal('modal-exp-4')" aria-label="Close">✕</button>
       <p class="modal-category">Experience</p>
-      <p class="modal-title">Data Entry Specialist</p>
-      <p class="modal-company-text">Cloudfactory Ltd</p>
+      <p class="modal-title">Freelance Technical Trainer</p>
+      <p class="modal-company-text">Central Department of Nepalbhasa, Tribhuvan University</p>
       <div class="modal-meta-row">
-        <span>Kathmandu, Nepal</span>
+        <span>Nepal</span>
+        <span class="modal-period-text">2020 – 2021</span>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p class="modal-overview">Hired by a university department to design and teach the systems that let classes continue online during Covid-19. The work came in two separate engagements, in 2020 and at the start of 2021, and ran alongside my role at Eydean. In both, the job was the same: choose workable tools, set up the mechanisms around them, and teach staff and students to use them.</p>
+      <p class="modal-sub">The first engagement: 2020</p>
+      <ul class="modal-points">
+        <li><strong>System design:</strong> Designed a system for conducting virtual classes, combining Zoom, Google Classroom and Google Workspace, with the department's approval.</li>
+        <li><strong>Mechanisms:</strong> Created the routines around the tools, so classes could run without depending on any one person.</li>
+        <li><strong>Training:</strong> Trained both staff and students on the system.</li>
+      </ul>
+      <p class="modal-sub">The second engagement: early 2021</p>
+      <ul class="modal-points">
+        <li><strong>A new platform:</strong> The department moved to Microsoft Teams, Outlook and OneDrive, with university-assigned email addresses.</li>
+        <li><strong>Retraining:</strong> Re-taught staff and students the new system.</li>
+      </ul>
+      <div class="modal-tags-group">
+        <p class="modal-tags-label">Tools &amp; Skills</p>
+        <div class="tags">
+          <span class="tag">Zoom</span>
+          <span class="tag">Google Classroom</span>
+          <span class="tag">Google Workspace</span>
+          <span class="tag">Microsoft Teams</span>
+          <span class="tag">Outlook</span>
+          <span class="tag">OneDrive</span>
+          <span class="tag">Training Design</span>
+          <span class="tag">System Setup</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXP 5: CloudFactory Ltd -->
+<div id="modal-exp-5" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Data Entry Specialist">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-exp-5')" aria-label="Close">✕</button>
+      <p class="modal-category">Experience</p>
+      <p class="modal-title">Data Entry Specialist</p>
+      <p class="modal-company-text">CloudFactory Ltd</p>
+      <div class="modal-meta-row">
+        <span>Lalitpur and Kathmandu, Nepal</span>
         <span class="modal-period-text">Feb 2018 – Oct 2018</span>
       </div>
     </div>
     <div class="modal-body">
-      <p class="modal-overview">Maintained structured datasets within a process-controlled data operations environment where accuracy directly affected downstream operational workflows. Followed strict quality standards and standardised procedures while ensuring confidentiality and compliance with data protection requirements.</p>
-      <p class="modal-sub">Key Responsibilities</p>
+      <p class="modal-overview">A data entry role across three projects, in Lalitpur and Kathmandu. The job was precision work under supervision: train for each project, then enter data accurately on the platform, with team captains overseeing the work and a weekly report to the Project Delivery Officer.</p>
+      <p class="modal-sub">Responsibilities</p>
       <ul class="modal-points">
-        <li>Maintaining structured datasets used for downstream operational processes</li>
-        <li>Following strict accuracy standards in data handling</li>
-        <li>Operating within standardised workflows where errors had operational consequences</li>
-        <li>Maintaining confidentiality and compliance with data protection standards</li>
+        <li><strong>Project training:</strong> Trained for each of three projects, the first two in Lalitpur and the last in Kathmandu, before starting work on it.</li>
+        <li><strong>Data entry:</strong> Entered data accurately on the platform.</li>
+        <li><strong>Supervision and reporting:</strong> Worked under the supervision of team captains and reported weekly to the Project Delivery Officer.</li>
       </ul>
+      <div class="modal-tags-group">
+        <p class="modal-tags-label">Tools &amp; Skills</p>
+        <div class="tags">
+          <span class="tag">Data Entry</span>
+          <span class="tag">Project-Specific Training</span>
+          <span class="tag">Weekly Reporting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXP 6: Access World Tech -->
+<div id="modal-exp-6" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Intern">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-exp-6')" aria-label="Close">✕</button>
+      <p class="modal-category">Experience</p>
+      <p class="modal-title">Intern</p>
+      <p class="modal-company-text">Access World Tech</p>
+      <div class="modal-meta-row">
+        <span>Lalitpur, Nepal</span>
+        <span class="modal-period-text">Aug 2017 – Nov 2017</span>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p class="modal-overview">An internship built around one training project. I was trained to become a system administrator, designed a virtual cloud-computing system and a SaaS web platform, and learned about marketing and product sales. I wrote an internship report on the project.</p>
+      <p class="modal-sub">What I did</p>
+      <ul class="modal-points">
+        <li><strong>System administration:</strong> Trained to become a system administrator.</li>
+        <li><strong>Training project:</strong> Designed a virtual system of cloud computing and a SaaS web platform, titled Fault-Tolerant Server Architecture. It was a training project, not a live product.</li>
+        <li><strong>Business side:</strong> Learned about marketing and product sales alongside the technical work.</li>
+        <li><strong>Internship report:</strong> Wrote a report on the project.</li>
+      </ul>
+      <div class="modal-tags-group">
+        <p class="modal-tags-label">Tools &amp; Skills</p>
+        <div class="tags">
+          <span class="tag">System Administration</span>
+          <span class="tag">Cloud Computing</span>
+          <span class="tag">SaaS Platform Design</span>
+          <span class="tag">Technical Documentation</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
