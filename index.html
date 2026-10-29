@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Bijneshwor Shrestha</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Bijneshwor Shrestha — Operations & Coordination Professional, Berlin">
+<meta name="description" content="Bijneshwor Shrestha, Operations and Coordination Professional, Berlin">
 <style>
 /* ── TOKENS ─────────────────────────────────────── */
 :root {
@@ -254,8 +254,9 @@ section { scroll-margin-top: 72px; }
 }
 .proj-item:hover { border-color: var(--accent); }
 .proj-category { font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
-.proj-title { font-size: 1.125rem; font-weight: 650; line-height: 1.35; flex: 1; }
+.proj-title { font-size: 1.125rem; font-weight: 650; line-height: 1.35; }
 .proj-arrow { font-size: .875rem; }
+.proj-subhead { font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-mid); margin: 2rem 0 1rem; }
 
 /* ── CONTACT ────────────────────────────────────── */
 .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); gap: clamp(1.5rem, 4vw, 2.5rem); align-items: start; }
@@ -328,6 +329,24 @@ section { scroll-margin-top: 72px; }
 .modal-tags-group { margin-top: 1.5rem; }
 .modal-tags-label { margin-bottom: .6rem; font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-light); }
 
+.exp-note { margin-top: .35rem; font-size: .9375rem; color: var(--ink-light); }
+.exp-points { margin-top: .75rem; display: flex; flex-direction: column; gap: .35rem; }
+.exp-points li { position: relative; padding-left: 1.1rem; font-size: .9375rem; line-height: 1.55; color: var(--ink-mid); }
+.exp-points li::before { content: ""; position: absolute; left: 0; top: .6em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+.edu-modules { margin-top: .6rem; font-size: .875rem; line-height: 1.55; color: var(--ink-light); }
+.edu-item:not([role="button"]), .proj-item:not([role="button"]) { cursor: default; }
+.edu-item:not([role="button"]):hover, .proj-item:not([role="button"]):hover { border-color: var(--rule); }
+.cert-block { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); }
+.cert-list { margin-top: .75rem; display: flex; flex-direction: column; }
+.cert-list li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .15rem 1.5rem; padding: .6rem 0; border-top: 1px solid var(--rule); font-size: .9375rem; }
+.cert-list li:first-child { border-top: 0; }
+.cert-name { color: var(--ink); font-weight: 500; }
+.cert-date { color: var(--ink-light); }
+a.proj-link { color: inherit; text-decoration: none; cursor: pointer; }
+a.proj-link:hover { border-color: var(--accent); }
+a.proj-link .proj-arrow { margin-top: auto; padding-top: .25rem; }
+.proj-text { font-size: .9375rem; line-height: 1.55; color: var(--ink-mid); }
+
 /* ── RESPONSIVE ─────────────────────────────────── */
 @media (max-width: 860px) {
   .proj-item { min-height: 0; }
@@ -388,7 +407,7 @@ section { scroll-margin-top: 72px; }
     <div class="masthead-inner">
       <h1 class="masthead-name">Bijneshwor Shrestha</h1>
       <div class="masthead-right">
-        <span class="masthead-title">Operations &amp; Coordination Professional</span>
+        <span class="masthead-title">Operations and Coordination Professional</span>
         <span class="masthead-sub">MBA · B.Sc. Computer Science</span>
         <span class="masthead-avail">● Available · Berlin</span>
       </div>
@@ -413,9 +432,10 @@ section { scroll-margin-top: 72px; }
     <div class="about-text-col">
       <p class="section-mark">Profile</p>
       <div class="bio-text">
-        <p>I translate business requirements into <strong>operational clarity</strong> — coordinating across teams, building the tracking systems that keep delivery on schedule, and maintaining accountability from brief to completion.</p>
-        <p>MBA graduate in <strong>Project Management</strong>, with a background in Computer Science and hands-on experience spanning media operations, B2B technology services, and retail. Equally at home coordinating multi-team programme work and structuring the documentation and reporting behind it.</p>
-        <p><strong>Open to</strong> Operations, Coordination and Communication roles. Available on-site, hybrid, or remote in Berlin.</p>
+        <p>I translate business requirements into <strong>operational clarity</strong>: coordinating across teams, building the tracking systems that keep delivery on schedule, and maintaining accountability from brief to completion.</p>
+        <p>I am an operations and coordination professional with 6+ years of professional experience, including 3.5 years in operations and coordination. I specialise in turning scattered work into structured systems: tracking frameworks, ticketing, documentation and KPI reporting that give teams and leadership a clear view of delivery. My technical foundation in computer science and information technology lets me translate client and business requirements into structured tickets for technical teams.</p>
+        <p>I have worked in multi-team environments, from coordinating 13 programmes across eight departments at a media company to designing the ticket system and CRM reporting at a technology startup, where disciplined documentation, escalation handling and clear workflows supported delivery timelines. I have also trained staff and students on new systems, and I hold an MBA in Project Management.</p>
+        <p><strong>Open to</strong> Operations, Coordination and Communication roles. Available on-site, hybrid, or remote.</p>
       </div>
       <div class="hero-cta">
         <a class="btn-editorial btn-filled" href="mailto:bijneshworshrestha@gmail.com">Get in touch</a>
@@ -437,17 +457,18 @@ section { scroll-margin-top: 72px; }
     <div class="comp-item" tabindex="0" role="button" aria-expanded="false" aria-controls="comp-expand-1" onclick="toggleComp(this,'comp-expand-1')" onkeydown="if(event.key==='Enter'||event.key===' ')toggleComp(this,'comp-expand-1')">
       <div class="comp-row">
         <div>
-          <p class="comp-title">IT &amp; Technical Coordination</p>
-          <p class="comp-preview">Requirement translation · technical tickets · API-aware communication</p>
+          <p class="comp-title">Operations &amp; Programme Management</p>
+          <p class="comp-preview">Operational Tracking Systems · KPI Reporting · Workflow Design</p>
         </div>
         <span class="comp-chevron" aria-hidden="true">+ Expand</span>
       </div>
       <div class="comp-expand" id="comp-expand-1">
         <div class="tags">
-          <span class="tag">Business Requirement Translation</span>
-          <span class="tag">Technical Ticket Structuring</span>
-          <span class="tag">API-Aware Communication</span>
-          <span class="tag">System Workflow Documentation</span>
+          <span class="tag">Operational Tracking Systems</span>
+          <span class="tag">KPI Reporting</span>
+          <span class="tag">Workflow Design</span>
+          <span class="tag">Escalation Handling</span>
+          <span class="tag">Delivery Milestone Monitoring</span>
           <span class="tag">Cross-Team Delivery Coordination</span>
         </div>
       </div>
@@ -456,18 +477,16 @@ section { scroll-margin-top: 72px; }
     <div class="comp-item" tabindex="0" role="button" aria-expanded="false" aria-controls="comp-expand-2" onclick="toggleComp(this,'comp-expand-2')" onkeydown="if(event.key==='Enter'||event.key===' ')toggleComp(this,'comp-expand-2')">
       <div class="comp-row">
         <div>
-          <p class="comp-title">Operations &amp; Programme Management</p>
-          <p class="comp-preview">Tracking systems · KPI dashboards · escalation handling</p>
+          <p class="comp-title">Technical Coordination</p>
+          <p class="comp-preview">Business Requirement Translation · Technical Ticket Structuring · System Workflow Documentation</p>
         </div>
         <span class="comp-chevron" aria-hidden="true">+ Expand</span>
       </div>
       <div class="comp-expand" id="comp-expand-2">
         <div class="tags">
-          <span class="tag">Operational Tracking Systems</span>
-          <span class="tag">KPI Dashboards &amp; Reporting</span>
-          <span class="tag">Workflow Design</span>
-          <span class="tag">Escalation Handling</span>
-          <span class="tag">Delivery Milestone Monitoring</span>
+          <span class="tag">Business Requirement Translation</span>
+          <span class="tag">Technical Ticket Structuring</span>
+          <span class="tag">System Workflow Documentation</span>
         </div>
       </div>
     </div>
@@ -475,19 +494,16 @@ section { scroll-margin-top: 72px; }
     <div class="comp-item" tabindex="0" role="button" aria-expanded="false" aria-controls="comp-expand-3" onclick="toggleComp(this,'comp-expand-3')" onkeydown="if(event.key==='Enter'||event.key===' ')toggleComp(this,'comp-expand-3')">
       <div class="comp-row">
         <div>
-          <p class="comp-title">Systems &amp; Tools</p>
-          <p class="comp-preview">Zoho CRM · Google Workspace · Sheets dashboards</p>
+          <p class="comp-title">Stakeholder &amp; Client Operations</p>
+          <p class="comp-preview">B2B Stakeholder Communication · Requirement Gathering · Client Onboarding Coordination</p>
         </div>
         <span class="comp-chevron" aria-hidden="true">+ Expand</span>
       </div>
       <div class="comp-expand" id="comp-expand-3">
         <div class="tags">
-          <span class="tag">Zoho CRM</span>
-          <span class="tag">Google Workspace</span>
-          <span class="tag">Google Sheets Dashboards</span>
-          <span class="tag">Documentation Systems</span>
-          <span class="tag">Performance Reporting</span>
-          <span class="tag">POS Transaction Systems</span>
+          <span class="tag">B2B Stakeholder Communication</span>
+          <span class="tag">Requirement Gathering</span>
+          <span class="tag">Client Onboarding Coordination</span>
         </div>
       </div>
     </div>
@@ -495,18 +511,19 @@ section { scroll-margin-top: 72px; }
     <div class="comp-item" tabindex="0" role="button" aria-expanded="false" aria-controls="comp-expand-4" onclick="toggleComp(this,'comp-expand-4')" onkeydown="if(event.key==='Enter'||event.key===' ')toggleComp(this,'comp-expand-4')">
       <div class="comp-row">
         <div>
-          <p class="comp-title">Stakeholder &amp; Client Operations</p>
-          <p class="comp-preview">B2B communication · requirement gathering · scope alignment</p>
+          <p class="comp-title">Systems &amp; Tools</p>
+          <p class="comp-preview">Zoho CRM · Google Workspace · Google Sheets</p>
         </div>
         <span class="comp-chevron" aria-hidden="true">+ Expand</span>
       </div>
       <div class="comp-expand" id="comp-expand-4">
         <div class="tags">
-          <span class="tag">B2B Stakeholder Communication</span>
-          <span class="tag">Requirement Gathering</span>
-          <span class="tag">Scope Alignment</span>
-          <span class="tag">Client Onboarding Coordination</span>
-          <span class="tag">Executive Reporting</span>
+          <span class="tag">Zoho CRM</span>
+          <span class="tag">Google Workspace</span>
+          <span class="tag">Google Sheets</span>
+          <span class="tag">Google Analytics</span>
+          <span class="tag">Documentation Systems</span>
+          <span class="tag">Performance Reporting</span>
         </div>
       </div>
     </div>
@@ -523,7 +540,7 @@ section { scroll-margin-top: 72px; }
   </div>
   <div class="exp-list">
 
-    <div class="exp-item" tabindex="0" role="button" aria-label="Retail Sales Associate &amp; Customer Support at Muddastadt GmbH" onclick="openModal('modal-exp-1')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-1')">
+    <div class="exp-item" tabindex="0" role="button" aria-label="Retail Sales Associate &amp; Customer Support at Muddastadt GmbH. Open details" onclick="openModal('modal-exp-1')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-1')">
       <div class="exp-row">
         <div class="exp-period-col">Dec 2024<br>Present</div>
         <div class="exp-main-col">
@@ -533,26 +550,43 @@ section { scroll-margin-top: 72px; }
             <span class="exp-location">Berlin, Germany</span>
             <span class="exp-current-badge">Current</span>
           </div>
+          <p class="exp-note">Industry: Souvenir, giftware and textile</p>
+          <ul class="exp-points">
+            <li>Serve customers in a high-volume retail store, up to about 250 per shift on peak days.</li>
+            <li>Handle up to about 20–25 customer cases a day on busy days, including returns, exchanges, pricing clarifications and tax-free transactions.</li>
+            <li>Handle cash, process refunds and reconcile the cash daily.</li>
+            <li>Verify inbound inventory deliveries and report discrepancies to the branch manager.</li>
+          </ul>
         </div>
         <span class="exp-arrow" aria-hidden="true">↗</span>
       </div>
     </div>
 
-    <div class="exp-item" tabindex="0" role="button" aria-label="Programme Coordinator at Nepal Republic Media Ltd." onclick="openModal('modal-exp-2')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-2')">
+    <div class="exp-item" tabindex="0" role="button" aria-label="Programme Coordinator at Nepal Republic Media Ltd. (Nagarik Network). Open details" onclick="openModal('modal-exp-2')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-2')">
       <div class="exp-row">
         <div class="exp-period-col">Jul 2021<br>Jan 2023</div>
         <div class="exp-main-col">
           <p class="exp-role">Programme Coordinator</p>
           <div class="exp-meta-row">
-            <span class="exp-company">Nepal Republic Media Ltd.</span>
+            <span class="exp-company">Nepal Republic Media Ltd. (Nagarik Network)</span>
             <span class="exp-location">Kathmandu, Nepal</span>
           </div>
+          <p class="exp-note">Reason for change: Relocation to Germany</p>
+          <ul class="exp-points">
+            <li>Coordinated programme operations across 13 programmes in news, youth and social impact, working with eight departments and reporting directly to the Director.</li>
+            <li>Proposed and implemented a Google Sheets tracking system and shoot-schedule log, used by peers.</li>
+            <li>Prepared monthly KPI reports for HR, campaign progress reports for Marketing, and monthly expense and budget reports for the CFO.</li>
+            <li>Prepared advertising packages, proposals and contracts for approval, and recommended staffing, budget and priorities to the Director.</li>
+            <li>Proposed splitting a show into two seasons during a studio rebuild, with no change to its cost.</li>
+            <li>Oversaw Meta Ads, SEO and Buffer scheduling for the company's own products, and evaluated performance with the team in Google Analytics.</li>
+            <li>Designed and delivered five internal workshops on teamwork and emotional intelligence.</li>
+          </ul>
         </div>
         <span class="exp-arrow" aria-hidden="true">↗</span>
       </div>
     </div>
 
-    <div class="exp-item" tabindex="0" role="button" aria-label="Marketing Operations Associate at Eydean Inc." onclick="openModal('modal-exp-3')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-3')">
+    <div class="exp-item" tabindex="0" role="button" aria-label="Marketing Operations Associate at Eydean Inc.. Open details" onclick="openModal('modal-exp-3')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-3')">
       <div class="exp-row">
         <div class="exp-period-col">Jul 2019<br>Jun 2021</div>
         <div class="exp-main-col">
@@ -561,12 +595,22 @@ section { scroll-margin-top: 72px; }
             <span class="exp-company">Eydean Inc.</span>
             <span class="exp-location">Kathmandu, Nepal</span>
           </div>
+          <p class="exp-note">Industry: Business intelligence, SaaS and web development</p>
+          <p class="exp-note">Reason for change: Post Covid-19 financial layoff</p>
+          <ul class="exp-points">
+            <li>First operations hire at a technology startup. Reported directly to the CEO.</li>
+            <li>Ran sales outreach and pitching, and negotiated client contract terms.</li>
+            <li>Gathered client requirements and relayed scope changes to the technical team.</li>
+            <li>Designed the ticket system that reduced incomplete client requests and rework.</li>
+            <li>Built Zoho CRM reports on lead generation, budget spend and lead sources.</li>
+            <li>Led a team of five interns.</li>
+          </ul>
         </div>
         <span class="exp-arrow" aria-hidden="true">↗</span>
       </div>
     </div>
 
-    <div class="exp-item" tabindex="0" role="button" aria-label="Freelance Technical Trainer at Central Department of Nepalbhasa, Tribhuvan University" onclick="openModal('modal-exp-4')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-4')">
+    <div class="exp-item" tabindex="0" role="button" aria-label="Freelance Technical Trainer at Central Department of Nepalbhasa, Tribhuvan University. Open details" onclick="openModal('modal-exp-4')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-4')">
       <div class="exp-row">
         <div class="exp-period-col">2020<br>2021</div>
         <div class="exp-main-col">
@@ -575,12 +619,16 @@ section { scroll-margin-top: 72px; }
             <span class="exp-company">Central Department of Nepalbhasa, Tribhuvan University</span>
             <span class="exp-location">Nepal</span>
           </div>
+          <ul class="exp-points">
+            <li>Designed a virtual class system during Covid-19 using Zoom, Google Classroom and Google Workspace, and trained staff and students on it.</li>
+            <li>Returned in 2021 to teach the department's move to Microsoft Teams, Outlook and OneDrive.</li>
+          </ul>
         </div>
         <span class="exp-arrow" aria-hidden="true">↗</span>
       </div>
     </div>
 
-    <div class="exp-item" tabindex="0" role="button" aria-label="Data Entry Specialist at CloudFactory Ltd" onclick="openModal('modal-exp-5')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-5')">
+    <div class="exp-item" tabindex="0" role="button" aria-label="Data Entry Specialist at CloudFactory Ltd. Open details" onclick="openModal('modal-exp-5')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-5')">
       <div class="exp-row">
         <div class="exp-period-col">Feb 2018<br>Oct 2018</div>
         <div class="exp-main-col">
@@ -589,12 +637,15 @@ section { scroll-margin-top: 72px; }
             <span class="exp-company">CloudFactory Ltd</span>
             <span class="exp-location">Lalitpur and Kathmandu, Nepal</span>
           </div>
+          <ul class="exp-points">
+            <li>Trained for each of three projects, then entered data accurately on the platform.</li>
+          </ul>
         </div>
         <span class="exp-arrow" aria-hidden="true">↗</span>
       </div>
     </div>
 
-    <div class="exp-item" tabindex="0" role="button" aria-label="Intern at Access World Tech" onclick="openModal('modal-exp-6')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-6')">
+    <div class="exp-item" tabindex="0" role="button" aria-label="Intern at Access World Tech. Open details" onclick="openModal('modal-exp-6')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-exp-6')">
       <div class="exp-row">
         <div class="exp-period-col">Aug 2017<br>Nov 2017</div>
         <div class="exp-main-col">
@@ -603,6 +654,9 @@ section { scroll-margin-top: 72px; }
             <span class="exp-company">Access World Tech</span>
             <span class="exp-location">Lalitpur, Nepal</span>
           </div>
+          <ul class="exp-points">
+            <li>Trained as a system administrator and designed a virtual cloud-computing system and a SaaS web platform as a training project.</li>
+          </ul>
         </div>
         <span class="exp-arrow" aria-hidden="true">↗</span>
       </div>
@@ -620,36 +674,44 @@ section { scroll-margin-top: 72px; }
   </div>
   <div class="edu-list">
 
-    <div class="edu-item" tabindex="0" role="button" aria-label="Global MBA in Project Management" onclick="openModal('modal-edu-1')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-edu-1')">
+    <div class="edu-item" tabindex="0" role="button" aria-label="Global MBA, Project Management (Merit). Open details" onclick="openModal('modal-edu-1')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-edu-1')">
       <div class="edu-row">
-        <div class="edu-period-col">2023 – 2024</div>
+        <div class="edu-period-col">2023 – 2025</div>
         <div>
-          <p class="edu-degree">Global MBA — Project Management</p>
-          <p class="edu-spec">Specialisation: Project Management</p>
-          <p class="edu-school">University for the Creative Arts (UCA) · Berlin School of Business &amp; Innovation</p>
+          <p class="edu-degree">Global MBA, Project Management (Merit)</p>
+          <p class="edu-school">University for the Creative Arts, delivered with Berlin School of Business and Innovation, Berlin</p>
+          <p class="edu-modules">Marketing and Business Environment · Accounting and Managerial Finance · Systems and Operations Management · Strategic Management and Leadership · Project Management and Leadership · Cross-Cultural Management · Dissertation</p>
         </div>
-        <span class="exp-arrow" aria-hidden="true">↗</span>
       </div>
     </div>
 
-    <div class="edu-item" tabindex="0" role="button" aria-label="BSc Computer Science and IT" onclick="openModal('modal-edu-2')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-edu-2')">
+    <div class="edu-item" tabindex="0" role="button" aria-label="B.Sc. Computer Science and Information Technology. Open details" onclick="openModal('modal-edu-2')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-edu-2')">
       <div class="edu-row">
-        <div class="edu-period-col">2013 – 2017</div>
+        <div class="edu-period-col">2013 – 2019</div>
         <div>
-          <p class="edu-degree">B.Sc. Computer Science &amp; Information Technology</p>
-          <p class="edu-school">Tribhuvan University · St. Xavier's College, Kathmandu</p>
+          <p class="edu-degree">B.Sc. Computer Science and Information Technology</p>
+          <p class="edu-school">Tribhuvan University, St. Xavier's College, Kathmandu, Nepal</p>
         </div>
-        <span class="exp-arrow" aria-hidden="true">↗</span>
       </div>
     </div>
 
+  </div>
+
+  <div class="cert-block">
+    <p class="lang-label">Certifications</p>
+    <ul class="cert-list">
+      <li><span class="cert-name">Level 5 Diploma in TEFL, Qualifi, via The TEFL Academy</span><span class="cert-date">May 2025</span></li>
+      <li><span class="cert-name">Ethics, Compliance and Code of Conduct, Berlin School of Business and Innovation</span><span class="cert-date">Mar 2024</span></li>
+      <li><span class="cert-name">IELTS Academic, overall band 8.0 (CEFR C1), IDP Nepal</span><span class="cert-date">Jun 2022</span></li>
+      <li><span class="cert-name">Facebook Marketing Certified Professional Course, eCdemy Learning Solutions</span><span class="cert-date">Feb 2018</span></li>
+    </ul>
   </div>
 
   <div class="lang-strip" aria-label="Languages">
     <span class="lang-label">Languages</span>
     <div class="lang-item">
       <span class="lang-name">English</span>
-      <span class="lang-level">C1 — Advanced</span>
+      <span class="lang-level">C1</span>
     </div>
     <div class="lang-item">
       <span class="lang-name">Nepali</span>
@@ -662,29 +724,49 @@ section { scroll-margin-top: 72px; }
 <section id="projects" class="ed-section" aria-labelledby="proj-heading">
   <div class="ed-section-header">
     <p class="section-mark">Work</p>
-    <h2 id="proj-heading" class="ed-section-title">Projects</h2>
+    <h2 id="proj-heading" class="ed-section-title">Projects &amp; Voluntary Work</h2>
     <span class="section-rule-line" aria-hidden="true"></span>
   </div>
   <div class="proj-grid">
 
-    <div class="proj-item" tabindex="0" role="button" aria-label="Media Programme Tracking System" onclick="openModal('modal-proj-1')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-proj-1')">
+    <a class="proj-item proj-link" href="https://meroieltssathi.com" target="_blank" rel="noopener" aria-label="Mero IELTS Sathi, founder. Opens meroieltssathi.com in a new tab">
+      <p class="proj-category">Founder</p>
+      <p class="proj-title">Mero IELTS Sathi</p>
+      <p class="proj-text">meroieltssathi.com: a free IELTS practice site, launched October 2026.</p>
+      <span class="proj-arrow" aria-hidden="true">Visit site ↗</span>
+    </a>
+
+    <a class="proj-item proj-link" href="https://writtenheritagenepal.com/" target="_blank" rel="noopener" aria-label="Written Cultural Heritage of Nepal, volunteer. Opens writtenheritagenepal.com in a new tab">
+      <p class="proj-category">Volunteer, 2025 – present</p>
+      <p class="proj-title">Written Cultural Heritage of Nepal</p>
+      <p class="proj-text">Storyteller and Visual Creator.</p>
+      <span class="proj-arrow" aria-hidden="true">Visit site ↗</span>
+    </a>
+
+  </div>
+  <h3 class="proj-subhead">Operations case studies</h3>
+  <div class="proj-grid">
+
+    <div class="proj-item" tabindex="0" role="button" aria-label="Media Programme Tracking System, case study at Nepal Republic Media Ltd.. Open details" onclick="openModal('modal-case-1')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-case-1')">
       <p class="proj-category">Operations Design</p>
       <p class="proj-title">Media Programme Tracking System</p>
-      <span class="proj-arrow">View ↗</span>
+      <p class="proj-text">A Google Sheets tracker and shoot-schedule log for 13 programmes, used by my peers.</p>
+      <span class="proj-arrow" aria-hidden="true">Read case study →</span>
     </div>
 
-    <div class="proj-item" tabindex="0" role="button" aria-label="Client Request Standardisation" onclick="openModal('modal-proj-2')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-proj-2')">
+    <div class="proj-item" tabindex="0" role="button" aria-label="Client Request Standardisation, case study at Eydean Inc.. Open details" onclick="openModal('modal-case-2')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-case-2')">
       <p class="proj-category">Process Improvement</p>
       <p class="proj-title">Client Request Standardisation</p>
-      <span class="proj-arrow">View ↗</span>
+      <p class="proj-text">From direct-call requests to ticket templates that cut incomplete requests and rework.</p>
+      <span class="proj-arrow" aria-hidden="true">Read case study →</span>
     </div>
 
-    <div class="proj-item" tabindex="0" role="button" aria-label="Post-COVID Programme Continuity" onclick="openModal('modal-proj-3')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-proj-3')">
+    <div class="proj-item" tabindex="0" role="button" aria-label="Programme Continuity During a Studio Rebuild, case study at Nepal Republic Media Ltd.. Open details" onclick="openModal('modal-case-3')" onkeydown="if(event.key==='Enter'||event.key===' ')openModal('modal-case-3')">
       <p class="proj-category">Programme Operations</p>
-      <p class="proj-title">Post-COVID Programme Continuity</p>
-      <span class="proj-arrow">View ↗</span>
+      <p class="proj-title">Programme Continuity During a Studio Rebuild</p>
+      <p class="proj-text">A two-season split of a running podcast during a studio rebuild, with no change to cost.</p>
+      <span class="proj-arrow" aria-hidden="true">Read case study →</span>
     </div>
-
   </div>
 </section>
 
@@ -697,7 +779,7 @@ section { scroll-margin-top: 72px; }
   </div>
   <div class="contact-grid">
     <div>
-      <p class="contact-intro">Open to roles in operations coordination, programme management, and IT operations support. Based in Berlin — available for on-site, hybrid, or remote positions.</p>
+      <p class="contact-intro">Open to Operations, Coordination and Communication roles. Based in Berlin. Available on-site, hybrid, or remote.</p>
       <ul class="contact-list" aria-label="Contact details">
         <li>
           <div class="contact-row">
@@ -728,11 +810,11 @@ section { scroll-margin-top: 72px; }
     <div class="contact-aside">
       <div class="contact-aside-block">
         <p class="contact-aside-label">Availability</p>
-        <p class="contact-aside-body">Currently open to new opportunities in operations, coordination, or programme support roles in Berlin. References available upon request.</p>
+        <p class="contact-aside-body">Currently open to new opportunities in Operations, Coordination and Communication roles. References shall be provided upon request.</p>
       </div>
       <div class="contact-aside-block">
         <p class="contact-aside-label" style="color:var(--ink-light);">Background in brief</p>
-        <p class="contact-aside-body">MBA graduate (Project Management, BSBI/UCA) with a B.Sc. in Computer Science. Experienced working across media, technology, and retail — equally comfortable in fast-paced operational environments and structured coordination roles.</p>
+        <p class="contact-aside-body">MBA in Project Management and a B.Sc. in Computer Science and Information Technology, with experience across media, technology and retail.</p>
       </div>
     </div>
   </div>
@@ -1036,131 +1118,199 @@ section { scroll-margin-top: 72px; }
   </div>
 </div>
 
-<!-- EDU 1: MBA -->
-<div id="modal-edu-1" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="MBA">
+<!-- CASE: Media Programme Tracking System -->
+<div id="modal-case-1" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Media Programme Tracking System">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-case-1')" aria-label="Close">✕</button>
+      <p class="modal-category">Case Study</p>
+      <p class="modal-title">Media Programme Tracking System</p>
+      <p class="modal-company-text">Nepal Republic Media Ltd.</p>
+      <div class="modal-meta-row">
+        <span>Kathmandu, Nepal</span>
+        <span class="modal-period-text">Jul 2021 – Jan 2023</span>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p class="modal-overview">At Nepal Republic Media I proposed and implemented a Google Sheets tracking system and shoot-schedule log for the company's 13 programmes. It gave the team one place to see what was filming, what was publishing and who was assigned, and my peers adopted it as their shared reference.</p>
+      <p class="modal-sub">What the system did</p>
+      <ul class="modal-points">
+        <li><strong>Shoot-schedule log:</strong> Logged every shoot schedule in one place, alongside the tracker for each programme.</li>
+        <li><strong>Daily routine:</strong> Each day started with the tracker, the messages and the shoot schedule, and ended with the social media and programme associates updating the sheets.</li>
+        <li><strong>Schedule recovery:</strong> When a shoot could not go ahead, I used the schedule to find open slots, offered the original guest an earlier date, moved to the second person on the list if needed, and coordinated with the assigned team member so the programme kept its slot.</li>
+      </ul>
+      <p class="modal-sub">Who used it</p>
+      <ul class="modal-points">
+        <li><strong>Adoption:</strong> I proposed and implemented the system, and my peers used it too.</li>
+        <li><strong>Updates:</strong> The social media associate and the programme associate kept the sheets current each day.</li>
+      </ul>
+      <div class="modal-tags-group">
+        <p class="modal-tags-label">Tools &amp; Skills</p>
+        <div class="tags">
+          <span class="tag">Google Sheets</span>
+          <span class="tag">Operational Tracking Systems</span>
+          <span class="tag">Shoot Scheduling</span>
+          <span class="tag">Cross-Department Coordination</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CASE: Client Request Standardisation -->
+<div id="modal-case-2" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Client Request Standardisation">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-case-2')" aria-label="Close">✕</button>
+      <p class="modal-category">Case Study</p>
+      <p class="modal-title">Client Request Standardisation</p>
+      <p class="modal-company-text">Eydean Inc.</p>
+      <div class="modal-meta-row">
+        <span>Kathmandu, Nepal</span>
+        <span class="modal-period-text">Jul 2019 – Jun 2021</span>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p class="modal-overview">At Eydean, client requests first arrived by direct call. As the work grew, I was assigned to design a mechanism for handling them, and it became the company's ticket templates and ticket system. The templates made each request clear before it reached the technical team and reduced incomplete requests and rework.</p>
+      <p class="modal-sub">The change</p>
+      <ul class="modal-points">
+        <li><strong>Before:</strong> Client requests came in by direct call.</li>
+        <li><strong>The assignment:</strong> As client work grew, I was assigned to design a mechanism that gave requests a clear, repeatable shape.</li>
+        <li><strong>The result:</strong> The mechanism became Eydean's ticket templates and system. The templates reduced incomplete client requests and rework.</li>
+      </ul>
+      <p class="modal-sub">Around the system</p>
+      <ul class="modal-points">
+        <li><strong>Requirement gathering:</strong> Met clients and founders to understand what they needed before any technical work began, and carried that understanding to the technical team.</li>
+        <li><strong>Scope changes:</strong> When client scope changed, relayed the changes to the technical team and arranged alignment meetings so both sides worked from the same picture.</li>
+      </ul>
+      <div class="modal-tags-group">
+        <p class="modal-tags-label">Tools &amp; Skills</p>
+        <div class="tags">
+          <span class="tag">Ticket Templates</span>
+          <span class="tag">Technical Ticket Structuring</span>
+          <span class="tag">Requirement Gathering</span>
+          <span class="tag">System Workflow Documentation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CASE: Programme Continuity During a Studio Rebuild -->
+<div id="modal-case-3" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Programme Continuity During a Studio Rebuild">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-case-3')" aria-label="Close">✕</button>
+      <p class="modal-category">Case Study</p>
+      <p class="modal-title">Programme Continuity During a Studio Rebuild</p>
+      <p class="modal-company-text">Nepal Republic Media Ltd.</p>
+      <div class="modal-meta-row">
+        <span>Kathmandu, Nepal</span>
+        <span class="modal-period-text">Jul 2021 – Jan 2023</span>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p class="modal-overview">While Nepal Republic Media tore down its old studio and built a new one, the podcast Sexploration was already in production. I proposed splitting the show into two seasons with a three-month gap, evaluated how to make the split work, and the Director approved it. The show's cost stayed unchanged.</p>
+      <p class="modal-sub">The situation</p>
+      <ul class="modal-points">
+        <li><strong>The show:</strong> Sexploration is a sexual and reproductive health podcast produced with the NGO partners YUWA Nepal and Rutgers International.</li>
+        <li><strong>The constraint:</strong> The old studio was torn down and a new one built while the show was running.</li>
+      </ul>
+      <p class="modal-sub">What I did</p>
+      <ul class="modal-points">
+        <li><strong>The proposal:</strong> Proposed splitting the show into two seasons with a three-month gap.</li>
+        <li><strong>The evaluation:</strong> Evaluated how to make the split work.</li>
+        <li><strong>The decision:</strong> The Director approved the split.</li>
+      </ul>
+      <p class="modal-sub">The outcome</p>
+      <ul class="modal-points">
+        <li><strong>Cost:</strong> The show's cost stayed unchanged.</li>
+        <li><strong>Delivery:</strong> The show continued as two seasons.</li>
+      </ul>
+      <div class="modal-tags-group">
+        <p class="modal-tags-label">Tools &amp; Skills</p>
+        <div class="tags">
+          <span class="tag">Programme Scheduling</span>
+          <span class="tag">Cross-Department Coordination</span>
+          <span class="tag">Recommendations to Leadership</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDU: Global MBA, Project Management (Merit) -->
+<div id="modal-edu-1" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Global MBA, Project Management (Merit)">
   <div class="modal-panel">
     <div class="modal-header">
       <button class="modal-close" onclick="closeModal('modal-edu-1')" aria-label="Close">✕</button>
       <p class="modal-category">Education</p>
-      <p class="modal-title">Global Master's in Business Administration (MBA)</p>
-      <p class="modal-company-text" style="color:var(--ink-mid);font-family:'Cormorant Garamond',serif;font-size:0.9375rem;font-style:italic;">Specialisation: Project Management</p>
-      <p class="modal-company-text">University for the Creative Arts (UCA) · Berlin School of Business &amp; Innovation</p>
+      <p class="modal-title">Global MBA, Project Management (Merit)</p>
+      <p class="modal-company-text">University for the Creative Arts, delivered with Berlin School of Business and Innovation</p>
       <div class="modal-meta-row">
-        <span class="modal-period-text">2023 – 2024</span>
-        <span class="badge-done">Completed</span>
+        <span>Berlin, Germany</span>
+        <span class="modal-period-text">2023 – 2025</span>
       </div>
     </div>
     <div class="modal-body">
-      <p class="modal-overview">Completed September 2024 at the Berlin School of Business and Innovation (accredited by University for the Creative Arts, UK). Overall mark: 66.</p>
-      <p class="modal-sub">Modules Completed</p>
-      <div class="tags">
-        <span class="tag">Marketing and Business Environment</span>
-        <span class="tag">Accounting and Managerial Finance</span>
-        <span class="tag">Systems and Operations Management</span>
-        <span class="tag">Strategic Management and Leadership</span>
-        <span class="tag">Project Management and Leadership</span>
-        <span class="tag">Cross-Cultural Management</span>
-        <span class="tag">Dissertation</span>
+      <p class="modal-overview">A Global MBA with a Project Management focus, completed in Berlin between 2023 and 2025 and awarded with Merit. The programme combined business fundamentals with systems, operations and project management, and ended with a dissertation on how cultural differences affect decision-making in project management.</p>
+      <p class="modal-sub">Programme</p>
+      <ul class="modal-points">
+        <li><strong>Award:</strong> Master of Business Administration (Merit), Global MBA, Project Management.</li>
+        <li><strong>Delivery:</strong> Awarded by the University for the Creative Arts, in collaboration with the Berlin School of Business and Innovation, where the programme was taught.</li>
+        <li><strong>Duration:</strong> Started in March 2023 and awarded in March 2025.</li>
+      </ul>
+      <p class="modal-sub">Dissertation</p>
+      <ul class="modal-points">
+        <li><strong>Title:</strong> Impact of Cultural Differences on Decision-Making in Project Management.</li>
+      </ul>
+      <p class="modal-sub">Beyond the classroom</p>
+      <ul class="modal-points">
+        <li><strong>Student Council:</strong> Active member of the BSBI Student Council for 10 months, volunteering at events.</li>
+        <li><strong>D-Ticket Challenge 2023:</strong> Certificate of Accomplishment, BSBI Future Lab, 1st Edition, October 2023.</li>
+        <li><strong>Ethics, Compliance and Code of Conduct:</strong> Certificate of Completion, BSBI, March 2024.</li>
+      </ul>
+      <div class="modal-tags-group">
+        <p class="modal-tags-label">Modules</p>
+        <div class="tags">
+          <span class="tag">Marketing and Business Environment</span>
+          <span class="tag">Accounting and Managerial Finance</span>
+          <span class="tag">Systems and Operations Management</span>
+          <span class="tag">Strategic Management and Leadership</span>
+          <span class="tag">Project Management and Leadership</span>
+          <span class="tag">Cross-Cultural Management</span>
+          <span class="tag">Dissertation</span>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- EDU 2: BSc -->
-<div id="modal-edu-2" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="BSc Computer Science">
+<!-- EDU: B.Sc. Computer Science and Information Technology -->
+<div id="modal-edu-2" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="B.Sc. Computer Science and Information Technology">
   <div class="modal-panel">
     <div class="modal-header">
       <button class="modal-close" onclick="closeModal('modal-edu-2')" aria-label="Close">✕</button>
       <p class="modal-category">Education</p>
-      <p class="modal-title">B.Sc. in Computer Science and Information Technology</p>
-      <p class="modal-company-text">Tribhuvan University · St. Xavier's College, Kathmandu, Nepal</p>
+      <p class="modal-title">B.Sc. Computer Science and Information Technology</p>
+      <p class="modal-company-text">Tribhuvan University, St. Xavier's College</p>
       <div class="modal-meta-row">
-        <span class="modal-period-text">2013 – 2017</span>
-        <span class="badge-done">Completed</span>
+        <span>Kathmandu, Nepal</span>
+        <span class="modal-period-text">2013 – 2019</span>
       </div>
     </div>
     <div class="modal-body">
-      <p class="modal-overview">Four-year undergraduate programme with a foundation in computer science theory, systems design, and applied web technologies.</p>
-      <p class="modal-sub">Subject Areas</p>
-      <div class="tags">
-        <span class="tag">Programming</span>
-        <span class="tag">Web Technologies and Compliance</span>
-        <span class="tag">Data &amp; Database Management</span>
-        <span class="tag">Network &amp; System Administration</span>
-        <span class="tag">Security &amp; Cryptography</span>
-        <span class="tag">Modular System Architecture and Design</span>
-        <span class="tag">Real Time Systems</span>
-        <span class="tag">Simulation</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- PROJ 1 -->
-<div id="modal-proj-1" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Media Programme Tracking System">
-  <div class="modal-panel">
-    <div class="modal-header">
-      <button class="modal-close" onclick="closeModal('modal-proj-1')" aria-label="Close">✕</button>
-      <p class="modal-category">Operations Design</p>
-      <p class="modal-title">Media Programme Tracking System</p>
-    </div>
-    <div class="modal-body">
-      <p class="modal-overview">Designed and implemented a Google Sheets–based operational dashboard at Nepal Republic Media Ltd. covering 8–14 concurrent media programmes. The system tracked production status, contributor assignments, publication timelines, and KPI performance metrics used by the Director, CFO, HR, and Marketing teams for resource planning and delivery oversight. Included permission-controlled access to maintain data integrity across departments.</p>
-      <div class="modal-tags-group">
-        <p class="modal-tags-label">Skills &amp; Tools</p>
-        <div class="tags">
-          <span class="tag">Google Sheets</span>
-          <span class="tag">KPI Reporting</span>
-          <span class="tag">Multi-team Coordination</span>
-          <span class="tag">Permission Management</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- PROJ 2 -->
-<div id="modal-proj-2" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Client Request Standardisation">
-  <div class="modal-panel">
-    <div class="modal-header">
-      <button class="modal-close" onclick="closeModal('modal-proj-2')" aria-label="Close">✕</button>
-      <p class="modal-category">Process Improvement</p>
-      <p class="modal-title">Client Request Standardisation</p>
-    </div>
-    <div class="modal-body">
-      <p class="modal-overview">At Eydean Inc., created standardised ticket templates and structured documentation workflows to reduce incomplete B2B client requests and development rework. The system bridged client expectations with internal engineering teams — each request was structured into a clear, actionable ticket before handover. Combined with CRM pipeline tracking in Zoho, this maintained end-to-end visibility from initial requirement through delivery.</p>
-      <div class="modal-tags-group">
-        <p class="modal-tags-label">Skills &amp; Tools</p>
-        <div class="tags">
-          <span class="tag">Zoho CRM</span>
-          <span class="tag">Ticket Templates</span>
-          <span class="tag">Workflow Documentation</span>
-          <span class="tag">B2B Coordination</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- PROJ 3 -->
-<div id="modal-proj-3" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Post-COVID Programme Continuity">
-  <div class="modal-panel">
-    <div class="modal-header">
-      <button class="modal-close" onclick="closeModal('modal-proj-3')" aria-label="Close">✕</button>
-      <p class="modal-category">Programme Operations</p>
-      <p class="modal-title">Post-COVID Programme Continuity</p>
-    </div>
-    <div class="modal-body">
-      <p class="modal-overview">During the post-pandemic short-staffed period at Nepal Republic Media Ltd., supported operational decision-making by analysing delivery pipelines and restructuring programme schedules. Prevented disruption of an externally funded programme without increasing operational cost. Maintained cross-department communication and leadership visibility through the transition, documenting all adjustments and escalation decisions to ensure accountability.</p>
-      <div class="modal-tags-group">
-        <p class="modal-tags-label">Skills &amp; Tools</p>
-        <div class="tags">
-          <span class="tag">Schedule Restructuring</span>
-          <span class="tag">Stakeholder Communication</span>
-          <span class="tag">Risk Management</span>
-          <span class="tag">Operational Continuity</span>
-        </div>
-      </div>
+      <p class="modal-overview">A Bachelor of Science in Computer Science and Information Technology (CSIT), studied at St. Xavier's College in Kathmandu and awarded by Tribhuvan University. It is the technical foundation behind my work translating business requirements into structured tickets and systems for technical teams.</p>
+      <p class="modal-sub">Studies</p>
+      <ul class="modal-points">
+        <li><strong>Degree:</strong> Bachelor of Science, Computer Science and Information Technology (CSIT).</li>
+        <li><strong>Years:</strong> 2013 to 2019.</li>
+        <li><strong>Before university:</strong> Higher Secondary Education Board (HSEB), Science, 2011 to 2013, at Nepal Police Higher Secondary Boarding School, Sanga, Kavrepalanchwok.</li>
+      </ul>
+      <p class="modal-sub">Final-year project</p>
+      <ul class="modal-points">
+        <li><strong>MediCords (2017):</strong> A prototype API for managing patients' medical records in Nepal, built with Ruby on Rails as a RESTful API, by a team of two. My part was documentation, research, design and the mechanisms around it. I did not do the coding.</li>
+      </ul>
     </div>
   </div>
 </div>
